@@ -1,1 +1,1 @@
-include ':app',':experimental'
+include ':app',':coroutines',':core', ':lifecycle', ':alarm', ':adapter'

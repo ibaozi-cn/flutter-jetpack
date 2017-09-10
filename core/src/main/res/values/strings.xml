@@ -1,0 +1,22 @@
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <string name="app_name">core</string>
+    <string name="never">永不</string>
+    <string name="every_day">每天</string>
+    <string name="day_concat">", "</string>
+    <string-array name="alarm_set">
+        <item>"已将闹钟设置为从现在起不到 1 分钟后提醒。"</item>
+        <item>"已将闹钟设置为从现在起 <xliff:g id="DAYS">%1$s</xliff:g>后提醒。"</item>
+        <item>"已将闹钟设置为从现在起 <xliff:g id="HOURS">%2$s</xliff:g>后提醒。"</item>
+        <item>"已将闹钟设置为从现在起 <xliff:g id="DAYS">%1$s</xliff:g><xliff:g id="HOURS">%2$s</xliff:g>后提醒。"</item>
+        <item>"已将闹钟设置为从现在起 <xliff:g id="MINUTES">%3$s</xliff:g>后提醒。"</item>
+        <item>"已将闹钟设置为从现在起 <xliff:g id="DAYS">%1$s</xliff:g><xliff:g id="MINUTES">%3$s</xliff:g>后提醒。"</item>
+        <item>"已将闹钟设置为从现在起 <xliff:g id="HOURS">%2$s</xliff:g><xliff:g id="MINUTES">%3$s</xliff:g>后提醒。"</item>
+        <item>"已将闹钟设置为从现在起 <xliff:g id="DAYS">%1$s</xliff:g><xliff:g id="HOURS">%2$s</xliff:g><xliff:g id="MINUTES">%3$s</xliff:g>后提醒。"</item>
+    </string-array>
+    <string name="day">1天</string>
+    <string name="days"><xliff:g id="DAYS">%s</xliff:g> 天</string>
+    <string name="hour" >"1 小时"</string>
+    <string name="hours" >"<xliff:g id="HOURS">%s</xliff:g> 小时"</string>
+    <string name="minute" >"1 分钟"</string>
+    <string name="minutes" >"<xliff:g id="MINUTES">%s</xliff:g> 分钟"</string>
+</resources>

@@ -1,0 +1,98 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+android {
+    compileSdkVersion 26
+    buildToolsVersion '26.0.1'
+    defaultConfig {
+        minSdkVersion 16
+        targetSdkVersion 26
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        vectorDrawables.useSupportLibrary= true
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:design:$support_version"
+    implementation "com.android.support:recyclerview-v7:$support_version"
+    implementation "com.android.support:support-vector-drawable:$support_version"
+    implementation "com.android.support:cardview-v7:$support_version"
+
+    /**
+     *    kotlin anko
+     */
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "org.jetbrains.anko:anko-commons:$anko_version"
+    compile "org.jetbrains.anko:anko-sdk25:$anko_version"
+    compile "org.jetbrains.anko:anko-coroutines:$anko_version"
+
+    // Appcompat-v7 (Anko Layouts)
+    compile "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+
+    // Design
+    compile "org.jetbrains.anko:anko-design:$anko_version"
+
+    // RecyclerView-v7
+    compile "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
+
+    /**
+     *     okHttp + Retrofit 网络client
+     */
+    implementation 'com.squareup.okhttp3:okhttp:3.8.1'
+    implementation 'com.squareup.retrofit2:retrofit:2.3.0'
+    debugCompile 'com.readystatesoftware.chuck:library:1.1.0'
+    releaseCompile 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+
+    /**
+     *     ok http 日志
+     */
+    implementation 'com.squareup.okhttp3:logging-interceptor:3.8.1'
+
+    /**
+     *     网络数据Gson格式化
+     */
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
+
+    /**
+     *     Gson
+     */
+    implementation 'com.google.code.gson:gson:2.8.1'
+
+    /**
+     *     图片加载
+     */
+    implementation 'com.github.bumptech.glide:glide:4.0.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.0.0@aar'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.0.0'
+    /**
+     * 动态权限获取
+     */
+    implementation 'pub.devrel:easypermissions:0.4.3'
+
+    // logger
+    implementation 'com.jakewharton.timber:timber:4.5.1'
+
+    // font
+    implementation 'uk.co.chrisjenx:calligraphy:2.2.0'
+
+    //anim
+    implementation 'com.github.florent37:expectanim:1.0.7'
+    implementation 'com.github.florent37:viewanimator:1.0.5'
+    //camera
+    implementation 'com.github.florent37:camerafragment:1.0.7'
+    //material view
+    implementation 'com.github.florent37:materialtextfield:1.0.7'
+}
