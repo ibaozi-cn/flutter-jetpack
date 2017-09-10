@@ -52,5 +52,5 @@ dependencies {
     compile "org.jetbrains.anko:anko-design:$anko_version"
     // RecyclerView-v7
     compile "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
-    implementation project(':coroutines')
+    implementation project(':experimental')
 }
