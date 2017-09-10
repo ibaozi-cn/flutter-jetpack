@@ -1,6 +1,6 @@
 # LifeStyle 概述
 android MVVM 架构事件项目
-![image](https://github.com/Papeone/LifeStyle/raw/master/image/mvvm.jpg)
+![image](https://github.com/Papeone/LifeStyle/raw/master/image/mvvm.png)
 ## 内容包括
 今年在Google I / O大会，Google推出了包括LiveData和ViewModel在内的架构组件，这有助于使用MVVM模式开发Android应用程序。经历长时间的学习和钻研。计划将其封装成一层通用的架构组件，并开源给大家使用。该架构的优势：
 
