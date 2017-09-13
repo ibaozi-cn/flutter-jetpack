@@ -9,7 +9,7 @@ import kotlin.coroutines.experimental.intrinsics.suspendCoroutineOrReturn
  * 弱引用实现类，用来实例化WeakReference
  *
  */
-class WeakRef<T> internal constructor(any: T) {
+class WeakRef<out T> internal constructor(any: T) {
 
     private val weakRef = WeakReference(any)
 
