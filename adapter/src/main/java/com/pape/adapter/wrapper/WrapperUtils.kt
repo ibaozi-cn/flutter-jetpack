@@ -10,7 +10,6 @@ import android.view.ViewGroup
  */
 object WrapperUtils {
 
-
    inline fun onAttachedToRecyclerView(innerAdapter: RecyclerView.Adapter<*>, recyclerView: RecyclerView, crossinline getSpanSize: (layoutManager: GridLayoutManager, oldLookup: GridLayoutManager.SpanSizeLookup, position: Int) -> Int) {
 
         innerAdapter.onAttachedToRecyclerView(recyclerView)

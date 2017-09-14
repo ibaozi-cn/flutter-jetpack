@@ -7,9 +7,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Build
 import android.support.v4.app.NotificationCompat
-import com.pape.alarm.R
 import com.pape.alarm.db.Alarm
-import com.pape.alarm.getDayAndTimeAlarmDisplayString
 
 
 /**

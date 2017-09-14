@@ -1,6 +1,5 @@
 package com.pape.adapter.wrapper
 
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
@@ -13,7 +12,7 @@ import com.pape.adapter.ItemViewHolder
 /**
  * Created by zhy on 16/6/23.
  */
-class LoadmoreWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHolder>) : RecyclerView.Adapter<ItemViewHolder>() {
+class LoadmoreWrapper(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHolder>) : RecyclerView.Adapter<ItemViewHolder>() {
 
     private var mLoadMoreView: View? = null
     private var mLoadMoreLayoutId: Int = 0
@@ -35,13 +34,11 @@ class LoadmoreWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<ItemVie
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         if (viewType == ITEM_TYPE_LOAD_MORE) {
-            val holder: ItemViewHolder
-            if (mLoadMoreView != null) {
-                holder = ItemViewHolder(mLoadMoreView!!)
+            return if (mLoadMoreView != null) {
+                ItemViewHolder(mLoadMoreView!!)
             } else {
-                holder = ItemViewHolder(LayoutInflater.from(parent.context).inflate(mLoadMoreLayoutId, parent, false))
+                ItemViewHolder(LayoutInflater.from(parent.context).inflate(mLoadMoreLayoutId, parent, false))
             }
-            return holder
         }
         return mInnerAdapter.onCreateViewHolder(parent, viewType)
     }
@@ -61,7 +58,7 @@ class LoadmoreWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<ItemVie
             if (isShowLoadMore(position)) {
                 layoutManager.spanCount
             } else {
-                oldLookup?.getSpanSize(position) ?: 1
+                oldLookup.getSpanSize(position)
             }
         })
     }
@@ -95,19 +92,19 @@ class LoadmoreWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<ItemVie
 
     private var mOnLoadMoreListener: OnLoadMoreListener? = null
 
-    fun setOnLoadMoreListener(loadMoreListener: OnLoadMoreListener?): LoadmoreWrapper<*> {
+    fun setOnLoadMoreListener(loadMoreListener: OnLoadMoreListener?): LoadmoreWrapper {
         if (loadMoreListener != null) {
             mOnLoadMoreListener = loadMoreListener
         }
         return this
     }
 
-    fun setLoadMoreView(loadMoreView: View): LoadmoreWrapper<*> {
+    fun setLoadMoreView(loadMoreView: View): LoadmoreWrapper {
         mLoadMoreView = loadMoreView
         return this
     }
 
-    fun setLoadMoreView(layoutId: Int): LoadmoreWrapper<*> {
+    fun setLoadMoreView(layoutId: Int): LoadmoreWrapper {
         mLoadMoreLayoutId = layoutId
         return this
     }

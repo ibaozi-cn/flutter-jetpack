@@ -1,6 +1,8 @@
 package one.hundred.core.net
 
+import android.content.Context
 import com.google.gson.Gson
+import com.readystatesoftware.chuck.ChuckInterceptor
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -25,8 +27,12 @@ object ServiceFactory {
         return interceptor
     }
 
-    fun <T> createRetrofitService(BASE_URL: String, clazz: Class<T>): T {
-        val builder = OkHttpClient.Builder().addInterceptor(getLogInterceptor()).readTimeout(100000, TimeUnit.SECONDS).connectTimeout(100000, TimeUnit.SECONDS)
+    fun <T> createRetrofitService(BASE_URL: String, clazz: Class<T>, context: Context): T {
+        val builder = OkHttpClient.Builder().
+                addInterceptor(getLogInterceptor()).
+                addInterceptor(ChuckInterceptor(context)).
+                readTimeout(100000, TimeUnit.SECONDS).
+                connectTimeout(100000, TimeUnit.SECONDS)
         val retro = Retrofit.Builder().baseUrl(BASE_URL)
                 .addConverterFactory(GsonConverterFactory.create(Gson()))
                 .client(builder.build()).build()

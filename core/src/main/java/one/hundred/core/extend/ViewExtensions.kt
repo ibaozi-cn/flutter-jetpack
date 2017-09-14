@@ -108,7 +108,7 @@ fun Spinner.setOnItemSelectedListener(selected: (view: View?, position: Int) -> 
     onItemSelectedListener = onItemSelected(selected)
 }
 
-class onItemSelected(val selected: (view: View?, position: Int) -> Unit) : AdapterView.OnItemSelectedListener {
+class onItemSelected(private val selected: (view: View?, position: Int) -> Unit) : AdapterView.OnItemSelectedListener {
 
     override fun onNothingSelected(parent: AdapterView<*>?) {
 

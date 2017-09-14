@@ -4,26 +4,26 @@ import java.text.NumberFormat
 import java.util.*
 
 fun String?.toLongOr(def: Long): Long {
-    try {
-        return this?.toLong() ?: def
+    return try {
+        this?.toLong() ?: def
     } catch (e: NumberFormatException) {
-        return def
+        def
     }
 }
 
 fun String?.toIntOr(def: Int): Int {
-    try {
-        return this?.toInt() ?: def
+    return try {
+        this?.toInt() ?: def
     } catch (e: NumberFormatException) {
-        return def
+        def
     }
 }
 
 fun String?.toDoubleOr(def: Double): Double {
-    try {
-        return this?.toDouble() ?: def
+    return try {
+        this?.toDouble() ?: def
     } catch (e: NumberFormatException) {
-        return def
+        def
     }
 }
 

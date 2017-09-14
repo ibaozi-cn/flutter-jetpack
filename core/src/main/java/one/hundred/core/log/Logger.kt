@@ -1,13 +1,12 @@
 package one.hundred.core.log
 
-import one.hundred.core.BuildConfig
 import timber.log.Timber
 
 /**
  * Created by zzy on 2017/8/4.
  */
-fun logInit() {
-    if (BuildConfig.DEBUG) {
+fun logInit(isDebug: Boolean) {
+    if (isDebug) {
         Timber.plant(Timber.DebugTree())
     }
 }

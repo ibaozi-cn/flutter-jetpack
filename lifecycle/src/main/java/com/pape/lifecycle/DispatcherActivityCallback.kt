@@ -15,7 +15,7 @@ import android.support.v4.app.FragmentActivity
  * @update 2017/7/21 8:56
  * @version V1.0
  */
-class DispatcherActivityCallback(val fragmentCallback: FragmentCallback = FragmentCallback()) : Application.ActivityLifecycleCallbacks {
+class DispatcherActivityCallback(private val fragmentCallback: FragmentCallback = FragmentCallback()) : Application.ActivityLifecycleCallbacks {
 
     override fun onActivitySaveInstanceState(activity: Activity?, bundle: Bundle?) {
         if (activity is FragmentActivity) {

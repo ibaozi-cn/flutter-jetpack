@@ -1,6 +1,5 @@
 package com.pape.adapter.wrapper
 
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
@@ -11,7 +10,7 @@ import com.pape.adapter.ItemViewHolder
 /**
  * Created by zhy on 16/6/23.
  */
-class EmptyWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHolder>) : RecyclerView.Adapter<ItemViewHolder>() {
+class EmptyWrapper(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHolder>) : RecyclerView.Adapter<ItemViewHolder>() {
 
     private var mEmptyView: View? = null
     private var mEmptyLayoutId: Int = 0
@@ -21,13 +20,11 @@ class EmptyWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHo
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         if (isEmpty) {
-            val holder: ItemViewHolder
-            if (mEmptyView != null) {
-                holder = ItemViewHolder(mEmptyView!!)
+            return if (mEmptyView != null) {
+                ItemViewHolder(mEmptyView!!)
             } else {
-                holder = ItemViewHolder(View.inflate(parent.context, mEmptyLayoutId, parent))
+                ItemViewHolder(View.inflate(parent.context, mEmptyLayoutId, parent))
             }
-            return holder
         }
         return mInnerAdapter.onCreateViewHolder(parent, viewType)
     }
@@ -37,7 +34,7 @@ class EmptyWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHo
             if (isEmpty) {
                 gridLayoutManager.spanCount
             } else {
-                oldLookup?.getSpanSize(position) ?: 1
+                oldLookup.getSpanSize(position)
             }
         })
     }

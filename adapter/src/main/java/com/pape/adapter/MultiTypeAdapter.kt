@@ -11,9 +11,9 @@ import android.view.ViewGroup
  * Created by zzy on 2017/8/5.
  */
 class MultiTypeAdapter(
-        val adapterSequence: AdapterSequence = AdapterSequence.NOSC,
-        val onClickListener: ((view: View, position: Int) -> Unit)? = null,
-        val onLongClickListener: (view: View, position: Int) -> Boolean = { _, _ -> false }
+        private val adapterSequence: AdapterSequence = AdapterSequence.NOSC,
+        private val onClickListener: ((view: View, position: Int) -> Unit)? = null,
+        private val onLongClickListener: (view: View, position: Int) -> Boolean = { _, _ -> false }
 ) : RecyclerView.Adapter<ItemViewHolder>() {
 
     private val typeArray: SparseArray<ItemViewModel> by lazy { SparseArray<ItemViewModel>() }
@@ -23,9 +23,9 @@ class MultiTypeAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
-        val layoutId = getTypeItem(viewType).getItemViewLayoutId()
-        val view = LayoutInflater.from(parent.context).inflate(layoutId, parent, false)
-        val holder = ItemViewHolder(view)
+        val item = getTypeItem(viewType)
+        val view = item.getItemView()
+        val holder = ItemViewHolder(view ?: LayoutInflater.from(parent.context).inflate(item.getItemViewLayoutId(), parent, false))
         holder.itemView.setOnClickListener { v ->
             onClickListener?.invoke(v, holder.adapterPosition)
         }
@@ -62,9 +62,11 @@ class MultiTypeAdapter(
     }
 
     fun addItems(vararg item: ItemViewModel) {
+        sortedItemList.beginBatchedUpdates()
         item.forEach {
             addItem(it)
         }
+        sortedItemList.endBatchedUpdates()
     }
 
     fun addListItem(itemList: List<ItemViewModel>) {

@@ -18,7 +18,7 @@ import java.util.regex.Pattern
  */
 object Common {
 
-    val TIMESTAMP_FORMAT = "yyyyMMdd_HHmmss"
+    private val TIMESTAMP_FORMAT = "yyyyMMdd_HHmmss"
 
     fun showLoadingDialog(context: Context): ProgressDialog {
         val progressDialog = ProgressDialog(context)

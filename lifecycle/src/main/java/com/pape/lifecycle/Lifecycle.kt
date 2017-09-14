@@ -29,4 +29,5 @@ interface Lifecycle {
     fun getCurrentState(): State
 
     fun removeObserver(lifecycleObserver: LifecycleObserver)
+
 }

@@ -15,13 +15,6 @@ import org.jetbrains.anko.runOnUiThread
  * @update 2017/6/22 16:20
  * @version V1.0
  */
-
-fun Context.showToast(msg: String, duration: Int = Toast.LENGTH_SHORT) {
-    runOnUiThread {
-        Toast.makeText(this, msg, duration).show()
-    }
-}
-
 fun showSnackBar(view: View, content: String, action: String? = "", onClickListener: View.OnClickListener? = null, duration: Int = Snackbar.LENGTH_SHORT) {
     Snackbar.make(view, content, duration).setAction(action, onClickListener).show()
 }

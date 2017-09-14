@@ -1,18 +1,16 @@
 package com.pape.adapter.wrapper
 
 import android.support.v4.util.SparseArrayCompat
-import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-
 import com.pape.adapter.ItemViewHolder
 
 
 /**
  * Created by zhy on 16/6/23.
  */
-class HeaderAndFooterWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHolder>) : RecyclerView.Adapter<ItemViewHolder>() {
+class HeaderAndFooterWrapper(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHolder>) : RecyclerView.Adapter<ItemViewHolder>() {
 
     private val mHeaderViews = SparseArrayCompat<View>()
     private val mFootViews = SparseArrayCompat<View>()
@@ -57,12 +55,10 @@ class HeaderAndFooterWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<
     override fun onAttachedToRecyclerView(recyclerView: RecyclerView) {
         WrapperUtils.onAttachedToRecyclerView(mInnerAdapter, recyclerView, { layoutManager, oldLookup, position ->
             val viewType = getItemViewType(position)
-            if (mHeaderViews.get(viewType) != null) {
-                layoutManager.spanCount
-            } else if (mFootViews.get(viewType) != null) {
-                layoutManager.spanCount
-            } else {
-                oldLookup?.getSpanSize(position) ?: 1
+            when {
+                mHeaderViews.get(viewType) != null -> layoutManager.spanCount
+                mFootViews.get(viewType) != null -> layoutManager.spanCount
+                else -> oldLookup.getSpanSize(position)
             }
         })
     }
@@ -92,10 +88,10 @@ class HeaderAndFooterWrapper<T>(private val mInnerAdapter: RecyclerView.Adapter<
         mFootViews.put(mFootViews.size() + BASE_ITEM_TYPE_FOOTER, view)
     }
 
-    val headersCount: Int
+    private val headersCount: Int
         get() = mHeaderViews.size()
 
-    val footersCount: Int
+    private val footersCount: Int
         get() = mFootViews.size()
 
     companion object {

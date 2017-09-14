@@ -1,8 +1,5 @@
 package com.pape.lifecycle
 
-import com.pape.lifecycle.Lifecycle
-import com.pape.lifecycle.LifecycleObserver
-import com.pape.lifecycle.LifecycleOwner
 import java.util.*
 
 /**
@@ -14,10 +11,10 @@ import java.util.*
  * @update 2017/7/21 9:11
  * @version V1.0
  */
-class LifecycleRegistry(val lifecycleOwner: LifecycleOwner
-                        , var state: Lifecycle.State = Lifecycle.State.INITIALIZED
-                        , var lastEvent: Lifecycle.Event = Lifecycle.Event.ON_ANY
-                        , var list: ArrayList<LifecycleObserver> = arrayListOf()) : Lifecycle {
+class LifecycleRegistry(private val lifecycleOwner: LifecycleOwner
+                        ,private var state: Lifecycle.State = Lifecycle.State.INITIALIZED
+                        ,private var lastEvent: Lifecycle.Event = Lifecycle.Event.ON_ANY
+                        ,private var list: ArrayList<LifecycleObserver> = arrayListOf()) : Lifecycle {
 
     /**
      * 添加一个LifecycleObserver，当LifecycleOwner更改状态时，它将被通知。

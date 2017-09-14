@@ -8,6 +8,6 @@ import java.lang.reflect.ParameterizedType
 /**
  * 获取ViewHolder类型
  */
-fun <VH> viewHolderType(javaClass: Class<*>): Class<out VH> {
-    return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<out VH>
+fun viewHolderType(javaClass: Class<*>): Class<*> {
+    return (javaClass.genericSuperclass as ParameterizedType).actualTypeArguments[0] as Class<*>
 }

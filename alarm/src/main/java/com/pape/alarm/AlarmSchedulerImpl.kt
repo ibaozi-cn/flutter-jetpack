@@ -15,12 +15,10 @@ class AlarmSchedulerImpl(
 
     override fun startAlarm(time: Long, pendingIntent: PendingIntent) {
         val alarmManager = context.getSystemService(Context.ALARM_SERVICE) as AlarmManager
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M) {
-            alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, time, pendingIntent)
-        } else if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT) {
-            alarmManager.setExact(AlarmManager.RTC_WAKEUP, time, pendingIntent)
-        } else {
-            alarmManager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent)
+        when {
+            android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.M -> alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP, time, pendingIntent)
+            android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.KITKAT -> alarmManager.setExact(AlarmManager.RTC_WAKEUP, time, pendingIntent)
+            else -> alarmManager.set(AlarmManager.RTC_WAKEUP, time, pendingIntent)
         }
     }
 

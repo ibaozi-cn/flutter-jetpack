@@ -1,6 +1,7 @@
 package com.pape.lifecycle
 
 
+import android.app.Activity
 import android.support.v7.app.AppCompatActivity
 
 /**
@@ -14,7 +15,7 @@ import android.support.v7.app.AppCompatActivity
  */
 abstract class LifecycleActivity : AppCompatActivity(), LifecycleRegistryOwner {
 
-    protected val lifecycleRegistry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
+    private val lifecycleRegistry: LifecycleRegistry by lazy { LifecycleRegistry(this) }
 
     override fun getLifecycle(): LifecycleRegistry {
         return lifecycleRegistry

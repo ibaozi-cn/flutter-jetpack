@@ -1,8 +1,5 @@
 package com.pape.lifecycle
 
-import com.pape.lifecycle.Lifecycle
-
-
 /**
  * @project: LifecycleHelper
  * @description: //被观察者
