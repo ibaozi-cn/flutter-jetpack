@@ -2,7 +2,7 @@ package one.hundred.lifestyle
 
 import android.app.Activity
 import android.os.Bundle
-import android.view.View
+import one.hundred.experimental.ui.onClick
 import org.jetbrains.anko.*
 
 class MainViewActivity : Activity() {
@@ -11,13 +11,13 @@ class MainViewActivity : Activity() {
         super.onCreate(savedInstanceState)
         relativeLayout {
             button("click") {
-                View.OnClickListener({
+                onClick {
                     alert("aaa", "vcc") {
                         yesButton {
                             toast("aaaaaa")
                         }
                     }.show()
-                })
+                }
             }.lparams(matchParent, matchParent)
         }
     }

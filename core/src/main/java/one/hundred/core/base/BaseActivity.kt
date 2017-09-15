@@ -2,11 +2,11 @@ package one.hundred.core.base
 
 import android.annotation.TargetApi
 import android.app.ProgressDialog
+import android.arch.lifecycle.LifecycleActivity
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
-import android.support.v7.app.AppCompatActivity
 import android.transition.Explode
 import android.transition.Fade
 import android.transition.Transition
@@ -20,7 +20,7 @@ import pub.devrel.easypermissions.EasyPermissions
 /**
  * Created by zzy on 2017/8/2.
  */
-abstract class BaseActivity : AppCompatActivity() {
+abstract class BaseActivity : LifecycleActivity() {
 
     private val mProgressDialog: ProgressDialog by lazy {
         Common.showLoadingDialog(this)

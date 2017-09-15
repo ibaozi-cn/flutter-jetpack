@@ -1,11 +1,7 @@
 package one.hundred.core.extend
 
-import android.content.Context
 import android.support.design.widget.Snackbar
 import android.view.View
-import android.widget.Toast
-import org.jetbrains.anko.runOnUiThread
-
 /**
  * @project: MarketingDemo
  * @description: //Activity Fragment通知扩展

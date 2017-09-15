@@ -1,5 +1,3 @@
-@file:JvmName("TimeUtils")
-
 package one.hundred.core.extend
 
 import android.content.Context

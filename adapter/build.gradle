@@ -1,15 +1,15 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.3"
 
+    compileSdkVersion rootProject.compileSdkVersion
+    buildToolsVersion rootProject.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 25
+        minSdkVersion rootProject.minSdkVersion
+        targetSdkVersion rootProject.targetSdkVersion
         versionCode 1
-        versionName "1.0.1"
+        versionName "1.0.2"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -30,9 +30,9 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation "com.android.support:appcompat-v7:25.4.0"
-    implementation "com.android.support:recyclerview-v7:25.4.0"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "com.android.support:appcompat-v7:$support_version"
+    implementation "com.android.support:recyclerview-v7:$support_version"
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
