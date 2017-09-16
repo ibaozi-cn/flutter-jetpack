@@ -2,11 +2,11 @@ package one.hundred.core.base
 
 import android.annotation.TargetApi
 import android.app.ProgressDialog
-import android.arch.lifecycle.LifecycleActivity
 import android.content.Context
 import android.os.Build
 import android.os.Bundle
 import android.support.v4.app.ActivityCompat
+import android.support.v7.app.AppCompatActivity
 import android.transition.Explode
 import android.transition.Fade
 import android.transition.Transition
@@ -20,7 +20,7 @@ import pub.devrel.easypermissions.EasyPermissions
 /**
  * Created by zzy on 2017/8/2.
  */
-abstract class BaseActivity : LifecycleActivity() {
+abstract class BaseActivity : AppCompatActivity() {
 
     private val mProgressDialog: ProgressDialog by lazy {
         Common.showLoadingDialog(this)
@@ -60,7 +60,6 @@ abstract class BaseActivity : LifecycleActivity() {
         super.onBackPressed()
     }
 
-    abstract fun onActivityBack()
 
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -72,10 +71,14 @@ abstract class BaseActivity : LifecycleActivity() {
         super.onCreate(savedInstanceState)
     }
 
+
     @TargetApi(Build.VERSION_CODES.LOLLIPOP)
     open fun initEnterTransition(): Transition? {
         val explode = Explode()
         explode.duration = 1000
         return explode
     }
+
+    abstract fun onActivityBack()
+
 }

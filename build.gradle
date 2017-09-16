@@ -1,10 +1,11 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
 
 buildscript {
-    ext.kotlin_version = '1.1.4-2'
+    ext.kotlin_version = '1.1.4-3'
     ext.anko_version = '0.10.1'
-    ext.support_version='26.0.2'
-    ext.roomVersion = '1.0.0-alpha9'
+    ext.support_version='26.1.0'
+    ext.roomVersion = '1.0.0-alpha9-1'
+    ext.lifecycleVersion = '1.0.0-alpha9-1'
     ext.minSdkVersion = 16
     ext.compileSdkVersion = 26
     ext.targetSdkVersion = 26
@@ -14,7 +15,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-beta5'
+        classpath 'com.android.tools.build:gradle:3.0.0-beta6'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
 
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'

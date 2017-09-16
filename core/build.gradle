@@ -39,6 +39,17 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
     debugImplementation 'com.readystatesoftware.chuck:library:1.1.0'
     releaseImplementation 'com.readystatesoftware.chuck:library-no-op:1.1.0'
+
+    implementation "org.jetbrains.anko:anko-sdk25:$anko_version"
+    // Appcompat-v7 (Anko Layouts)
+    implementation "org.jetbrains.anko:anko-appcompat-v7:$anko_version"
+    // Design
+    implementation "org.jetbrains.anko:anko-design:$anko_version"
+    // RecyclerView-v7
+    implementation "org.jetbrains.anko:anko-recyclerview-v7:$anko_version"
+
+    implementation 'com.pape:adapter:1.0.2@aar'
+
     /**
      *     Gson
      */
@@ -64,10 +75,6 @@ dependencies {
     implementation 'com.github.florent37:camerafragment:1.0.7'
     //material view
     implementation 'com.github.florent37:materialtextfield:1.0.7'
-    //lifecycle
-    implementation 'android.arch.lifecycle:runtime:1.0.0-alpha9'
-    implementation 'android.arch.lifecycle:extensions:1.0.0-alpha9'
-    kapt "android.arch.lifecycle:compiler:1.0.0-alpha9"
     //findbugs
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
     implementation 'com.google.guava:guava:23.0-android'
