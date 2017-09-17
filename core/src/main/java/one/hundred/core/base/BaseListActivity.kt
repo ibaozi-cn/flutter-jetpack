@@ -3,6 +3,7 @@ package one.hundred.core.base
 import android.os.Bundle
 import android.support.design.widget.AppBarLayout
 import android.support.v7.widget.LinearLayoutManager
+import com.pape.adapter.AdapterSequence
 import com.pape.adapter.ItemViewModel
 import com.pape.adapter.MultiTypeAdapter
 import org.jetbrains.anko.appcompat.v7.toolbar
@@ -11,17 +12,17 @@ import org.jetbrains.anko.design.coordinatorLayout
 import org.jetbrains.anko.dip
 import org.jetbrains.anko.matchParent
 import org.jetbrains.anko.recyclerview.v7.recyclerView
+import org.jetbrains.anko.wrapContent
 
 /**
  * Created by zzy on 2017/9/16.
  */
 abstract class BaseListActivity : BaseActivity() {
 
-    private var adapter = MultiTypeAdapter()
+    private var adapter = MultiTypeAdapter(AdapterSequence.ASC)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         coordinatorLayout {
-            fitsSystemWindows = true
             appBarLayout {
                 fitsSystemWindows = true
                 toolbar {
@@ -30,12 +31,12 @@ abstract class BaseListActivity : BaseActivity() {
                 }.lparams(matchParent, dip(50)) {
                     scrollFlags = AppBarLayout.LayoutParams.SCROLL_FLAG_SCROLL or AppBarLayout.LayoutParams.SCROLL_FLAG_ENTER_ALWAYS
                 }
-            }
+            }.lparams(matchParent, wrapContent)
             recyclerView {
                 layoutManager = LinearLayoutManager(this@BaseListActivity)
                 adapter = this@BaseListActivity.adapter
-            }.lparams {
-                behavior = AppBarLayout.Behavior()
+            }.lparams(matchParent, wrapContent) {
+                behavior = AppBarLayout.ScrollingViewBehavior()
             }
         }
         supportActionBar?.setDisplayHomeAsUpEnabled(isDisplayHomeAsUpEnabled())
@@ -60,6 +61,10 @@ abstract class BaseListActivity : BaseActivity() {
 
     fun addItemViewModelList(list: List<ItemViewModel>) {
         adapter.addListItem(list)
+    }
+
+    fun getFirstViewModel(): ItemViewModel? {
+        return adapter.getItem(0)
     }
 
 }

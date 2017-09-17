@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+
 android {
 
     compileSdkVersion rootProject.compileSdkVersion
@@ -17,15 +19,6 @@ android {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
-    }
-    lintOptions {
-        abortOnError false
-    }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-    }
-    productFlavors {
     }
 }
 

@@ -1,7 +1,5 @@
 package com.pape.lifecycle
 
-import com.pape.lifecycle.LifecycleOwner
-import com.pape.lifecycle.LifecycleRegistry
 
 /**
  * @project: LifecycleHelper

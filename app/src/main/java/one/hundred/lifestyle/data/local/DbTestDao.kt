@@ -10,10 +10,10 @@ import android.arch.persistence.room.*
 interface DbTestDao {
 
     @Query("SELECT * FROM DbTest")
-    fun getDataList(): LiveData<List<DbTest>>
+    fun getDataList(): LiveData<MutableList<DbTest>>
 
-    @Query("select * from DbTest where id = :id")
-    fun getData(id: Long): DbTest
+    @Query("SELECT * FROM DbTest WHERE id = :id")
+    fun getData(id: Long): LiveData<DbTest>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun saveData(dbTest: DbTest)

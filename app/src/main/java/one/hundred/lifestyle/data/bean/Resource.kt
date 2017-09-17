@@ -1,4 +1,4 @@
-package one.hundred.lifestyle.data.server
+package one.hundred.lifestyle.data.bean
 
 
 /**

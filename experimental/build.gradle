@@ -18,15 +18,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
-    lintOptions {
-        abortOnError false
-    }
-    sourceSets {
-        main.java.srcDirs += 'src/main/kotlin'
-        test.java.srcDirs += 'src/test/kotlin'
-    }
-    productFlavors {
-    }
+
 }
 
 dependencies {
@@ -38,6 +30,10 @@ repositories {
     mavenCentral()
     jcenter()
 }
-
+kotlin {
+    experimental {
+        coroutines 'enable'
+    }
+}
 //apply from: rootDir.absolutePath + "/bintrayUpload.gradle"
 

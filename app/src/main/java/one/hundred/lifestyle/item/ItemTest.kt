@@ -1,5 +1,6 @@
 package one.hundred.lifestyle.item
 
+import android.view.View
 import android.widget.TextView
 import com.pape.adapter.ItemViewHolder
 import com.pape.adapter.ItemViewModel
@@ -9,7 +10,7 @@ import one.hundred.lifestyle.data.bean.Test
 /**
  * Created by zzy on 2017/9/16.
  */
-class ItemTest(val test: Test) : ItemViewModel {
+class ItemTest(val test: Test, private val onClickListener: (View) -> Unit = {}) : ItemViewModel {
 
     override fun bindData(holder: ItemViewHolder) {
 
@@ -17,13 +18,24 @@ class ItemTest(val test: Test) : ItemViewModel {
         val code = holder.getView<TextView>(R.id.code)
         val time = holder.getView<TextView>(R.id.time)
 
-        name?.text = test.name
-        code?.text = test.code
-        time?.text = test.createTime.toString()
+        name.text = test.name
+        code.text = test.code
+        time.text = test.createTime.toString()
 
+        holder.itemView.setOnClickListener {
+            onClickListener(it)
+        }
     }
 
     override fun getItemViewLayoutId(): Int {
         return R.layout.item_test_view
+    }
+
+    override fun getItemUUID(): String {
+        return test.id.toString()
+    }
+
+    override fun getSortedId(): Long {
+        return test.id
     }
 }

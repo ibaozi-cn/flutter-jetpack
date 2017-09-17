@@ -6,7 +6,9 @@ import java.util.*
  * Created by zzy on 2017/9/16.
  */
 object DbDataUtil {
-
+    /**
+     * 生成测试数据
+     */
     fun getTestDataList(): List<DbTest> {
         return arrayListOf(
                 DbTest(0, "name1", "code1", Date()),

@@ -23,11 +23,11 @@ class SortListCallBack<T : ItemSorted>(val adapter: RecyclerView.Adapter<ItemVie
     override fun compare(o1: T, o2: T): Int {
         if (adapterSequence == AdapterSequence.NOSC) return 0
         if (o1.getSortedId() < o2.getSortedId()) {
-            if (adapterSequence == AdapterSequence.ASC) return -1
-            else return 1
+            return if (adapterSequence == AdapterSequence.ASC) -1
+            else 1
         } else if (o1.getSortedId() > o2.getSortedId()) {
-            if (adapterSequence == AdapterSequence.ASC) return 1
-            else return -1
+            return if (adapterSequence == AdapterSequence.ASC) 1
+            else -1
         }
         return 0
     }
@@ -41,6 +41,6 @@ class SortListCallBack<T : ItemSorted>(val adapter: RecyclerView.Adapter<ItemVie
     }
 
     override fun areItemsTheSame(item1: T, item2: T): Boolean {
-        return adapterSequence != AdapterSequence.NOSC && item1.getItemUUID() == item2.getItemUUID()
+        return item1.getItemUUID() == item2.getItemUUID()
     }
 }

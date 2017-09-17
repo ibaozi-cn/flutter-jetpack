@@ -13,7 +13,7 @@ class MainViewActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         relativeLayout {
-            button("click") {
+            button("startTestActivity") {
                 onClick {
                     startActivity(intentFor<TestActivity>())
                 }

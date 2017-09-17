@@ -78,6 +78,9 @@ dependencies {
     //findbugs
     implementation 'com.google.code.findbugs:jsr305:3.0.1'
     implementation 'com.google.guava:guava:23.0-android'
+    //lifecycle
+    implementation "android.arch.lifecycle:extensions:$lifecycleVersion"
+    kapt "android.arch.lifecycle:compiler:$lifecycleVersion"
 }
 
 //apply from: rootDir.absolutePath + "/bintrayUpload.gradle"
