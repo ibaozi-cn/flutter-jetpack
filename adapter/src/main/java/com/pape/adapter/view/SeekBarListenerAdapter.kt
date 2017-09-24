@@ -2,7 +2,7 @@ package com.pape.adapter.view
 
 import android.widget.SeekBar
 
-object SeekBarListenerAdapter : SeekBar.OnSeekBarChangeListener {
+class SeekBarListenerAdapter : SeekBar.OnSeekBarChangeListener {
 
     override fun onProgressChanged(seekBar: SeekBar, progress: Int, fromUser: Boolean) = Unit
 

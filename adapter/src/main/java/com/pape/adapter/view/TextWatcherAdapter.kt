@@ -19,7 +19,7 @@ package com.pape.adapter.view
 import android.text.Editable
 import android.text.TextWatcher
 
-object TextWatcherAdapter : TextWatcher {
+class TextWatcherAdapter : TextWatcher {
     override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) = Unit
 
     override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) = Unit

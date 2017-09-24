@@ -6,11 +6,13 @@ import android.util.SparseArray
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import kotlin.reflect.KClass
+import kotlin.reflect.KType
 
 /**
  * Created by zzy on 2017/8/5.
  */
-class MultiTypeAdapter(
+open class MultiTypeAdapter(
         private val adapterSequence: AdapterSequence = AdapterSequence.NOSC,
         private val onClickListener: ((view: View, position: Int) -> Unit)? = null,
         private val onLongClickListener: (view: View, position: Int) -> Boolean = { _, _ -> false }
@@ -18,7 +20,7 @@ class MultiTypeAdapter(
 
     private val typeArray: SparseArray<ItemViewModel> by lazy { SparseArray<ItemViewModel>() }
 
-    private val sortedItemList: SortedList<ItemViewModel> by lazy {
+    val sortedItemList: SortedList<ItemViewModel> by lazy {
         SortedList<ItemViewModel>(ItemViewModel::class.java, SortListCallBack(this, adapterSequence))
     }
 
@@ -112,8 +114,28 @@ class MultiTypeAdapter(
         return sortedItemList.indexOf(item) > -1
     }
 
+    fun getAllItems(): SortedList<ItemViewModel> {
+        return sortedItemList
+    }
+
+    inline fun <reified T : ItemViewModel> findItem(itemUUID:String): T? {
+        (0 until sortedItemList.size()).forEach { i ->
+            if (sortedItemList[i]::class == T::class) {
+                if(itemUUID==sortedItemList[i].getItemUUID()){
+                    return sortedItemList[i] as T
+                }
+                return null
+            }
+        }
+        return null
+    }
+
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView?) {
         removeAll()
         super.onDetachedFromRecyclerView(recyclerView)
+    }
+
+    fun KType.isClass(cls: KClass<*>): Boolean {
+        return this.classifier == cls
     }
 }
