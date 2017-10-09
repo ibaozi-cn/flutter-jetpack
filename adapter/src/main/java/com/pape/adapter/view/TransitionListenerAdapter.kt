@@ -25,7 +25,7 @@ import android.transition.Transition
  */
 
 @TargetApi(Build.VERSION_CODES.KITKAT)
-class TransitionListenerAdapter : Transition.TransitionListener {
+open class TransitionListenerAdapter : Transition.TransitionListener {
 
     override fun onTransitionStart(transition: Transition) = Unit
 
