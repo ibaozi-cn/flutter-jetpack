@@ -9,13 +9,13 @@ buildscript {
     ext.minSdkVersion = 16
     ext.compileSdkVersion = 26
     ext.targetSdkVersion = 26
-    ext.buildToolsVersion = '26.0.1'
+    ext.buildToolsVersion = '26.0.2'
     repositories {
         google()
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:3.0.0-beta6'
+        classpath 'com.android.tools.build:gradle:3.0.0-beta7'
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
         classpath "org.jetbrains.kotlin:kotlin-android-extensions:$kotlin_version"
         classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:1.7.3'
