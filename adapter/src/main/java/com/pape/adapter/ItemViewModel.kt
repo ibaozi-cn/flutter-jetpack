@@ -1,13 +1,14 @@
 package com.pape.adapter
 
 import android.view.View
+import java.util.*
 
 /**
  * Created by zzy on 2017/8/5.
  */
-interface ItemViewModel : ItemSorted {
+abstract class ItemViewModel(var sortId: Long = 0, var uuid: String = UUID.randomUUID().toString()) : ItemSorted {
 
-    fun getItemViewLayoutId(): Int
+    abstract fun getItemViewLayoutId(): Int
     /**
      * 返回item类型，默认返回ItemViewLayoutId
      */
@@ -15,6 +16,13 @@ interface ItemViewModel : ItemSorted {
 
     fun getItemView(): View? = null
 
-    fun bindData(holder: ItemViewHolder)
+    abstract fun bindData(holder: ItemViewHolder)
 
+    override fun getItemUUID(): String {
+        return uuid
+    }
+
+    override fun getSortedId(): Long {
+        return sortId
+    }
 }
