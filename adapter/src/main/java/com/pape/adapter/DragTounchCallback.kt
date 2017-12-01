@@ -1,11 +1,7 @@
 package com.pape.adapter
 
-import android.support.annotation.IntDef
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.helper.ItemTouchHelper
-
-import java.lang.annotation.Retention
-import java.lang.annotation.RetentionPolicy
 
 open class DragTounchCallback : ItemTouchHelper.SimpleCallback {
 

@@ -10,7 +10,7 @@ import one.hundred.lifestyle.data.bean.Test
 /**
  * Created by zzy on 2017/9/16.
  */
-class ItemTest(val test: Test, private val onClickListener: (View) -> Unit = {}) : ItemViewModel {
+class ItemTest(val test: Test, private val onClickListener: (View) -> Unit = {}) : ItemViewModel() {
 
     override fun bindData(holder: ItemViewHolder) {
 

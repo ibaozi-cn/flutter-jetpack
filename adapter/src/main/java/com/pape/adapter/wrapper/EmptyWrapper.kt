@@ -1,6 +1,7 @@
 package com.pape.adapter.wrapper
 
 import android.support.v7.widget.RecyclerView
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
@@ -23,7 +24,7 @@ class EmptyWrapper(private val mInnerAdapter: RecyclerView.Adapter<ItemViewHolde
             return if (mEmptyView != null) {
                 ItemViewHolder(mEmptyView!!)
             } else {
-                ItemViewHolder(View.inflate(parent.context, mEmptyLayoutId, parent))
+                ItemViewHolder(LayoutInflater.from(parent.context).inflate(mEmptyLayoutId, parent, false))
             }
         }
         return mInnerAdapter.onCreateViewHolder(parent, viewType)
