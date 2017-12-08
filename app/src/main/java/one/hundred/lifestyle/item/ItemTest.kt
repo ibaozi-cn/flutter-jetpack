@@ -10,7 +10,9 @@ import one.hundred.lifestyle.data.bean.Test
 /**
  * Created by zzy on 2017/9/16.
  */
-class ItemTest(val test: Test, private val onClickListener: (View) -> Unit = {}) : ItemViewModel() {
+class ItemTest(val test: Test, private val onClickListener: (View) -> Unit = {}) : ItemViewModel(
+        uuid = test.id.toString()
+) {
 
     override fun bindData(holder: ItemViewHolder) {
 
@@ -29,13 +31,5 @@ class ItemTest(val test: Test, private val onClickListener: (View) -> Unit = {})
 
     override fun getItemViewLayoutId(): Int {
         return R.layout.item_test_view
-    }
-
-    override fun getItemUUID(): String {
-        return test.id.toString()
-    }
-
-    override fun getSortedId(): Long {
-        return test.id
     }
 }

@@ -6,7 +6,11 @@ import android.support.v7.widget.RecyclerView
 /**
  * Created by zzy on 2017/8/5.
  */
-class SortListCallBack<T : ItemSorted>(val adapter: RecyclerView.Adapter<ItemViewHolder>, val adapterSequence: AdapterSequence = AdapterSequence.NOSC) : SortedList.Callback<T>() {
+class SortListCallBack<T : ItemSorted>(
+        val adapter: RecyclerView.Adapter<ItemViewHolder>,
+        val adapterSequence: AdapterSequence = AdapterSequence.NOSC)
+    : SortedList.Callback<T>() {
+
 
     override fun onChanged(position: Int, count: Int) {
         adapter.notifyItemRangeChanged(position, count)
@@ -21,6 +25,7 @@ class SortListCallBack<T : ItemSorted>(val adapter: RecyclerView.Adapter<ItemVie
     }
 
     override fun compare(o1: T, o2: T): Int {
+        if (o1.getItemUUID() == o2.getItemUUID()) return 0
         if (adapterSequence == AdapterSequence.NOSC) return 0
         if (o1.getSortedId() < o2.getSortedId()) {
             return if (adapterSequence == AdapterSequence.ASC) -1

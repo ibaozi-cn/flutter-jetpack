@@ -1,6 +1,7 @@
 package com.pape.adapter
 
 import android.support.v7.util.SortedList
+import android.support.v7.util.SortedList.INVALID_POSITION
 import android.support.v7.widget.RecyclerView
 import android.util.SparseArray
 import android.view.LayoutInflater
@@ -55,34 +56,42 @@ class MultiTypeAdapter(
         return typeArray.get(type)
     }
 
-    fun addItem(item: ItemViewModel) {
+    fun addOrUpdateItem(item: ItemViewModel) {
         addItemType(item)
         sortedItemList.add(item)
     }
 
-    fun addItems(vararg item: ItemViewModel) {
+    fun addOrUpdateItems(vararg item: ItemViewModel) {
         sortedItemList.beginBatchedUpdates()
         item.forEach {
-            addItem(it)
+            addOrUpdateItem(it)
         }
         sortedItemList.endBatchedUpdates()
     }
 
-    fun addListItem(itemList: List<ItemViewModel>) {
+    fun addOrUpdateListItem(itemList: List<ItemViewModel>) {
         itemList.forEach {
             addItemType(it)
         }
-        sortedItemList.addAll(itemList)
+        sortedItemList.beginBatchedUpdates()
+        itemList.forEach {
+            addOrUpdateItem(it)
+        }
+        sortedItemList.endBatchedUpdates()
     }
 
     fun removeItem(item: ItemViewModel) {
-        sortedItemList.remove(item)
+        val index = sortedItemList.indexOf(item)
+        if (index != INVALID_POSITION)
+            sortedItemList.remove(item)
     }
 
     fun removeItems(vararg item: ItemViewModel) {
+        sortedItemList.beginBatchedUpdates()
         item.forEach {
             removeItem(it)
         }
+        sortedItemList.endBatchedUpdates()
     }
 
     fun removeAll() {
@@ -92,7 +101,7 @@ class MultiTypeAdapter(
 
     fun replaceItem(item: ItemViewModel) {
         val index = sortedItemList.indexOf(item)
-        if (index > -1)
+        if (index != INVALID_POSITION)
             sortedItemList.updateItemAt(index, item)
     }
 

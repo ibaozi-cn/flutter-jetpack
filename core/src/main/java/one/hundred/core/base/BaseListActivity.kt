@@ -56,11 +56,11 @@ abstract class BaseListActivity : BaseActivity() {
     fun isDisplayHomeAsUpEnabled(): Boolean = true
 
     fun addItemViewModel(itemViewModel: ItemViewModel) {
-        adapter.addItem(itemViewModel)
+        adapter.addOrUpdateItem(itemViewModel)
     }
 
     fun addItemViewModelList(list: List<ItemViewModel>) {
-        adapter.addListItem(list)
+        adapter.addOrUpdateListItem(list)
     }
 
     fun getFirstViewModel(): ItemViewModel? {
