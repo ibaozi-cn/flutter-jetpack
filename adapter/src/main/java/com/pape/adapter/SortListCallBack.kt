@@ -25,7 +25,6 @@ class SortListCallBack<T : ItemSorted>(
     }
 
     override fun compare(o1: T, o2: T): Int {
-        if (o1.getItemUUID() == o2.getItemUUID()) return 0
         if (adapterSequence == AdapterSequence.NOSC) return 0
         if (o1.getSortedId() < o2.getSortedId()) {
             return if (adapterSequence == AdapterSequence.ASC) -1

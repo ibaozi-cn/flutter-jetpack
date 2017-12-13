@@ -58,7 +58,11 @@ class MultiTypeAdapter(
 
     fun addOrUpdateItem(item: ItemViewModel) {
         addItemType(item)
-        sortedItemList.add(item)
+        val itemOld = findItemByUUID(item.uuid)
+        if (itemOld != null)
+            sortedItemList.updateItemAt(sortedItemList.indexOf(itemOld), item)
+        else
+            sortedItemList.add(item)
     }
 
     fun addOrUpdateItems(vararg item: ItemViewModel) {
@@ -81,7 +85,7 @@ class MultiTypeAdapter(
     }
 
     fun removeItem(item: ItemViewModel) {
-        val index = sortedItemList.indexOf(item)
+        val index = sortedItemList.indexOf(findItem(item.uuid))
         if (index != INVALID_POSITION)
             sortedItemList.remove(item)
     }
@@ -100,7 +104,7 @@ class MultiTypeAdapter(
     }
 
     fun replaceItem(item: ItemViewModel) {
-        val index = sortedItemList.indexOf(item)
+        val index = sortedItemList.indexOf(findItem(item.uuid))
         if (index != INVALID_POSITION)
             sortedItemList.updateItemAt(index, item)
     }
@@ -129,6 +133,16 @@ class MultiTypeAdapter(
             val item = sortedItemList[i]
             if (item::class == T::class && itemUUID == item.getItemUUID()) {
                 return item as T
+            }
+        }
+        return null
+    }
+
+    private fun findItemByUUID(itemUUID: String): ItemViewModel? {
+        (0 until sortedItemList.size()).forEach { i ->
+            val item = sortedItemList[i]
+            if (itemUUID == item.getItemUUID()) {
+                return item
             }
         }
         return null

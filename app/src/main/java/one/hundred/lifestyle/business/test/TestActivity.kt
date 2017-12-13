@@ -18,7 +18,7 @@ class TestActivity : BaseListActivity() {
 
             addItemViewModel(ItemTest(Test(a++), {
                 addItemViewModel(ItemTest(Test(1)).also {
-                    it.sortId = 0
+                    it.sortId = a++
                 })
             }))
 
