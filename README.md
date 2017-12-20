@@ -23,3 +23,4 @@ android MVVM 架构实践项目
 ## 完成：
 
 封装Retorfit + kotlin协程，让网络高效的运转，让callBack消失，又加入生命周期感知，自动在界面消失时 释放网络请求
+介绍地址【http://www.jianshu.com/p/ebd1fcbd1ce1】
