@@ -30,6 +30,7 @@ class TestActivity : BaseListActivity() {
     }
 
     override fun onActivityBack() {
+
     }
 
 }

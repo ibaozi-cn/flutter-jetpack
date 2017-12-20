@@ -29,5 +29,5 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 }
 
-apply from: rootDir.absolutePath + "/bintrayUpload.gradle"
+//apply from: rootDir.absolutePath + "/bintrayUpload.gradle"
 

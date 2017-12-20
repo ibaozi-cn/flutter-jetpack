@@ -1,1 +1,1 @@
-include ':app', ':experimental',':core', ':lifecycle', ':alarm', ':adapter'
+include ':app', ':experimental',':core', ':lifecycle', ':alarm', ':adapter', ':net'

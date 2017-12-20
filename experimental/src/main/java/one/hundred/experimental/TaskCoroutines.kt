@@ -21,8 +21,7 @@ import kotlinx.coroutines.experimental.*
 /**
  * 根据当前处理器个数，并获得合理的线程池大小，作为异步协程的上下文
  */
-@PublishedApi
-internal var ThreadPool = newFixedThreadPoolContext(Runtime.getRuntime().availableProcessors() * 2, "ThreadPool")
+val ThreadPool = newFixedThreadPoolContext(Runtime.getRuntime().availableProcessors() * 2, "ThreadPool")
 
 /**
  * 在主线程中顺序执行，属于顶级协程函数，一般用于最外层
