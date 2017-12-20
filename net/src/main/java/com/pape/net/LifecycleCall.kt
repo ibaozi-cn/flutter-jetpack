@@ -23,11 +23,12 @@ interface LifecycleCall<T> : LifecycleAdapter {
     fun cancel()
     fun enqueue(callback: LifecycleCallback<T>)
     fun clone(): LifecycleCall<T>
+    fun isCanceled(): Boolean
     fun enableCancel(): Boolean
     override fun onDestroy() {
         if (BuildConfig.DEBUG)
             Log.d("net", "onDestroy")
-        if (enableCancel())
+        if (enableCancel() && !isCanceled())
             cancel()
     }
 }
@@ -53,9 +54,14 @@ interface LifecycleCallback<T> {
     /** Called for unexpected errors while making the call.  */
     fun unexpectedError(t: Throwable)
 
+
 }
 
 class LifecycleCallAdapter<T>(private val call: Call<T>, private val enableCancel: Boolean) : LifecycleCall<T> {
+
+    override fun isCanceled(): Boolean {
+        return call.isCanceled
+    }
 
     override fun enableCancel() = enableCancel
 
@@ -127,6 +133,8 @@ class LifecycleCallAdapterFactory(private val context: Context, private val enab
 
         override fun adapt(call: Call<R>): LifecycleCall<R> {
             return LifecycleCallAdapter(call, enableCancel).also {
+                if (BuildConfig.DEBUG)
+                    Log.d("net", "lifecycleRegistry addObserver $it")
                 lifecycleRegistry?.addObserver(it)
             }
         }

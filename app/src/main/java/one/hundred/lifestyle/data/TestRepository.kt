@@ -20,9 +20,6 @@ class TestRepository(context: AppCompatActivity) : Repository {
 
     private val dao = DatabaseCreator.instance.database?.getDbTestDao()
 
-    private val call by lazy {
-        apiService.getList(0)
-    }
     /**
      * 获取数据库测试数据
      */
@@ -35,7 +32,6 @@ class TestRepository(context: AppCompatActivity) : Repository {
      */
     suspend fun getServerTestList(): LiveData<List<Test>> {
         val serverData = MutableLiveData<List<Test>>()
-//        serverData.value = call.await()
         return serverData
     }
 
