@@ -12,10 +12,14 @@ android MVVM 架构实践项目
 
 ## 计划：
 
-1.  封装Activity基类，简化ViewModels绑定操作
+1.  封装Activity基类，简化ViewModels绑定操作  
 
 2. 封装LiveData与Adapter，简化RecyclerView的数据更新操作。
 
-3. 封装Retorfit + kotlin协程，让网络高效的运转，让callBack消失
+3. 封装Retorfit + kotlin协程，让网络高效的运转，让callBack消失  
 
 4. 封装Room+kotlin协程，让数据库操作工作远离UI线程。
+
+## 完成：
+
+封装Retorfit + kotlin协程，让网络高效的运转，让callBack消失，又加入生命周期感知，自动在界面消失时 释放网络请求
