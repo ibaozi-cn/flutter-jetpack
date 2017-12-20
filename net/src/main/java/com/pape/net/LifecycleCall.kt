@@ -1,5 +1,6 @@
 package com.pape.net
 
+import android.arch.lifecycle.Lifecycle
 import android.arch.lifecycle.LifecycleOwner
 import android.arch.lifecycle.LifecycleRegistry
 import android.content.Context
@@ -57,7 +58,8 @@ interface LifecycleCallback<T> {
 
 }
 
-class LifecycleCallAdapter<T>(private val call: Call<T>, private val enableCancel: Boolean) : LifecycleCall<T> {
+class LifecycleCallAdapter<T>(private val call: Call<T>,
+                              private val enableCancel: Boolean) : LifecycleCall<T> {
 
     override fun isCanceled(): Boolean {
         return call.isCanceled
@@ -99,7 +101,8 @@ class LifecycleCallAdapter<T>(private val call: Call<T>, private val enableCance
 
 }
 
-class LifecycleCallAdapterFactory(private val context: Context, private val enableCancel: Boolean = true) : CallAdapter.Factory() {
+class LifecycleCallAdapterFactory(private val context: Context,
+                                  private val enableCancel: Boolean = true) : CallAdapter.Factory() {
 
     override fun get(returnType: Type, annotations: Array<Annotation>, retrofit: Retrofit): CallAdapter<*, *>? {
 
@@ -125,7 +128,9 @@ class LifecycleCallAdapterFactory(private val context: Context, private val enab
         return ErrorHandlingCallAdapter<Any>(responseType, enableCancel = enableCancel)
     }
 
-    private class ErrorHandlingCallAdapter<R> internal constructor(private val responseType: Type, val lifecycleRegistry: LifecycleRegistry? = null, val enableCancel: Boolean) : CallAdapter<R, LifecycleCall<R>> {
+    private class ErrorHandlingCallAdapter<R> internal constructor(private val responseType: Type,
+                                                                   val lifecycleRegistry: LifecycleRegistry? = null,
+                                                                   val enableCancel: Boolean) : CallAdapter<R, LifecycleCall<R>> {
 
         override fun responseType(): Type {
             return responseType
@@ -135,7 +140,11 @@ class LifecycleCallAdapterFactory(private val context: Context, private val enab
             return LifecycleCallAdapter(call, enableCancel).also {
                 if (BuildConfig.DEBUG)
                     Log.d("net", "lifecycleRegistry addObserver $it")
-                lifecycleRegistry?.addObserver(it)
+                if (lifecycleRegistry?.currentState == Lifecycle.State.DESTROYED) {
+                    it.onDestroy()
+                } else {
+                    lifecycleRegistry?.addObserver(it)
+                }
             }
         }
     }
