@@ -49,4 +49,4 @@ kotlin {
     }
 }
 
-apply from: rootDir.absolutePath + "/bintrayUpload.gradle"
+//apply from: rootDir.absolutePath + "/bintrayUpload.gradle"

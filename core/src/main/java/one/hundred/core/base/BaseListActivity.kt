@@ -47,6 +47,7 @@ abstract class BaseListActivity : BaseActivity() {
     override fun onStart() {
         initData()
         super.onStart()
+        adapter.adapterSequence = AdapterSequence.DESC
     }
 
     abstract fun toolBarTitle(): String

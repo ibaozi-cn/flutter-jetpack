@@ -11,10 +11,9 @@ import android.view.ViewGroup
 /**
  * Created by zzy on 2017/8/5.
  */
-class MultiTypeAdapter(
-        private val adapterSequence: AdapterSequence = AdapterSequence.NOSC,
-        private val onClickListener: ((view: View, position: Int) -> Unit)? = null,
-        private val onLongClickListener: ((view: View, position: Int) -> Unit)? = null
+class MultiTypeAdapter(var adapterSequence: AdapterSequence = AdapterSequence.NOSC,
+        var onClickListener: ((view: View, position: Int) -> Unit)? = null,
+        var onLongClickListener: ((view: View, position: Int) -> Unit)? = null
 ) : RecyclerView.Adapter<ItemViewHolder>() {
 
     private val typeArray: SparseArray<ItemViewModel> = SparseArray()

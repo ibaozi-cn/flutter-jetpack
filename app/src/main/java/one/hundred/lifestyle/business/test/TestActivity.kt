@@ -1,5 +1,6 @@
 package one.hundred.lifestyle.business.test
 
+import android.os.Bundle
 import one.hundred.core.base.BaseListActivity
 import one.hundred.lifestyle.data.bean.Test
 import one.hundred.lifestyle.item.ItemTest
@@ -32,5 +33,6 @@ class TestActivity : BaseListActivity() {
     override fun onActivityBack() {
 
     }
+
 
 }
