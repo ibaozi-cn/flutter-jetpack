@@ -18,7 +18,6 @@ suspend fun <T> LifecycleCall<T>.await(): T = suspendCancellableCoroutine { cont
     val callback = object : LifecycleCallback<T> {
 
         override fun success(response: Response<T>) = continuation.tryToResume {
-            response.isSuccessful || throw IllegalStateException("Http error ${response.code()}")
             response.body() ?: throw IllegalStateException("Response body is null")
         }
 

@@ -33,7 +33,6 @@ class MainViewActivity : BaseActivity() {
                     async {
                         try {
                             val anime = api.getAnime(1).await()
-                            delay(2000)
                             Log.d("net", anime.toString())
                         } catch (exception: Exception) {
                             Log.d("net", exception.toString())
