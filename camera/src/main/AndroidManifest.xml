@@ -1,0 +1,16 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.pape.camera">
+
+
+    <application>
+
+        <activity
+            android:name=".CameraActivity"
+            android:configChanges="orientation|screenLayout|keyboardHidden"
+            android:hardwareAccelerated="true"
+            android:theme="@style/AppTheme" />
+
+
+    </application>
+
+</manifest>

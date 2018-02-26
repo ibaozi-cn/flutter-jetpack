@@ -28,7 +28,7 @@ val ThreadPool = newFixedThreadPoolContext(Runtime.getRuntime().availableProcess
  *
  * 注意：该函数会阻塞代码继续执行
  */
-inline fun taskBlockOnMainThread(delayTime: Long = 0, crossinline job: () -> Unit) = runBlocking {
+fun taskBlockOnMainThread(delayTime: Long = 0, job: suspend () -> Unit) = runBlocking {
     delay(delayTime)
     job()
 }
@@ -38,7 +38,7 @@ inline fun taskBlockOnMainThread(delayTime: Long = 0, crossinline job: () -> Uni
  *
  * 注意：该函数会阻塞代码继续执行
  */
-inline fun taskBlockOnWorkThread(delayTime: Long = 0, crossinline job: () -> Unit) = runBlocking(ThreadPool) {
+fun taskBlockOnWorkThread(delayTime: Long = 0, job: suspend () -> Unit) = runBlocking(ThreadPool) {
     delay(delayTime)
     job()
 }
@@ -47,7 +47,7 @@ inline fun taskBlockOnWorkThread(delayTime: Long = 0, crossinline job: () -> Uni
  * 并发执行，常用于最外层
  * 特点带返回值
  */
-inline fun <T> taskAsync(delayTime: Long = 0, crossinline job: () -> T) = async(ThreadPool) {
+fun <T> taskAsync(delayTime: Long = 0, job: suspend () -> T) = async(ThreadPool) {
     delay(delayTime)
     job()
 }
@@ -56,7 +56,7 @@ inline fun <T> taskAsync(delayTime: Long = 0, crossinline job: () -> T) = async(
  * 并发执行，常用于最外层
  * 特点不带返回值
  */
-inline fun <T> taskLaunch(delayTime: Long = 0, crossinline job: () -> T) = launch(ThreadPool) {
+fun <T> taskLaunch(delayTime: Long = 0, job: suspend () -> T) = launch(ThreadPool) {
     delay(delayTime)
     job()
 }
@@ -66,7 +66,7 @@ inline fun <T> taskLaunch(delayTime: Long = 0, crossinline job: () -> T) = launc
  * 此方法用于协程上下文调度，目前主要用于切换到android UI线程
  * 参数添加CoroutineStart.UNDISPATCHED的话表示立即执行
  */
-inline fun <T> taskOnUiThread(delayTime: Long = 0, crossinline job: () -> T): Deferred<T> = async(UI) {
+fun <T> taskOnUiThread(delayTime: Long = 0,  job:suspend () -> T): Deferred<T> = async(UI) {
     delay(delayTime)
     job()
 }

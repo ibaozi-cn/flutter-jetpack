@@ -11,19 +11,22 @@ import android.view.ViewGroup
 /**
  * Created by zzy on 2017/8/5.
  */
-class MultiTypeAdapter(var adapterSequence: AdapterSequence = AdapterSequence.NOSC,
-        var onClickListener: ((view: View, position: Int) -> Unit)? = null,
-        var onLongClickListener: ((view: View, position: Int) -> Unit)? = null
+class MultiTypeAdapter(val adapterSequence: AdapterSequence = AdapterSequence.NOSC,
+                       var onClickListener: ((view: View, position: Int) -> Unit)? = null,
+                       var onLongClickListener: ((view: View, position: Int) -> Unit)? = null
 ) : RecyclerView.Adapter<ItemViewHolder>() {
 
     private val typeArray: SparseArray<ItemViewModel> = SparseArray()
 
-    val sortedItemList: SortedList<ItemViewModel> = SortedList<ItemViewModel>(ItemViewModel::class.java, SortListCallBack(this, adapterSequence))
+    val sortedItemList: SortedList<ItemViewModel> by lazy {
+        SortedList<ItemViewModel>(ItemViewModel::class.java, SortListCallBack(this, adapterSequence))
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val item = getTypeItem(viewType)
         val view = item.getItemView()
-        val holder = ItemViewHolder(view ?: LayoutInflater.from(parent.context).inflate(item.getItemViewLayoutId(), parent, false))
+        val holder = ItemViewHolder(view
+                ?: LayoutInflater.from(parent.context).inflate(item.getItemViewLayoutId(), parent, false))
         holder.itemView.setOnClickListener { v ->
             onClickListener?.invoke(v, holder.adapterPosition)
         }
@@ -57,11 +60,13 @@ class MultiTypeAdapter(var adapterSequence: AdapterSequence = AdapterSequence.NO
 
     fun addOrUpdateItem(item: ItemViewModel) {
         addItemType(item)
-        val itemOld = findItemByUUID(item.uuid)
-        if (itemOld != null)
-            sortedItemList.updateItemAt(sortedItemList.indexOf(itemOld), item)
-        else
-            sortedItemList.add(item)
+        findItemByUUID(item.uuid, {
+            if (it != null) {
+                sortedItemList.updateItemAt(sortedItemList.indexOf(it), item)
+            } else {
+                sortedItemList.add(item)
+            }
+        })
     }
 
     fun addOrUpdateItems(vararg item: ItemViewModel) {
@@ -84,9 +89,10 @@ class MultiTypeAdapter(var adapterSequence: AdapterSequence = AdapterSequence.NO
     }
 
     fun removeItem(item: ItemViewModel) {
-        val index = sortedItemList.indexOf(findItem(item.uuid))
-        if (index != INVALID_POSITION)
-            sortedItemList.remove(item)
+        findItemByUUID(item.uuid, {
+            if (it != null)
+                sortedItemList.remove(it)
+        })
     }
 
     fun removeItems(vararg item: ItemViewModel) {
@@ -103,9 +109,13 @@ class MultiTypeAdapter(var adapterSequence: AdapterSequence = AdapterSequence.NO
     }
 
     fun replaceItem(item: ItemViewModel) {
-        val index = sortedItemList.indexOf(findItem(item.uuid))
-        if (index != INVALID_POSITION)
-            sortedItemList.updateItemAt(index, item)
+        findItemByUUID(item.uuid, {
+            if (it != null) {
+                val index = sortedItemList.indexOf(it)
+                if (index != INVALID_POSITION)
+                    sortedItemList.updateItemAt(index, item)
+            }
+        })
     }
 
     fun move(from: Int, to: Int) {
@@ -127,24 +137,18 @@ class MultiTypeAdapter(var adapterSequence: AdapterSequence = AdapterSequence.NO
         return sortedItemList
     }
 
-    inline fun <reified T : ItemViewModel> findItem(itemUUID: String): T? {
-        (0 until sortedItemList.size()).forEach { i ->
-            val item = sortedItemList[i]
-            if (item::class == T::class && itemUUID == item.getItemUUID()) {
-                return item as T
-            }
-        }
-        return null
-    }
-
-    private fun findItemByUUID(itemUUID: String): ItemViewModel? {
+    private fun findItemByUUID(itemUUID: String, itemCallback: (ItemViewModel?) -> Unit) {
         (0 until sortedItemList.size()).forEach { i ->
             val item = sortedItemList[i]
             if (itemUUID == item.getItemUUID()) {
-                return item
+                itemCallback(item)
+            } else {
+                itemCallback(null)
             }
         }
-        return null
+        if (sortedItemList.size() < 1) {
+            itemCallback(null)
+        }
     }
 
     override fun onDetachedFromRecyclerView(recyclerView: RecyclerView?) {

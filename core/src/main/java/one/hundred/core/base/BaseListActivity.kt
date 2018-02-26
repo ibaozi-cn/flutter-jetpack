@@ -19,7 +19,7 @@ import org.jetbrains.anko.wrapContent
  */
 abstract class BaseListActivity : BaseActivity() {
 
-    private var adapter = MultiTypeAdapter(AdapterSequence.ASC)
+     var adapter = MultiTypeAdapter(AdapterSequence.ASC)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         coordinatorLayout {
@@ -47,7 +47,6 @@ abstract class BaseListActivity : BaseActivity() {
     override fun onStart() {
         initData()
         super.onStart()
-        adapter.adapterSequence = AdapterSequence.DESC
     }
 
     abstract fun toolBarTitle(): String

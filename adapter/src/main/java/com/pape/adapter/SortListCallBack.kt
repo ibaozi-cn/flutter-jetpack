@@ -8,7 +8,7 @@ import android.support.v7.widget.RecyclerView
  */
 class SortListCallBack<T : ItemSorted>(
         val adapter: RecyclerView.Adapter<ItemViewHolder>,
-        val adapterSequence: AdapterSequence = AdapterSequence.NOSC)
+        private val adapterSequence: AdapterSequence = AdapterSequence.NOSC)
     : SortedList.Callback<T>() {
 
 
