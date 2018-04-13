@@ -1,8 +1,8 @@
 package one.hundred.lifestyle.business.test
 
-import android.os.Bundle
 import one.hundred.core.base.BaseListActivity
 import one.hundred.lifestyle.data.bean.Test
+import one.hundred.lifestyle.item.ItemReplay
 import one.hundred.lifestyle.item.ItemTest
 
 
@@ -13,21 +13,23 @@ class TestActivity : BaseListActivity() {
 
     var a: Long = 0
 
+
     override fun initData() {
 
-        addItemViewModel(ItemTest(Test(id = 1, name = "测试刷新数据"), {
+        addItemViewModel(ItemTest(Test(id = -1, name = "测试刷新数据"), {
+            if (a % 2 == 0L) {
+                addItemViewModel(ItemTest(Test(a++), {
 
-            addItemViewModel(ItemTest(Test(a++), {
-                addItemViewModel(ItemTest(Test(1)).also {
-                    it.sortId = a++
+                }).also {
+                    it.uuid = "1"
                 })
-            }))
-
+            } else {
+                addItemViewModel(ItemReplay().also {
+                    it.uuid = "1"
+                })
+            }
         }))
 
-        addItemViewModel(ItemTest(Test(name = "删除"), {
-            adapter.removeItem(ItemTest(Test(id = 1)))
-        }))
     }
 
     override fun toolBarTitle(): String {

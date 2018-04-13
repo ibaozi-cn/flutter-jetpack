@@ -11,9 +11,9 @@ import android.view.ViewGroup
 /**
  * Created by zzy on 2017/8/5.
  */
-class MultiTypeAdapter(val adapterSequence: AdapterSequence = AdapterSequence.NOSC,
-                       var onClickListener: ((view: View, position: Int) -> Unit)? = null,
-                       var onLongClickListener: ((view: View, position: Int) -> Unit)? = null
+open class MultiTypeAdapter(val adapterSequence: AdapterSequence = AdapterSequence.NOSC,
+                            var onClickListener: ((view: View, position: Int) -> Unit)? = null,
+                            var onLongClickListener: ((view: View, position: Int) -> Unit)? = null
 ) : RecyclerView.Adapter<ItemViewHolder>() {
 
     private val typeArray: SparseArray<ItemViewModel> = SparseArray()
@@ -89,10 +89,7 @@ class MultiTypeAdapter(val adapterSequence: AdapterSequence = AdapterSequence.NO
     }
 
     fun removeItem(item: ItemViewModel) {
-        findItemByUUID(item.uuid, {
-            if (it != null)
-                sortedItemList.remove(it)
-        })
+        sortedItemList.remove(item)
     }
 
     fun removeItems(vararg item: ItemViewModel) {
@@ -137,7 +134,7 @@ class MultiTypeAdapter(val adapterSequence: AdapterSequence = AdapterSequence.NO
         return sortedItemList
     }
 
-    private fun findItemByUUID(itemUUID: String, itemCallback: (ItemViewModel?) -> Unit) {
+    open fun findItemByUUID(itemUUID: String, itemCallback: (ItemViewModel?) -> Unit) {
         (0 until sortedItemList.size()).forEach { i ->
             val item = sortedItemList[i]
             if (itemUUID == item.getItemUUID()) {
