@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:context=".MainActivity">
+
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="autoAddFriend"
+            android:text="自动添加好友"
+    />
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="autoSendImage"
+            android:text="自动发图片朋友圈"
+    />
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="autoShareMiniPrograms"
+            android:text="自动分享小程序"
+    />
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="autoPullFriend"
+            android:text="自动拉好友进群"
+    />
+    <Button android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:onClick="autoPushFriend"
+            android:text="自动踢人"
+    />
+</LinearLayout>
