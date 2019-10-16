@@ -4,13 +4,16 @@ TODO
 2. 良好的代码习惯是最好的代码规范，做自己，不做别人眼中的自己
 3. 基础库的编写
 4. 最佳框架选型 
-5. 集成Flutter，如何做到最好
+5. 优雅的方式集成Flutter
 
 最厉害的武功一定是风无常 云无相 水无形 冰无色 雪无定 火无方 雷无向
 
 忘掉过去 checkout new branch 让我们开始新的方向
 
 新代码将从 NewLife 开始
+
+接下来将同步更新博客至简书
+[i校长](https://www.jianshu.com/u/77699cd41b28)
 
 # LifeStyle 概述
 android MVVM 架构实践项目
