@@ -1,6 +1,0 @@
-<resources>
-    <string name="app_name">core</string>
-    <string name="never">永不</string>
-    <string name="every_day">每天</string>
-    <string name="day_concat">", "</string>
-</resources>
