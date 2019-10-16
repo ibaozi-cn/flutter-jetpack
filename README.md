@@ -1,26 +1,16 @@
+# 两年后我们重新扬帆，来讨论最好的架构,以及如何做好架构
+TODO
+1. MVVM重新架构，重新起航，从头开始
+2. 框架选型
+3. 良好的代码习惯是最好的代码规范，做自己，不做别人眼中的自己
+4. 集成Flutter，如何做到最好
+最厉害的武功一定是风无常 云无相 水无形 冰无色 雪无定 火无方 雷无向
+忘掉过去 checkout new branch 让我们开始新的方向
+新代码将从 NewLife 开始
+
 # LifeStyle 概述
 android MVVM 架构实践项目
 ![image](https://github.com/Papeone/LifeStyle/raw/master/image/mvvm.png)
-## 内容包括
-今年在Google I / O大会，Google推出了包括LiveData和ViewModel在内的架构组件，这有助于使用MVVM模式开发Android应用程序。经历长时间的学习和钻研。计划将其封装成一层通用的架构组件，并开源给大家使用。该架构的优势：
 
-1.  ViewModel 与 Activity、Fragment生命周期联动，生命结束自动回收内存，并不受横竖屏切换影响，数据自动恢复
 
-2.  LiveData 数据更新自动更新至UI
 
-3. Room 将Dao层封装为Restful风格，易于维护，简于扩展。数据库查询就是这么简单。
-
-## 计划：
-
-1.  封装Activity基类，简化ViewModels绑定操作  
-
-2. 封装LiveData与Adapter，简化RecyclerView的数据更新操作。
-
-3. 封装Retorfit + kotlin协程，让网络高效的运转，让callBack消失  
-
-4. 封装Room+kotlin协程，让数据库操作工作远离UI线程。
-
-## 完成：
-
-封装Retorfit + kotlin协程，让网络高效的运转，让callBack消失，又加入生命周期感知，自动在界面消失时 释放网络请求
-介绍地址http://www.jianshu.com/p/ebd1fcbd1ce1
