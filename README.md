@@ -10,7 +10,7 @@ TODO
 
 # LifeStyle 概述
 android MVVM 架构实践项目
-![image](https://github.com/Papeone/LifeStyle/raw/master/image/mvvm.png)
+![image](https://github.com/Papeone/LifeStyle/raw/NewLife/image/mvvm.png)
 
 
 
