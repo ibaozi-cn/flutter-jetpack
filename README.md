@@ -4,7 +4,9 @@
 - Components  扩展UI组件等
 - Behavior  扩展原生功能等
 - Architecture 架构组件
-![flutter-jetpack](https://upload-images.jianshu.io/upload_images/2413316-c4b78bcd17f7e4a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+[flutter-jetpack](https://upload-images.jianshu.io/upload_images/2413316-c4b78bcd17f7e4a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
 # 安排
 - web搭建 （已完成）
 - 主页开发 （doing）
