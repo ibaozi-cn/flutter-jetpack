@@ -1,0 +1,31 @@
+<html>
+
+<head>
+  <title>Sample API Requests</title>
+  <style>
+    body {
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Weather API</h1>
+  <h3>GET Request</h3>
+  <p><a href="http://localhost:3000/api/flutter/web">http://localhost:3000/api/flutter/web</a></p>
+
+  <h3>GET Response</h3>
+  <pre style="font-family:'Courier New', Courier, monospace; font-size: 12pt;" id="apiResponse">
+  </pre>
+
+  <script>
+    var request = new XMLHttpRequest();
+    request.open('GET', 'http://localhost:3000/api/flutter/web', true);
+    request.onload = function (e) {
+      document.getElementById('apiResponse').innerText = JSON.stringify(JSON.parse(this.response), null, 2);
+    }
+    request.send();
+  </script>
+</body>
+
+</html>
