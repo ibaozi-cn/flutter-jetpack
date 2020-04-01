@@ -1,23 +1,10 @@
-# 两年后我们重新扬帆，来讨论最好的架构，以及如何做好架构
-TODO
-1. MVVM重新架构，重新起航，从头开始
-2. 良好的代码习惯是最好的代码规范，做自己，不做别人眼中的自己
-3. 基础库的编写
-4. 最佳框架选型 
-5. 优雅的方式集成Flutter
-
-最厉害的武功一定是风无常 云无相 水无形 冰无色 雪无定 火无方 雷无向
-
-忘掉过去 checkout new branch 让我们开始新的方向
-
-新代码将从 NewLife 开始
-
-接下来将同步更新博客至简书
-[i校长](https://www.jianshu.com/u/77699cd41b28)
-
-# LifeStyle 概述
-android MVVM 架构实践项目
-![image](https://github.com/Papeone/LifeStyle/raw/NewLife/image/mvvm.png)
-
-
-
+# 简介
+该项目是继[Android Jetpack](http://www.ibaozi.cn/#/jetpack)后，在学习一段时间的Flutter之后，就开始了动手做项目，可项目做的过程中，遇到了很多框架选型的难题，没人告诉我，我即将引用的框架是否能满足我，是否有隐形的问题，甚至说如何组织Flutter架构，我要找大量的资源来学习，而且资源的质量参差不齐，浪费大量的时间，如果能有一个像Android Jetpack一样，让我能快速上手的东西，并且让我相信它的可靠性，这就是我做这个的初衷，接下来让我们构建一个可靠的Flutter Jetpack，来替你构建一个稳健的flutter项目。初步Jetpack也分为四部分
+- Basic  支持项目基础运行所需框架
+- Components  扩展UI组件等
+- Behavior  扩展原生功能等
+- Architecture 架构组件
+![flutter-jetpack](https://upload-images.jianshu.io/upload_images/2413316-c4b78bcd17f7e4a4.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+# 安排
+- web搭建 （已完成）
+- 主页开发 （doing）
