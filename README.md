@@ -17,4 +17,4 @@ samples, guidance on mobile development, and a full API reference.
 
 ## bloc
 
-- Flutter Web网站搭建教程
+- [Flutter Web网站搭建教程](https://www.jianshu.com/p/cc1dcf3f5063)
