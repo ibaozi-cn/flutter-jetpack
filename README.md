@@ -14,6 +14,9 @@ First step, when the environment configuration is complate, open terminal, run t
 /// step 1
 flutter pub get
 /// step 2
+cd node/server/
+npm install
+/// step 3
 . bin/test_start_node.sh
 ```
 Then, open Chrome and input http://localhost:3000.
