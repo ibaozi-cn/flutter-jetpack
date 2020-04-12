@@ -9,14 +9,14 @@ Flutter jetpack poject for you .
 
 ## Getting Started
 
-First step, When the environment configuration is complate, Open terminal, Run the following script
+First step, when the environment configuration is complate, open terminal, run the following script.
 ```
 /// step 1
 flutter pub get
 /// step 2
 . bin/test_start_node.sh
 ```
-Then, Open Chrome and input http://localhost:3000.
+Then, open Chrome and input http://localhost:3000.
 
 ## Blog
 
