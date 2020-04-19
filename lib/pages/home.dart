@@ -1,6 +1,8 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/menu_about.dart';
 import 'package:jetpack/pages/menu_home.dart';
+import 'package:jetpack/styles/colors.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/util/screen_utils.dart';
 import 'package:jetpack/styles/text_styles.dart';
@@ -12,7 +14,6 @@ class PageHome extends StatefulWidget {
 
 class _PageHomeState extends State<PageHome> {
   int _selectedDrawerIndex = 0;
-
   var _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
@@ -27,8 +28,9 @@ class _PageHomeState extends State<PageHome> {
       child: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
+          elevation: 0,
           title: _buildTitle(),
-          backgroundColor: Color(0xFFf1f3f4),
+          backgroundColor: tabBarBgColor,
           actions: !ResponsiveWidget.isSmallScreen(context)
               ? _buildActions(context)
               : null,
@@ -67,7 +69,7 @@ class _PageHomeState extends State<PageHome> {
           TextSpan(
             text: ".net.cn",
             style: TextStyles.logo.copyWith(
-              color: Color(0xFF50AFC0),
+              color: titleColor,
             ),
           ),
         ],
@@ -100,7 +102,7 @@ class _PageHomeState extends State<PageHome> {
           });
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
         },
-      ),
+      )
     ];
   }
 
