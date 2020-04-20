@@ -25,3 +25,4 @@ Then, open Chrome and input http://localhost:3000.
 
 - [Flutter Web网站搭建教程](https://www.jianshu.com/p/cc1dcf3f5063)
 - [Flutter Web 网站之主页框架搭建](https://www.jianshu.com/p/fcd1bcd50fb2)
+- [Flutter Web网站之Jetpack成型](https://www.jianshu.com/p/fd7ef411a642)
