@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jetpack/pages/chat_group.dart';
 import 'package:jetpack/pages/home.dart';
 import 'package:jetpack/pages/qq_link.dart';
 
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
       home: PageHome(),
       routes: <String, WidgetBuilder>{
         "/qq": (context) => PageQQLink(),
+        "/pageChatGroup": (context) => PageChatGroup(),
       },
     );
   }

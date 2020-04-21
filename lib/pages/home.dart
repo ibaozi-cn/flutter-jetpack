@@ -30,9 +30,9 @@ class _PageHomeState extends State<PageHome> {
           elevation: 0,
           title: _buildTitle(),
           backgroundColor: tabBarBgColor,
-          actions: !ResponsiveWidget.isSmallScreen(context)
-              ? _buildActions(context)
-              : null,
+          actions: ResponsiveWidget.isSmallScreen(context)
+              ? _buildSmallScreenAction(context)
+              : _buildLargeScreenActions(context),
           leading: ResponsiveWidget.isSmallScreen(context)
               ? IconButton(
                   icon: Icon(
@@ -76,11 +76,11 @@ class _PageHomeState extends State<PageHome> {
     );
   }
 
-  _buildActions(BuildContext context) {
+  _buildLargeScreenActions(BuildContext context) {
     return <Widget>[
       MaterialButton(
         child: Text(
-          'Home',
+          '主页',
           style: TextStyles.menuItem,
         ),
         onPressed: () {
@@ -92,7 +92,7 @@ class _PageHomeState extends State<PageHome> {
       ),
       MaterialButton(
         child: Text(
-          'About',
+          '关于',
           style: TextStyles.menuItem,
         ),
         onPressed: () {
@@ -101,7 +101,7 @@ class _PageHomeState extends State<PageHome> {
           });
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
         },
-      )
+      ),
     ];
   }
 
@@ -110,7 +110,7 @@ class _PageHomeState extends State<PageHome> {
         ? Drawer(
             child: ListView(
               padding: const EdgeInsets.all(0),
-              children: _buildActions(context),
+              children: _buildLargeScreenActions(context),
             ),
           )
         : null;
@@ -123,5 +123,19 @@ class _PageHomeState extends State<PageHome> {
       case 1:
         return WidgetMenuAbout();
     }
+  }
+
+  _buildSmallScreenAction(BuildContext context) {
+    return <Widget>[
+      MaterialButton(
+        child: Text(
+          '交流群',
+          style: TextStyles.menuItem,
+        ),
+        onPressed: () {
+          Navigator.of(context).pushNamed("/pageChatGroup");
+        },
+      ),
+    ];
   }
 }

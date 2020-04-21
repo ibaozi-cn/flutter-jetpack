@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/components.dart';
+import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/colors.dart';
 import 'package:jetpack/styles/text_styles.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
@@ -8,7 +9,6 @@ import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
 class PageFlutterJetPack extends StatefulWidget {
-
   String headTitle;
   String headDesc;
   List<Map> componentsTitles;
@@ -17,19 +17,20 @@ class PageFlutterJetPack extends StatefulWidget {
   List<Components> selectComponentsDataForBehavior;
   List<Components> selectComponentsDataForUI;
 
-  PageFlutterJetPack({this.headTitle, this.headDesc, this.componentsTitles,
-      this.selectComponentsDataForBasic, this.selectComponentsDataForArc,
-      this.selectComponentsDataForBehavior, this.selectComponentsDataForUI});
+  PageFlutterJetPack(
+      {this.headTitle,
+      this.headDesc,
+      this.componentsTitles,
+      this.selectComponentsDataForBasic,
+      this.selectComponentsDataForArc,
+      this.selectComponentsDataForBehavior,
+      this.selectComponentsDataForUI});
 
   @override
   _PageFlutterJetPackState createState() => _PageFlutterJetPackState();
 }
 
 class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
-
-
-
-
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -45,16 +46,17 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
                 mainAxisSize: MainAxisSize.min,
                 children: <Widget>[
                   _buildHead(),
-                  _buildComponentsTitle("Basic", widget.componentsTitles[0].values.first),
-                  _buildComponentsContent(
-                      widget.selectComponentsDataForBasic),
-                  _buildComponentsTitle("Components", widget.componentsTitles[1].values.first),
-                  _buildComponentsContent(
-                      widget.selectComponentsDataForUI),
-                  _buildComponentsTitle("Architecture", widget.componentsTitles[2].values.first),
-                  _buildComponentsContent(
-                      widget.selectComponentsDataForArc),
-                  _buildComponentsTitle( widget.componentsTitles[3].keys.first, widget.componentsTitles[3].values.first),
+                  _buildComponentsTitle(
+                      "Basic", widget.componentsTitles[0].values.first),
+                  _buildComponentsContent(widget.selectComponentsDataForBasic),
+                  _buildComponentsTitle(
+                      "Components", widget.componentsTitles[1].values.first),
+                  _buildComponentsContent(widget.selectComponentsDataForUI),
+                  _buildComponentsTitle(
+                      "Architecture", widget.componentsTitles[2].values.first),
+                  _buildComponentsContent(widget.selectComponentsDataForArc),
+                  _buildComponentsTitle(widget.componentsTitles[3].keys.first,
+                      widget.componentsTitles[3].values.first),
                   _buildComponentsContent(
                       widget.selectComponentsDataForBehavior),
                   SizedBox(
@@ -91,6 +93,22 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
         padding: const EdgeInsets.all(4.0),
         child: Column(
           children: <Widget>[
+            ResponsiveWidget.isSmallScreen(context)
+                ? Container()
+                : Column(
+                    children: <Widget>[
+                      Image.asset(WE_CHAT_SCAN),
+                      SizedBox(height: 8,),
+                      Padding(
+                        padding: const EdgeInsets.all(16.0),
+                        child: Text(
+                          CHAT_GROUP_TEXT,
+                          textAlign: TextAlign.start,
+                          style: TextStyle(color: Colors.black87,fontSize: 22),
+                        ),
+                      ),
+                    ],
+                  ),
             Text(
               'Tags',
               style: TextStyles.logo,
@@ -98,7 +116,6 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
             SizedBox(
               height: 20,
             ),
-
             Wrap(
               spacing: 5,
               runSpacing: 5,
@@ -172,7 +189,7 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
         physics: NeverScrollableScrollPhysics(),
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: _buildGridViewCount(),
-            childAspectRatio:0.9,
+          childAspectRatio: 0.9,
         ),
         itemBuilder: (context, index) {
           return WidgetComponents(
@@ -188,7 +205,7 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
     return 1;
   }
 
-   _buildFooter() {
+  _buildFooter() {
     return Column(
       children: <Widget>[
         Padding(
@@ -207,7 +224,7 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
     );
   }
 
-   _buildCopyRightText() {
+  _buildCopyRightText() {
     return InkWell(
       onTap: () {
         launch("http://www.beian.miit.gov.cn/");
