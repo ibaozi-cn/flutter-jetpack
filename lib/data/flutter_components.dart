@@ -1,6 +1,22 @@
 import 'components.dart';
 
 class FlutterComponents {
+
+  static const String headTitle = "Flutter Jetpack Components";
+  static const String headDesc = "收集github中开源的库，并提供相关简介和用例，辅助你去构建一个完整的Flutter项目。";
+
+  static const List<Map> componentsTitles=[
+    {
+      "Basic":"辅助项目基础运行"
+    },{
+      "Components":"自定义组件，丰富多样，简单易用"
+    },{
+      "Architecture":"架构组件，帮您设计稳定，易维护的应用"
+    },{
+      "Native":"扩展原生功能"
+    }
+  ];
+
   static List<Components> selectComponentsDataForBasic() {
     List<Components> list = [];
     list.add(Components("flutter_screenutil", "Flutter屏幕适应，字体适应，获取屏幕信息",
@@ -18,17 +34,17 @@ class FlutterComponents {
     List<Components> list = [];
     list.add(Components(
         "fish-redux",
-        "阿里的，是一个基于 Redux 数据管理的组装式 flutter 应用框架， 它特别适用于构建中大型的复杂应用",
+        "阿里的，基于 Redux 数据管理的组装式应用框架，适用于构建中大型的复杂应用",
         "https://github.com/alibaba/fish-redux"));
     list.add(Components("bloc", "官方推荐Bloc架构，可预测的状态管理库，有助于实现BLoC设计模式",
         "https://github.com/felangel/bloc"));
     list.add(Components(
         "flutter_boost",
-        "FlutterBoost是一个Flutter插件，可以以最少的工作量将Flutter混合集成到您现有的本机应用程序中",
+        "一个Flutter插件，以最少的工作量将Flutter混合集成到您现有的本机应用程序中",
         "https://github.com/alibaba/flutter_boost"));
     list.add(Components(
         "fluro",
-        "Fluro是Flutter路由库，它添加了灵活的路由选项，例如通配符，命名参数和清晰的路由定义",
+        "路由库，它添加了灵活的路由选项，例如通配符，命名参数和清晰的路由定义",
         "https://github.com/theyakka/fluro"));
     list.add(Components("provider", "Provider是Google I/O 2019大会宣布的官方推荐的状态管理方式",
         "https://github.com/rrousselGit/provider"));

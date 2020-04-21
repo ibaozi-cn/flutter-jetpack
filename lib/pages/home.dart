@@ -1,4 +1,3 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/menu_about.dart';
 import 'package:jetpack/pages/menu_home.dart';
@@ -121,10 +120,8 @@ class _PageHomeState extends State<PageHome> {
     switch (selectedDrawerIndex) {
       case 0:
         return WidgetMenuHome();
-        break;
       case 1:
         return WidgetMenuAbout();
-        break;
     }
   }
 }

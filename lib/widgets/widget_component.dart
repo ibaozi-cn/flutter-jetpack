@@ -31,6 +31,7 @@ class _WidgetComponentState extends State<WidgetComponents> {
             children: <Widget>[
               Text(
                 components.title,
+                maxLines: 2,
                 style: Theme.of(context).textTheme.title.copyWith(
                       color: titleColor,
                     ),
@@ -40,9 +41,11 @@ class _WidgetComponentState extends State<WidgetComponents> {
               ),
               Text(
                 components.subTitle,
-                style: Theme.of(context).textTheme.subtitle.copyWith(
-                      color: Colors.black54,
-                    ),
+                maxLines: 5,
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle
+                    .copyWith(color: Colors.black54, fontSize: 13),
               ),
               SizedBox(
                 height: 8,
@@ -61,16 +64,25 @@ class _WidgetComponentState extends State<WidgetComponents> {
                                 color: titleColor,
                               )),
                     ),
-                    Text('，'
-                    ),
+                    Text('，'),
                     InkWell(
                       onTap: () {
                         _launchURL(components.url);
                       },
                       child: Text("源码",
                           style: Theme.of(context).textTheme.subtitle.copyWith(
-                            color: titleColor,
-                          )),
+                                color: titleColor,
+                              )),
+                    ),
+                    Text('，'),
+                    InkWell(
+                      onTap: () {
+//                        _launchURL(components.url);
+                      },
+                      child: Text("博客",
+                          style: Theme.of(context).textTheme.subtitle.copyWith(
+                                color: titleColor,
+                              )),
                     ),
                   ],
                 ),
