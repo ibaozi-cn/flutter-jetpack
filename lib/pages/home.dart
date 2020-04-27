@@ -6,6 +6,8 @@ import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/util/screen_utils.dart';
 import 'package:jetpack/styles/text_styles.dart';
 
+import 'menu_home_new.dart';
+
 class PageHome extends StatefulWidget {
   @override
   _PageHomeState createState() => _PageHomeState();
@@ -119,7 +121,7 @@ class _PageHomeState extends State<PageHome> {
   _getDrawerItemWidget(int selectedDrawerIndex) {
     switch (selectedDrawerIndex) {
       case 0:
-        return WidgetMenuHome();
+        return WidgetMenuNewHome();
       case 1:
         return WidgetMenuAbout();
     }

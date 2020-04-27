@@ -39,36 +39,41 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
       children: <Widget>[
         Expanded(
           flex: 3,
-          child: SingleChildScrollView(
-            child: Container(
-              padding: EdgeInsets.all(16),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  _buildHead(),
-                  _buildComponentsTitle(
-                      "Basic", widget.componentsTitles[0].values.first),
-                  _buildComponentsContent(widget.selectComponentsDataForBasic),
-                  _buildComponentsTitle(
-                      "Components", widget.componentsTitles[1].values.first),
-                  _buildComponentsContent(widget.selectComponentsDataForUI),
-                  _buildComponentsTitle(
-                      "Architecture", widget.componentsTitles[2].values.first),
-                  _buildComponentsContent(widget.selectComponentsDataForArc),
-                  _buildComponentsTitle(widget.componentsTitles[3].keys.first,
-                      widget.componentsTitles[3].values.first),
-                  _buildComponentsContent(
-                      widget.selectComponentsDataForBehavior),
-                  SizedBox(
-                    height: 40,
-                  ),
-                  ResponsiveWidget.isSmallScreen(context)
-                      ? _buildTags()
-                      : Container(),
-                  _buildFooter(),
-                ],
+          child: CustomScrollView(
+            slivers: <Widget>[
+              SliverToBoxAdapter(
+                child: _buildHead(),
               ),
-            ),
+              _buildComponentsSliverTitle(
+                  "Basic", widget.componentsTitles[0].values.first),
+              _buildComponentsContentSliverGrid(
+                  widget.selectComponentsDataForBasic),
+              _buildComponentsSliverTitle(
+                  "Components", widget.componentsTitles[1].values.first),
+              _buildComponentsContentSliverGrid(
+                  widget.selectComponentsDataForUI),
+              _buildComponentsSliverTitle(
+                  "Architecture", widget.componentsTitles[2].values.first),
+              _buildComponentsContentSliverGrid(
+                  widget.selectComponentsDataForArc),
+              _buildComponentsSliverTitle(widget.componentsTitles[3].keys.first,
+                  widget.componentsTitles[3].values.first),
+              _buildComponentsContentSliverGrid(
+                  widget.selectComponentsDataForBehavior),
+              SliverToBoxAdapter(
+                child: SizedBox(
+                  height: 40,
+                ),
+              ),
+              ResponsiveWidget.isSmallScreen(context)
+                  ? SliverToBoxAdapter(
+                      child: _buildTags(),
+                    )
+                  : SliverToBoxAdapter(),
+              SliverToBoxAdapter(
+                child: _buildFooter(),
+              )
+            ],
           ),
         ),
         ResponsiveWidget.isLargeScreen(context)
@@ -98,13 +103,15 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
                 : Column(
                     children: <Widget>[
                       Image.asset(WE_CHAT_SCAN),
-                      SizedBox(height: 8,),
+                      SizedBox(
+                        height: 8,
+                      ),
                       Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Text(
                           CHAT_GROUP_TEXT,
                           textAlign: TextAlign.start,
-                          style: TextStyle(color: Colors.black87,fontSize: 22),
+                          style: TextStyle(color: Colors.black87, fontSize: 22),
                         ),
                       ),
                     ],
@@ -178,6 +185,28 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
             height: 20,
           ),
         ],
+      ),
+    );
+  }
+
+  _buildComponentsSliverTitle(title, subtitle) {
+    return SliverToBoxAdapter(child: _buildComponentsTitle(title, subtitle));
+  }
+
+  _buildComponentsContentSliverGrid(List<Components> componentsList) {
+    return SliverGrid(
+      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+          crossAxisCount: _buildGridViewCount(),
+          childAspectRatio: 0.8,
+          mainAxisSpacing: 10.0,
+          crossAxisSpacing: 10.0),
+      delegate: SliverChildBuilderDelegate(
+        (context, index) {
+          return WidgetComponents(
+            components: componentsList[index],
+          );
+        },
+        childCount: componentsList.length,
       ),
     );
   }
