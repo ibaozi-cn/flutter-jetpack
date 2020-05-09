@@ -15,12 +15,12 @@ class PageChatGroup extends StatelessWidget {
         ),
         children: <TextSpan>[
           TextSpan(
-            text: "Communication",
+            text: "群码",
             style: Theme.of(context).textTheme.subtitle1,
           ),
           TextSpan(
-            text: ".group",
-            style: Theme.of(context).textTheme.subtitle2,
+            text: "",
+            style: Theme.of(context).textTheme.bodyText1,
           ),
         ],
       ),

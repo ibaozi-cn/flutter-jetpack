@@ -132,7 +132,7 @@ class _PageHomeState extends State<PageHome> {
     return <Widget>[
       MaterialButton(
         child: Text(
-          '交流群',
+          '入群',
         ),
         onPressed: () {
           Navigator.of(context).pushNamed("/pageChatGroup");

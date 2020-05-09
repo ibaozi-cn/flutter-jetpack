@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jetpack/data/android_components.dart';
 import 'package:jetpack/data/flutter_components.dart';
 import 'package:jetpack/pages/jetpack.dart';
+import 'package:jetpack/widgets/responsive_widget.dart';
 
 class WidgetMenuNewHome extends StatefulWidget {
   @override
@@ -35,12 +36,12 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: <Widget>[_buildTabBar(), _buildBody()],
+        children: <Widget>[ResponsiveWidget.isLargeScreen(context)?_buildLargeTabBar():_buildTabBar(), _buildBody()],
       ),
     );
   }
 
-  _buildTabBar() {
+  _buildLargeTabBar() {
     return Align(
       alignment: Alignment.centerLeft,
       child: TabBar(
@@ -52,6 +53,17 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
                 ))
             .toList(),
       ),
+    );
+  }
+
+  _buildTabBar() {
+    return  TabBar(
+      controller: _tabController,
+      tabs: _tabs
+          .map((e) => Tab(
+        text: e,
+      ))
+          .toList(),
     );
   }
 
