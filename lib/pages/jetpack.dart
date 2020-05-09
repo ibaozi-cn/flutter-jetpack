@@ -152,13 +152,11 @@ class _PageJetPackState extends State<PageJetPack> {
 
   _buildItemTag(text) {
     return MaterialButton(
-      color: Theme.of(context).buttonColor,
       onPressed: () {
 
       },
       child: Text(
         text,
-        style: Theme.of(context).textTheme.button,
       ),
     );
   }

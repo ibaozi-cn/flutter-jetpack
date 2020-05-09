@@ -4,8 +4,10 @@ import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/util/screen_utils.dart';
 
 import 'menu_home_new.dart';
+import 'menu_setting.dart';
 
 class PageHome extends StatefulWidget {
+
   @override
   _PageHomeState createState() => _PageHomeState();
 }
@@ -89,6 +91,18 @@ class _PageHomeState extends State<PageHome> {
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
+      MaterialButton(
+        child: Text(
+          '设置',
+          style: Theme.of(context).textTheme.subtitle1,
+        ),
+        onPressed: () {
+          setState(() {
+            _selectedDrawerIndex = 2;
+          });
+          if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
+        },
+      ),
     ];
   }
 
@@ -109,6 +123,8 @@ class _PageHomeState extends State<PageHome> {
         return WidgetMenuNewHome();
       case 1:
         return WidgetMenuAbout();
+      case 2:
+        return WidgetMenuSetting();
     }
   }
 

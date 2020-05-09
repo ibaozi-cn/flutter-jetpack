@@ -3,3 +3,5 @@
 node/server/node_modules/
 
 /.dart_tool/
+/flutter_01.log
+/flutter_02.log
