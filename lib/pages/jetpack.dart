@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/components.dart';
 import 'package:jetpack/data/const.dart';
-import 'package:jetpack/styles/colors.dart';
-import 'package:jetpack/styles/text_styles.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/widgets/widget_component.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 // ignore: must_be_immutable
-class PageFlutterJetPack extends StatefulWidget {
+class PageJetPack extends StatefulWidget {
   String headTitle;
   String headDesc;
   List<Map> componentsTitles;
@@ -17,7 +15,7 @@ class PageFlutterJetPack extends StatefulWidget {
   List<Components> selectComponentsDataForBehavior;
   List<Components> selectComponentsDataForUI;
 
-  PageFlutterJetPack(
+  PageJetPack(
       {this.headTitle,
       this.headDesc,
       this.componentsTitles,
@@ -27,68 +25,71 @@ class PageFlutterJetPack extends StatefulWidget {
       this.selectComponentsDataForUI});
 
   @override
-  _PageFlutterJetPackState createState() => _PageFlutterJetPackState();
+  _PageJetPackState createState() => _PageJetPackState();
 }
 
-class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
+class _PageJetPackState extends State<PageJetPack> {
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: <Widget>[
-        Expanded(
-          flex: 3,
-          child: CustomScrollView(
-            slivers: <Widget>[
-              SliverToBoxAdapter(
-                child: _buildHead(),
-              ),
-              _buildComponentsSliverTitle(
-                  "Basic", widget.componentsTitles[0].values.first),
-              _buildComponentsContentSliverGrid(
-                  widget.selectComponentsDataForBasic),
-              _buildComponentsSliverTitle(
-                  "Components", widget.componentsTitles[1].values.first),
-              _buildComponentsContentSliverGrid(
-                  widget.selectComponentsDataForUI),
-              _buildComponentsSliverTitle(
-                  "Architecture", widget.componentsTitles[2].values.first),
-              _buildComponentsContentSliverGrid(
-                  widget.selectComponentsDataForArc),
-              _buildComponentsSliverTitle(widget.componentsTitles[3].keys.first,
-                  widget.componentsTitles[3].values.first),
-              _buildComponentsContentSliverGrid(
-                  widget.selectComponentsDataForBehavior),
-              SliverToBoxAdapter(
-                child: SizedBox(
-                  height: 40,
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Expanded(
+            flex: 3,
+            child: CustomScrollView(
+              slivers: <Widget>[
+                SliverToBoxAdapter(
+                  child: _buildHead(),
                 ),
-              ),
-              ResponsiveWidget.isSmallScreen(context)
-                  ? SliverToBoxAdapter(
-                      child: _buildTags(),
-                    )
-                  : SliverToBoxAdapter(),
-              SliverToBoxAdapter(
-                child: _buildFooter(),
-              )
-            ],
+                _buildComponentsSliverTitle(
+                    "Basic", widget.componentsTitles[0].values.first),
+                _buildComponentsContentSliverGrid(
+                    widget.selectComponentsDataForBasic),
+                _buildComponentsSliverTitle(
+                    "Components", widget.componentsTitles[1].values.first),
+                _buildComponentsContentSliverGrid(
+                    widget.selectComponentsDataForUI),
+                _buildComponentsSliverTitle(
+                    "Architecture", widget.componentsTitles[2].values.first),
+                _buildComponentsContentSliverGrid(
+                    widget.selectComponentsDataForArc),
+                _buildComponentsSliverTitle(widget.componentsTitles[3].keys.first,
+                    widget.componentsTitles[3].values.first),
+                _buildComponentsContentSliverGrid(
+                    widget.selectComponentsDataForBehavior),
+                SliverToBoxAdapter(
+                  child: SizedBox(
+                    height: 40,
+                  ),
+                ),
+                ResponsiveWidget.isSmallScreen(context)
+                    ? SliverToBoxAdapter(
+                        child: _buildTags(),
+                      )
+                    : SliverToBoxAdapter(),
+                SliverToBoxAdapter(
+                  child: _buildFooter(),
+                )
+              ],
+            ),
           ),
-        ),
-        ResponsiveWidget.isLargeScreen(context)
-            ? Expanded(
-                flex: 1,
-                child: _buildTags(),
-              )
-            : Container(),
-        ResponsiveWidget.isMediumScreen(context)
-            ? Expanded(
-                flex: 1,
-                child: _buildTags(),
-              )
-            : Container()
-      ],
+          ResponsiveWidget.isLargeScreen(context)
+              ? Expanded(
+                  flex: 1,
+                  child: _buildTags(),
+                )
+              : Container(),
+          ResponsiveWidget.isMediumScreen(context)
+              ? Expanded(
+                  flex: 1,
+                  child: _buildTags(),
+                )
+              : Container()
+        ],
+      ),
     );
   }
 
@@ -111,14 +112,14 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
                         child: Text(
                           CHAT_GROUP_TEXT,
                           textAlign: TextAlign.start,
-                          style: TextStyle(color: Colors.black87, fontSize: 22),
+                          style: Theme.of(context).textTheme.headline5,
                         ),
                       ),
                     ],
                   ),
             Text(
               'Tags',
-              style: TextStyles.logo,
+              style: Theme.of(context).textTheme.headline4,
             ),
             SizedBox(
               height: 20,
@@ -151,11 +152,13 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
 
   _buildItemTag(text) {
     return MaterialButton(
-      color: titleColor,
-      onPressed: () {},
+      color: Theme.of(context).buttonColor,
+      onPressed: () {
+
+      },
       child: Text(
         text,
-        style: TextStyles.menuItem.copyWith(color: Colors.white),
+        style: Theme.of(context).textTheme.button,
       ),
     );
   }
@@ -171,15 +174,14 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
           ),
           Text(
             title,
-            style: TextStyles.logo
-                .copyWith(fontWeight: FontWeight.w500, fontSize: 28),
+            style: Theme.of(context).textTheme.headline5,
           ),
           SizedBox(
             height: 5,
           ),
           Text(
             subtitle,
-            style: TextStyles.menuItem.copyWith(fontSize: 16),
+            style: Theme.of(context).textTheme.bodyText2,
           ),
           SizedBox(
             height: 20,
@@ -197,9 +199,7 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
     return SliverGrid(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: _buildGridViewCount(),
-          childAspectRatio: 0.8,
-          mainAxisSpacing: 10.0,
-          crossAxisSpacing: 10.0),
+          childAspectRatio: 1.0,),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return WidgetComponents(
@@ -209,22 +209,6 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
         childCount: componentsList.length,
       ),
     );
-  }
-
-  _buildComponentsContent(List<Components> componentsList) {
-    return GridView.builder(
-        shrinkWrap: true,
-        itemCount: componentsList.length,
-        physics: NeverScrollableScrollPhysics(),
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: _buildGridViewCount(),
-          childAspectRatio: 0.9,
-        ),
-        itemBuilder: (context, index) {
-          return WidgetComponents(
-            components: componentsList[index],
-          );
-        });
   }
 
   _buildGridViewCount() {
@@ -260,10 +244,7 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
       },
       child: Text(
         '京ICP备案20002589号-2',
-        style: TextStyles.menuItem.copyWith(
-          color: Colors.blue,
-          fontSize: ResponsiveWidget.isSmallScreen(context) ? 8 : 10.0,
-        ),
+        style: Theme.of(context).textTheme.subtitle1,
       ),
     );
   }
@@ -277,15 +258,14 @@ class _PageFlutterJetPackState extends State<PageFlutterJetPack> {
         ),
         Text(
           widget.headTitle,
-          style: TextStyles.logo
-              .copyWith(fontWeight: FontWeight.w500, fontSize: 28),
+          style: Theme.of(context).textTheme.headline4,
         ),
         SizedBox(
-          height: 5,
+          height: 20,
         ),
         Text(
           widget.headDesc,
-          style: TextStyles.menuItem.copyWith(fontSize: 16),
+          style: Theme.of(context).textTheme.headline6,
         ),
         SizedBox(
           height: 40,

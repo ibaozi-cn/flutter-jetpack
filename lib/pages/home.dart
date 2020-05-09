@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/menu_about.dart';
-import 'package:jetpack/pages/menu_home.dart';
-import 'package:jetpack/styles/colors.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/util/screen_utils.dart';
-import 'package:jetpack/styles/text_styles.dart';
 
 import 'menu_home_new.dart';
 
@@ -24,14 +21,13 @@ class _PageHomeState extends State<PageHome> {
         child: Padding(
       padding: EdgeInsets.symmetric(
           horizontal: !ResponsiveWidget.isSmallScreen(context)
-              ? (ScreenUtil.getInstance().setWidth(108))
+              ? (ScreenUtil.getInstance().setWidth(0))
               : (ScreenUtil.getInstance().setWidth(6))),
       child: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(
           elevation: 0,
           title: _buildTitle(),
-          backgroundColor: tabBarBgColor,
           actions: ResponsiveWidget.isSmallScreen(context)
               ? _buildSmallScreenAction(context)
               : _buildLargeScreenActions(context),
@@ -39,7 +35,6 @@ class _PageHomeState extends State<PageHome> {
               ? IconButton(
                   icon: Icon(
                     Icons.menu,
-                    color: Colors.red,
                   ),
                   onPressed: () {
                     _scaffoldKey.currentState.openDrawer();
@@ -58,21 +53,11 @@ class _PageHomeState extends State<PageHome> {
       text: TextSpan(
         // Note: Styles for TextSpans must be explicitly defined.
         // Child text spans will inherit styles from parent
-        style: TextStyle(
-          fontSize: 14.0,
-          color: Colors.black,
-        ),
         children: <TextSpan>[
           TextSpan(
-            text: "Jetpack",
-            style: TextStyles.logo,
-          ),
+              text: "Jetpack", style: Theme.of(context).textTheme.subtitle1),
           TextSpan(
-            text: ".net.cn",
-            style: TextStyles.logo.copyWith(
-              color: titleColor,
-            ),
-          ),
+              text: ".net.cn", style: Theme.of(context).textTheme.subtitle2),
         ],
       ),
     );
@@ -83,7 +68,7 @@ class _PageHomeState extends State<PageHome> {
       MaterialButton(
         child: Text(
           '主页',
-          style: TextStyles.menuItem,
+          style: Theme.of(context).textTheme.subtitle1,
         ),
         onPressed: () {
           setState(() {
@@ -95,7 +80,7 @@ class _PageHomeState extends State<PageHome> {
       MaterialButton(
         child: Text(
           '关于',
-          style: TextStyles.menuItem,
+          style: Theme.of(context).textTheme.subtitle1,
         ),
         onPressed: () {
           setState(() {
@@ -132,7 +117,6 @@ class _PageHomeState extends State<PageHome> {
       MaterialButton(
         child: Text(
           '交流群',
-          style: TextStyles.menuItem,
         ),
         onPressed: () {
           Navigator.of(context).pushNamed("/pageChatGroup");

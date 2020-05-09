@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jetpack/data/android_components.dart';
 import 'package:jetpack/data/flutter_components.dart';
 import 'package:jetpack/pages/jetpack.dart';
-import 'package:jetpack/styles/colors.dart';
 
 class WidgetMenuHome extends StatefulWidget {
   @override
@@ -11,9 +10,10 @@ class WidgetMenuHome extends StatefulWidget {
 
 class _WidgetMenuHomeState extends State<WidgetMenuHome>
     with SingleTickerProviderStateMixin {
+
   List _tabs = [
-    'Flutter Jetpack',
-    'Android Jetpack',
+    'Flutter',
+    'Android',
   ];
 
   TabController _tabController;
@@ -35,7 +35,6 @@ class _WidgetMenuHomeState extends State<WidgetMenuHome>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: tabBarBgColor,
       child: Column(
         children: <Widget>[_buildTabBar(), _buildBody()],
       ),
@@ -46,8 +45,6 @@ class _WidgetMenuHomeState extends State<WidgetMenuHome>
     return Align(
       alignment: Alignment.topLeft,
       child: TabBar(
-        indicatorColor: titleColor,
-        labelColor: labelColor,
         controller: _tabController,
         isScrollable: true,
         tabs: _tabs
@@ -71,7 +68,7 @@ class _WidgetMenuHomeState extends State<WidgetMenuHome>
         },
         itemBuilder: (BuildContext context, int index) {
           if (index == 0)
-            return PageFlutterJetPack(
+            return PageJetPack(
               headTitle: FlutterComponents.headTitle,
               headDesc: FlutterComponents.headDesc,
               componentsTitles: FlutterComponents.componentsTitles,
@@ -80,7 +77,7 @@ class _WidgetMenuHomeState extends State<WidgetMenuHome>
               selectComponentsDataForBehavior: FlutterComponents.selectComponentsDataForBehavior(),
               selectComponentsDataForUI: FlutterComponents.selectComponentsDataForUI(),
             );
-          if (index == 1) return PageFlutterJetPack(
+          if (index == 1) return PageJetPack(
             headTitle: AndroidComponents.headTitle,
             headDesc: AndroidComponents.headDesc,
             componentsTitles: AndroidComponents.componentsTitles,

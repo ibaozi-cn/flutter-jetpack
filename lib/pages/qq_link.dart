@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jetpack/styles/text_styles.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PageQQLink extends StatelessWidget {
@@ -11,9 +10,6 @@ class PageQQLink extends StatelessWidget {
           onTap: _launchURL,
           child: Text(
             "打开QQ",
-            style: TextStyles.logo.copyWith(
-              color: Colors.blueAccent
-            ),
           ),
         ),
       ),
@@ -28,5 +24,4 @@ class PageQQLink extends StatelessWidget {
       throw 'Could not launch $url';
     }
   }
-
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jetpack/data/android_components.dart';
 import 'package:jetpack/data/flutter_components.dart';
 import 'package:jetpack/pages/jetpack.dart';
-import 'package:jetpack/styles/colors.dart';
 
 class WidgetMenuNewHome extends StatefulWidget {
   @override
@@ -12,8 +11,8 @@ class WidgetMenuNewHome extends StatefulWidget {
 class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
     with SingleTickerProviderStateMixin {
   List _tabs = [
-    'Flutter Jetpack',
-    'Android Jetpack',
+    'Flutter',
+    'Android',
   ];
 
   TabController _tabController;
@@ -35,7 +34,6 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: tabBarBgColor,
       child: Column(
         children: <Widget>[_buildTabBar(), _buildBody()],
       ),
@@ -46,8 +44,6 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
     return Align(
       alignment: Alignment.centerLeft,
       child: TabBar(
-        indicatorColor: titleColor,
-        labelColor: labelColor,
         controller: _tabController,
         isScrollable: true,
         tabs: _tabs
@@ -67,7 +63,7 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
 
   _buildContent(index) {
     if (index == 0)
-      return PageFlutterJetPack(
+      return PageJetPack(
         headTitle: FlutterComponents.headTitle,
         headDesc: FlutterComponents.headDesc,
         componentsTitles: FlutterComponents.componentsTitles,
@@ -81,7 +77,7 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
             FlutterComponents.selectComponentsDataForUI(),
       );
     if (index == 1)
-      return PageFlutterJetPack(
+      return PageJetPack(
         headTitle: AndroidComponents.headTitle,
         headDesc: AndroidComponents.headDesc,
         componentsTitles: AndroidComponents.componentsTitles,
