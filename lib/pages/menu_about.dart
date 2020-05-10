@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:jetpack/data/beans.dart';
 import 'package:jetpack/data/const.dart';
+import 'package:jetpack/styles/fonts.dart';
+import 'package:jetpack/styles/sizes.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -26,25 +28,15 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         _buildIllustration(),
-        SizedBox(
-          height: 8,
-        ),
-        _buildhomeMe(),
-        SizedBox(
-          height: 8,
-        ),
+        heightBoxMid,
+        _buildHomeMe(),
+        heightBoxMid,
         _buildSocialIcons(),
-        SizedBox(
-          height: 8,
-        ),
+        heightBoxMid,
         _buildHeadline(),
-        SizedBox(
-          height: 8,
-        ),
+        heightBoxMid,
         _buildEducation(),
-        SizedBox(
-          height: 8,
-        ),
+        heightBoxMid,
         _buildSkills(),
 
       ],
@@ -65,21 +57,20 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
     return Column(
       children: <Widget>[
         _buildEducationContainerHeading(),
-        SizedBox(height: 8.0),
+        heightBoxMid,
         _buildEducationSummary(),
-        SizedBox(height: 8.0),
+        heightBoxMid,
         _buildEducationTimeline(),
       ],
     );
   }
 
   Widget _buildEducationContainerHeading() {
-    return Text(experience, style: Theme.of(context).textTheme.subtitle1);
+    return textSmall(experience);
   }
 
   Widget _buildEducationSummary() {
-    return Text('性能的关键是精简，而不是一堆的优化用例。除非有真正显著的效果，否则一定要忍住你那些蠢蠢欲动的小微调的企图。',
-        style: Theme.of(context).textTheme.subtitle2);
+    return textSmall('性能的关键是精简，而不是一堆的优化用例。除非有真正显著的效果，否则一定要忍住你那些蠢蠢欲动的小微调的企图。');
   }
 
   Widget _buildEducationTimeline() {
@@ -94,12 +85,9 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
       padding: EdgeInsets.symmetric(vertical: 8.0),
       child: Column(
         children: <Widget>[
-          Text('${education.post}',
-              style: Theme.of(context).textTheme.bodyText2),
-          Text('${education.organization}',
-              style: Theme.of(context).textTheme.bodyText2),
-          Text('${education.from}-${education.to}',
-              style: Theme.of(context).textTheme.bodyText2),
+          textSmall('${education.post}'),
+          text('${education.organization}'),
+          textSmall('${education.from}-${education.to}'),
         ],
       ),
     );
@@ -140,33 +128,22 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   Widget _buildSkillsContainerHeading() {
-    return Text(skills_i_have, style: Theme.of(context).textTheme.subtitle1);
+    return textMid(skills_i_have);
   }
+
 
   Widget _buildSkillChip(BuildContext context, String label) {
     return Chip(
-      label: Text(label, style: Theme.of(context).textTheme.subtitle2),
+      label: textSmall(label,isChinese: false),
     );
   }
 
-  Widget _buildhomeMe() {
-    return RichText(
-      text: TextSpan(
-        // Note: Styles for TextSpans must be explicitly defined.
-        // Child text spans will inherit styles from parent
-        children: <TextSpan>[
-          TextSpan(text: about, style: Theme.of(context).textTheme.subtitle1),
-          TextSpan(text: me, style: Theme.of(context).textTheme.subtitle2),
-        ],
-      ),
-    );
+  Widget _buildHomeMe() {
+    return textLogoTitle('Call me');
   }
 
   Widget _buildHeadline() {
-    return Text(
-      headline,
-      style: Theme.of(context).textTheme.subtitle2,
-    );
+    return textMenuAction(headline);
   }
 
   Widget _buildSocialIcons() {

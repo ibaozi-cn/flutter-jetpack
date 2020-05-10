@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/menu_about.dart';
+import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/util/screen_utils.dart';
 
@@ -51,27 +52,19 @@ class _PageHomeState extends State<PageHome> {
   }
 
   Widget _buildTitle() {
-    return RichText(
-      text: TextSpan(
-        // Note: Styles for TextSpans must be explicitly defined.
-        // Child text spans will inherit styles from parent
-        children: <TextSpan>[
-          TextSpan(
-              text: "Jetpack", style: Theme.of(context).textTheme.subtitle1),
-          TextSpan(
-              text: ".net.cn", style: Theme.of(context).textTheme.subtitle2),
-        ],
-      ),
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.end,
+      children: <Widget>[
+        textLogoTitle("Jetpack"),
+        textLogoSubTitle(".net.cn"),
+      ],
     );
   }
 
   _buildLargeScreenActions(BuildContext context) {
     return <Widget>[
       MaterialButton(
-        child: Text(
-          '主页',
-          style: Theme.of(context).textTheme.subtitle1,
-        ),
+        child: textMenuAction('主页'),
         onPressed: () {
           setState(() {
             _selectedDrawerIndex = 0;
@@ -80,10 +73,7 @@ class _PageHomeState extends State<PageHome> {
         },
       ),
       MaterialButton(
-        child: Text(
-          '关于',
-          style: Theme.of(context).textTheme.subtitle1,
-        ),
+        child: textMenuAction('关于'),
         onPressed: () {
           setState(() {
             _selectedDrawerIndex = 1;
@@ -92,10 +82,7 @@ class _PageHomeState extends State<PageHome> {
         },
       ),
       MaterialButton(
-        child: Text(
-          '设置',
-          style: Theme.of(context).textTheme.subtitle1,
-        ),
+        child: textMenuAction('设置'),
         onPressed: () {
           setState(() {
             _selectedDrawerIndex = 2;
@@ -131,9 +118,7 @@ class _PageHomeState extends State<PageHome> {
   _buildSmallScreenAction(BuildContext context) {
     return <Widget>[
       MaterialButton(
-        child: Text(
-          '入群',
-        ),
+        child: text('入群'),
         onPressed: () {
           Navigator.of(context).pushNamed("/pageChatGroup");
         },

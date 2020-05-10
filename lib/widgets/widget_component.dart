@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/components.dart';
+import 'package:jetpack/styles/fonts.dart';
+import 'package:jetpack/styles/sizes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WidgetComponents extends StatefulWidget {
@@ -26,22 +28,10 @@ class _WidgetComponentState extends State<WidgetComponents> {
           mainAxisSize: MainAxisSize.min,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              components.title,
-              maxLines: 2,
-              style: Theme.of(context).textTheme.subtitle1,
-            ),
-            SizedBox(
-              height: 8,
-            ),
-            Text(
-              components.subTitle,
-              maxLines: 5,
-              style: Theme.of(context).textTheme.bodyText2,
-            ),
-            SizedBox(
-              height: 8,
-            ),
+            textCardTitle(components.title),
+            heightBoxMid,
+            textCardSubTitle(components.subTitle),
+            heightBoxMid,
             Expanded(
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.end,
@@ -51,30 +41,21 @@ class _WidgetComponentState extends State<WidgetComponents> {
                     onTap: () {
 //                        _launchURL(components.url);
                     },
-                    child: Text(
-                      "示例",
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
+                    child: textCardActionTitle("示例"),
                   ),
-                  Text('，'),
+                  Text(','),
                   InkWell(
                     onTap: () {
                       _launchURL(components.url);
                     },
-                    child: Text(
-                      "源码",
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
+                    child: textCardActionTitle("源码"),
                   ),
-                  Text('，'),
+                  Text(','),
                   InkWell(
                     onTap: () {
 //                        _launchURL(components.url);
                     },
-                    child: Text(
-                      "博客",
-                      style: Theme.of(context).textTheme.subtitle1,
-                    ),
+                    child: textCardActionTitle("博客"),
                   ),
                 ],
               ),

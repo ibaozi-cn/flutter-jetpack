@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/const.dart';
+import 'package:jetpack/styles/fonts.dart';
 
 class PageChatGroup extends StatelessWidget {
 
@@ -53,11 +54,7 @@ class PageChatGroup extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: Text(
-                  CHAT_GROUP_TEXT,
-                  textAlign: TextAlign.start,
-                  style: Theme.of(context).textTheme.headline5,
-                ),
+                child: text(CHAT_GROUP_TEXT),
               ),
             ],
           ),

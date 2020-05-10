@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jetpack/data/android_components.dart';
 import 'package:jetpack/data/flutter_components.dart';
 import 'package:jetpack/pages/jetpack.dart';
+import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 
 class WidgetMenuNewHome extends StatefulWidget {
@@ -49,7 +50,7 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
         isScrollable: true,
         tabs: _tabs
             .map((e) => Tab(
-                  text: e,
+                  child: textTabBar(e),
                 ))
             .toList(),
       ),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/components.dart';
 import 'package:jetpack/data/const.dart';
+import 'package:jetpack/styles/fonts.dart';
+import 'package:jetpack/styles/sizes.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/widgets/widget_component.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -56,14 +58,13 @@ class _PageJetPackState extends State<PageJetPack> {
                     "Architecture", widget.componentsTitles[2].values.first),
                 _buildComponentsContentSliverGrid(
                     widget.selectComponentsDataForArc),
-                _buildComponentsSliverTitle(widget.componentsTitles[3].keys.first,
+                _buildComponentsSliverTitle(
+                    widget.componentsTitles[3].keys.first,
                     widget.componentsTitles[3].values.first),
                 _buildComponentsContentSliverGrid(
                     widget.selectComponentsDataForBehavior),
                 SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 40,
-                  ),
+                  child: heightBoxBig,
                 ),
                 ResponsiveWidget.isSmallScreen(context)
                     ? SliverToBoxAdapter(
@@ -104,26 +105,15 @@ class _PageJetPackState extends State<PageJetPack> {
                 : Column(
                     children: <Widget>[
                       Image.asset(WE_CHAT_SCAN),
-                      SizedBox(
-                        height: 8,
-                      ),
+                      heightBoxMid,
                       Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: Text(
-                          CHAT_GROUP_TEXT,
-                          textAlign: TextAlign.start,
-                          style: Theme.of(context).textTheme.headline5,
-                        ),
+                        child: textMid(CHAT_GROUP_TEXT),
                       ),
                     ],
                   ),
-            Text(
-              'Tags',
-              style: Theme.of(context).textTheme.headline4,
-            ),
-            SizedBox(
-              height: 20,
-            ),
+            textBig('Tags'),
+            heightBoxBig,
             Wrap(
               spacing: 5,
               runSpacing: 5,
@@ -141,23 +131,17 @@ class _PageJetPackState extends State<PageJetPack> {
                 _buildItemTag('Video'),
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
+            heightBoxBig,
           ],
         ),
       ),
     );
   }
 
-  _buildItemTag(text) {
+  _buildItemTag(content) {
     return MaterialButton(
-      onPressed: () {
-
-      },
-      child: Text(
-        text,
-      ),
+      onPressed: () {},
+      child: text(content,isChinese: false),
     );
   }
 
@@ -167,23 +151,11 @@ class _PageJetPackState extends State<PageJetPack> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
-          SizedBox(
-            height: 20,
-          ),
-          Text(
-            title,
-            style: Theme.of(context).textTheme.headline5,
-          ),
-          SizedBox(
-            height: 5,
-          ),
-          Text(
-            subtitle,
-            style: Theme.of(context).textTheme.bodyText2,
-          ),
-          SizedBox(
-            height: 20,
-          ),
+          heightBoxBig,
+          textMid(title),
+          heightBoxSmall,
+          text(subtitle),
+          heightBoxBig,
         ],
       ),
     );
@@ -196,8 +168,9 @@ class _PageJetPackState extends State<PageJetPack> {
   _buildComponentsContentSliverGrid(List<Components> componentsList) {
     return SliverGrid(
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: _buildGridViewCount(),
-          childAspectRatio: 1.0,),
+        crossAxisCount: _buildGridViewCount(),
+        childAspectRatio: 1.0,
+      ),
       delegate: SliverChildBuilderDelegate(
         (context, index) {
           return WidgetComponents(
@@ -240,10 +213,7 @@ class _PageJetPackState extends State<PageJetPack> {
       onTap: () {
         launch("http://www.beian.miit.gov.cn/");
       },
-      child: Text(
-        '京ICP备案20002589号-2',
-        style: Theme.of(context).textTheme.subtitle1,
-      ),
+      child: textSmall('京ICP备案20002589号-2'),
     );
   }
 
@@ -251,23 +221,11 @@ class _PageJetPackState extends State<PageJetPack> {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        SizedBox(
-          height: 40,
-        ),
-        Text(
-          widget.headTitle,
-          style: Theme.of(context).textTheme.headline4,
-        ),
-        SizedBox(
-          height: 20,
-        ),
-        Text(
-          widget.headDesc,
-          style: Theme.of(context).textTheme.headline6,
-        ),
-        SizedBox(
-          height: 40,
-        ),
+        heightBoxBig,
+        textBig(widget.headTitle, isChinese: false),
+        heightBoxBig,
+        textMid(widget.headDesc),
+        heightBoxBig,
       ],
     );
   }

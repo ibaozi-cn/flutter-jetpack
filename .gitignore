@@ -11,3 +11,4 @@ node/server/node_modules/
 /pubspec.lock
 .flutter-plugins
 .flutter-plugins-dependencies
+/build/
