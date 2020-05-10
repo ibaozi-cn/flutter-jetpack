@@ -4,26 +4,12 @@ import 'package:jetpack/styles/fonts.dart';
 
 class PageChatGroup extends StatelessWidget {
 
-  Widget _buildTitle(context) {
-    return RichText(
-      text: TextSpan(
-        // Note: Styles for TextSpans must be explicitly defined.
-        // Child text spans will inherit styles from parent
-        style: TextStyle(
-          fontSize: 14.0,
-          color: Colors.black,
-        ),
-        children: <TextSpan>[
-          TextSpan(
-            text: "群码",
-            style: Theme.of(context).textTheme.subtitle1,
-          ),
-          TextSpan(
-            text: "",
-            style: Theme.of(context).textTheme.bodyText1,
-          ),
-        ],
-      ),
+  Widget _buildTitle() {
+    return Row(
+      children: <Widget>[
+        textLogoTitle('Scan'),
+        textLogoSubTitle('.it'),
+      ],
     );
   }
 
@@ -33,13 +19,13 @@ class PageChatGroup extends StatelessWidget {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(
-            Icons.arrow_back_ios,
+            Icons.arrow_back,
           ),
           onPressed: () {
             Navigator.of(context).pop();
           },
         ),
-        title: _buildTitle(context),
+        title: _buildTitle(),
       ),
 
       body: SingleChildScrollView(

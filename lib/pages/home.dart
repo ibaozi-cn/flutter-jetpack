@@ -114,8 +114,8 @@ class _PageHomeState extends State<PageHome> {
 
   _buildSmallScreenAction(BuildContext context) {
     return <Widget>[
-      MaterialButton(
-        child: text('入群'),
+      IconButton(
+        icon: Icon(Icons.group_add),
         onPressed: () {
           Navigator.of(context).pushNamed("/pageChatGroup");
         },
