@@ -1,5 +1,8 @@
+import 'dart:html';
+
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/components.dart';
+import 'package:jetpack/pages/component_detail.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -39,7 +42,12 @@ class _WidgetComponentState extends State<WidgetComponents> {
                 children: <Widget>[
                   InkWell(
                     onTap: () {
-//                        _launchURL(components.url);
+                      Navigator.push(context, MaterialPageRoute(builder: (_) {
+                        return PageComponentsDetail(
+                          components: components,
+                          index: 0,
+                        );
+                      }));
                     },
                     child: textCardActionTitle("示例"),
                   ),
@@ -53,7 +61,12 @@ class _WidgetComponentState extends State<WidgetComponents> {
                   Text(','),
                   InkWell(
                     onTap: () {
-//                        _launchURL(components.url);
+                      Navigator.push(context, MaterialPageRoute(builder: (_) {
+                        return PageComponentsDetail(
+                          components: components,
+                          index: 1,
+                        );
+                      }));
                     },
                     child: textCardActionTitle("博客"),
                   ),

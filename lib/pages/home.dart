@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/menu_about.dart';
 import 'package:jetpack/styles/fonts.dart';
+import 'package:jetpack/styles/sizes.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/util/screen_utils.dart';
 
@@ -8,7 +9,6 @@ import 'menu_home_new.dart';
 import 'menu_setting.dart';
 
 class PageHome extends StatefulWidget {
-
   @override
   _PageHomeState createState() => _PageHomeState();
 }
@@ -22,10 +22,7 @@ class _PageHomeState extends State<PageHome> {
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
     return Material(
         child: Padding(
-      padding: EdgeInsets.symmetric(
-          horizontal: !ResponsiveWidget.isSmallScreen(context)
-              ? (ScreenUtil.getInstance().setWidth(0))
-              : (ScreenUtil.getInstance().setWidth(6))),
+      padding: padding(context),
       child: Scaffold(
         key: _scaffoldKey,
         appBar: AppBar(

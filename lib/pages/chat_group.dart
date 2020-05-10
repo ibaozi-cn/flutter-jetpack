@@ -4,7 +4,6 @@ import 'package:jetpack/styles/fonts.dart';
 
 class PageChatGroup extends StatelessWidget {
 
-
   Widget _buildTitle(context) {
     return RichText(
       text: TextSpan(

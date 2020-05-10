@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:jetpack/pages/component_detail.dart';
 import 'package:jetpack/pages/chat_group.dart';
 import 'package:jetpack/pages/home.dart';
 import 'package:jetpack/pages/qq_link.dart';
