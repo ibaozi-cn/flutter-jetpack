@@ -134,7 +134,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
 
   Widget _buildSkillChip(BuildContext context, String label) {
     return Chip(
-      label: textSmall(label,isChinese: false),
+      label: textSmall(label),
     );
   }
 

@@ -141,7 +141,7 @@ class _PageJetPackState extends State<PageJetPack> {
   _buildItemTag(content) {
     return MaterialButton(
       onPressed: () {},
-      child: text(content,isChinese: false),
+      child: text(content),
     );
   }
 
@@ -154,7 +154,7 @@ class _PageJetPackState extends State<PageJetPack> {
           heightBoxBig,
           textMid(title),
           heightBoxSmall,
-          text(subtitle),
+          textSmall(subtitle),
           heightBoxBig,
         ],
       ),
@@ -222,7 +222,7 @@ class _PageJetPackState extends State<PageJetPack> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         heightBoxBig,
-        textBig(widget.headTitle, isChinese: false),
+        textBig(widget.headTitle),
         heightBoxBig,
         textMid(widget.headDesc),
         heightBoxBig,
