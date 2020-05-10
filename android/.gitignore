@@ -5,3 +5,9 @@ gradle-wrapper.jar
 /gradlew.bat
 /local.properties
 GeneratedPluginRegistrant.java
+/app/src/main/gen/com/flutter/jetpack/
+/app/src/main/main.iml
+/app/src/profile/gen/com/flutter/jetpack/
+/app/src/profile/profile.iml
+/app/src/debug/gen/com/flutter/jetpack/
+/app/src/debug/debug.iml
