@@ -68,9 +68,45 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
     );
   }
 
+//  _buildBody() {
+//    return Expanded(
+//      child: _buildContent(_index),
+//    );
+//  }
+
   _buildBody() {
     return Expanded(
-      child: _buildContent(_index),
+      child: TabBarView(
+        controller: _tabController,
+        children: <Widget>[
+          PageJetPack(
+            headTitle: FlutterComponents.headTitle,
+            headDesc: FlutterComponents.headDesc,
+            componentsTitles: FlutterComponents.componentsTitles,
+            selectComponentsDataForArc:
+            FlutterComponents.selectComponentsDataForArc(),
+            selectComponentsDataForBasic:
+            FlutterComponents.selectComponentsDataForBasic(),
+            selectComponentsDataForBehavior:
+            FlutterComponents.selectComponentsDataForBehavior(),
+            selectComponentsDataForUI:
+            FlutterComponents.selectComponentsDataForUI(),
+          ),
+          PageJetPack(
+            headTitle: AndroidComponents.headTitle,
+            headDesc: AndroidComponents.headDesc,
+            componentsTitles: AndroidComponents.componentsTitles,
+            selectComponentsDataForArc:
+            AndroidComponents.selectComponentsDataForArc(),
+            selectComponentsDataForBasic:
+            AndroidComponents.selectComponentsDataForBasic(),
+            selectComponentsDataForBehavior:
+            AndroidComponents.selectComponentsDataForBehavior(),
+            selectComponentsDataForUI:
+            AndroidComponents.selectComponentsDataForUI(),
+          )
+        ],
+      ),
     );
   }
 
