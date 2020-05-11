@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:jetpack/data/components.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/fonts.dart';
@@ -139,9 +140,16 @@ class _PageJetPackState extends State<PageJetPack> {
   }
 
   _buildItemTag(content) {
-    return MaterialButton(
-      onPressed: () {},
-      child: text(content),
+    return Card(
+      child: InkWell(
+        onTap: (){
+
+        },
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: textCardTagsTitle(content),
+        ),
+      ),
     );
   }
 
@@ -165,20 +173,31 @@ class _PageJetPackState extends State<PageJetPack> {
     return SliverToBoxAdapter(child: _buildComponentsTitle(title, subtitle));
   }
 
+//  _buildComponentsContentSliverGrid(List<Components> componentsList) {
+//    return SliverGrid(
+//      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+//        crossAxisCount: _buildGridViewCount(),
+//        childAspectRatio: 1.0,
+//      ),
+//      delegate: SliverChildBuilderDelegate(
+//        (context, index) {
+//          return WidgetComponents(
+//            components: componentsList[index],
+//          );
+//        },
+//        childCount: componentsList.length,
+//      ),
+//    );
+//  }
+
   _buildComponentsContentSliverGrid(List<Components> componentsList) {
-    return SliverGrid(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: _buildGridViewCount(),
-        childAspectRatio: 1.0,
-      ),
-      delegate: SliverChildBuilderDelegate(
-        (context, index) {
-          return WidgetComponents(
-            components: componentsList[index],
-          );
-        },
-        childCount: componentsList.length,
-      ),
+    return SliverFixedExtentList(
+      itemExtent: 140,
+      delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
+        return WidgetComponents(
+          components: componentsList[index],
+        );
+      }, childCount: componentsList.length),
     );
   }
 

@@ -105,3 +105,14 @@ Text textCardActionTitle(text, {textAlign: TextAlign.start}){
     ),
   );
 }
+
+///中文样式
+Text textCardTagsTitle(text, {textAlign: TextAlign.start}){
+  return Text(
+    text,
+    textAlign: textAlign,
+    style: GoogleFonts.aleo().copyWith(fontSize: 16).copyWith(
+        color: Colors.blueGrey
+    ),
+  );
+}

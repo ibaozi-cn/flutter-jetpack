@@ -1,8 +1,8 @@
 class Components {
 
-  var title;
-  var subTitle;
-  var url;
+  String title;
+  String subTitle;
+  String url;
   var leading;
   List<Components> componentsList;
 
