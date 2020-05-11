@@ -37,7 +37,7 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
   Widget build(BuildContext context) {
     return Container(
       child: Column(
-        children: <Widget>[ResponsiveWidget.isLargeScreen(context)?_buildLargeTabBar():_buildTabBar(), _buildBody()],
+        children: <Widget>[_buildLargeTabBar(), _buildBody()],
       ),
     );
   }
@@ -54,17 +54,6 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
                 ))
             .toList(),
       ),
-    );
-  }
-
-  _buildTabBar() {
-    return  TabBar(
-      controller: _tabController,
-      tabs: _tabs
-          .map((e) => Tab(
-        text: e,
-      ))
-          .toList(),
     );
   }
 
