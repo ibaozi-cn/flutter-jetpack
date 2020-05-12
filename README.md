@@ -23,6 +23,8 @@ Then, open Chrome and input http://localhost:3000.
 
 ## UI Dart or Light
 
+![about](github/about_l.jpg)
+
 <p align="center">
 	<img src="https://github.com/ibaozi-cn/flutter-jetpack/raw/dev/github/about_l.jpg" alt="Sample"  width="360" height="680">
 	<img src="https://github.com/ibaozi-cn/flutter-jetpack/raw/dev/github/about_b.jpg" alt="Sample"  width="360" height="680">
