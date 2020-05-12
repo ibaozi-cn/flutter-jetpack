@@ -109,11 +109,11 @@ class _PageJetPackState extends State<PageJetPack> {
                       heightBoxMid,
                       Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: textMid(CHAT_GROUP_TEXT),
+                        child: textSmall(CHAT_GROUP_TEXT),
                       ),
                     ],
                   ),
-            textBig('Tags'),
+            text('Tags'),
             heightBoxBig,
             Wrap(
               spacing: 5,
@@ -153,18 +153,19 @@ class _PageJetPackState extends State<PageJetPack> {
     );
   }
 
-  _buildComponentsTitle(title, subtitle) {
+Widget  _buildComponentsTitle(title, subtitle) {
     return Align(
       alignment: Alignment.topLeft,
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          heightBoxBig,
-          textMid(title),
-          heightBoxSmall,
-          textSmall(subtitle),
-          heightBoxBig,
-        ],
+      child: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            text(title),
+            heightBoxSmall,
+            textSmall(subtitle),
+          ],
+        ),
       ),
     );
   }
@@ -192,7 +193,7 @@ class _PageJetPackState extends State<PageJetPack> {
 
   _buildComponentsContentSliverGrid(List<Components> componentsList) {
     return SliverFixedExtentList(
-      itemExtent: 140,
+      itemExtent: 120,
       delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
         return WidgetComponents(
           components: componentsList[index],
@@ -214,7 +215,7 @@ class _PageJetPackState extends State<PageJetPack> {
         Padding(
           padding: EdgeInsets.all(6.0),
           child: Row(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: <Widget>[
               Align(
                 child: _buildCopyRightText(),
@@ -238,12 +239,11 @@ class _PageJetPackState extends State<PageJetPack> {
 
   _buildHead() {
     return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
         heightBoxBig,
-        textBig(widget.headTitle),
+        text(widget.headTitle),
         heightBoxBig,
-        textMid(widget.headDesc),
+        textSmall(widget.headDesc),
         heightBoxBig,
       ],
     );

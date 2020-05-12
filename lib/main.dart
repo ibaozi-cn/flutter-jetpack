@@ -55,5 +55,8 @@ class AppTheme {
 
   // ignore: non_constant_identifier_names
   static final AppTheme LIGHT_THEME = AppTheme(
-      ThemeData(brightness: Brightness.light, primaryColor: Colors.grey[50]));
+      ThemeData(brightness: Brightness.light, primaryColor: Colors.grey[50],
+          accentColor: Colors.deepOrangeAccent,
+          tabBarTheme: TabBarTheme()
+      ),);
 }

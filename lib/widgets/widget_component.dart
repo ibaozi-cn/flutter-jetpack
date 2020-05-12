@@ -58,14 +58,14 @@ class _WidgetComponentState extends State<WidgetComponents> {
                       },
                       child: textCardActionTitle("示例"),
                     ),
-                    Text(','),
+                    Text('  '),
                     InkWell(
                       onTap: () {
                         _launchURL(components.url);
                       },
                       child: textCardActionTitle("源码"),
                     ),
-                    Text(','),
+                    Text('  '),
                     InkWell(
                       onTap: () {
                         Navigator.push(context, MaterialPageRoute(builder: (_) {

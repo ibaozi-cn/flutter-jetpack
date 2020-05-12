@@ -128,7 +128,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   Widget _buildSkillsContainerHeading() {
-    return textMid(skills_i_have);
+    return text(skills_i_have);
   }
 
 
@@ -143,7 +143,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   Widget _buildHeadline() {
-    return textMenuAction(headline);
+    return text(headline);
   }
 
   Widget _buildSocialIcons() {
