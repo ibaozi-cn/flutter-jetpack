@@ -1,5 +1,6 @@
 import 'components.dart';
 import 'const.dart';
+import 'markdown_data.dart';
 
 class FlutterComponents {
   static const String headTitle = "Flutter Jetpack Components";
@@ -17,6 +18,7 @@ class FlutterComponents {
     List<Components> list = [];
     list.add(Components("flutter_screenutil", "Flutter屏幕适应，字体适应，获取屏幕信息",
         "https://github.com/OpenFlutter/flutter_screenutil",
+        markDownData: flutter_screenutil,
         componentsList: [
           Components(
               "pub",

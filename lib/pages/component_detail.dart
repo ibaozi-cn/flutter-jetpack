@@ -62,7 +62,7 @@ class _PageComponentsDetailState extends State<PageComponentsDetail>
           body: TabBarView(
             controller: _tabController,
             children: <Widget>[
-              Demos(),
+              Demos(markDownData: widget.components.markDownData,),
               Blogs(
                 componentsList: widget.components.componentsList,
               ),
@@ -79,13 +79,15 @@ class _PageComponentsDetailState extends State<PageComponentsDetail>
 }
 
 class Demos extends StatelessWidget {
-  final controller = ScrollController();
+
+  final String markDownData ;
+  const Demos({Key key, this.markDownData}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: Markdown(
-          data: markdownData,
+          data: markDownData??markdownData,
           selectable: true,
           imageDirectory: 'https://raw.githubusercontent.com'),
     );

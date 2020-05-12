@@ -4,9 +4,10 @@ class Components {
   String subTitle;
   String url;
   var leading;
+  String markDownData;
   List<Components> componentsList;
 
-  Components(this.title, this.subTitle, this.url, {this.leading,this.componentsList});
+  Components(this.title, this.subTitle, this.url, {this.leading,this.componentsList,this.markDownData});
 
   @override
   String toString() {
