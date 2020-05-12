@@ -4,7 +4,6 @@ class AndroidComponents{
 
   static const String headTitle = "Android Jetpack Components";
   static const String headDesc = "Android Jetpack 组件是库的集合，这些库是为协同工作而构建的，不过也可以单独采用，同时利用 Kotlin 语言功能帮助您提高工作效率。可全部使用，也可混合搭配！";
-
   static const List<Map> componentsTitles=[
     {
       "Basic":"基础组件可提供横向功能，例如向后兼容性、测试和 Kotlin 语言支持。"

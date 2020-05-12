@@ -15,4 +15,4 @@ SizedBox heightBoxSmall = SizedBox(
  EdgeInsetsGeometry padding(context) => EdgeInsets.symmetric(
     horizontal: !ResponsiveWidget.isSmallScreen(context)
         ? (ScreenUtil.getInstance().setWidth(188))
-        : (ScreenUtil.getInstance().setWidth(6)));
+        : (ScreenUtil.getInstance().setWidth(0)));

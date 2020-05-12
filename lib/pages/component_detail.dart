@@ -106,8 +106,6 @@ class Blogs extends StatelessWidget {
           child: Column(
             children: <Widget>[
               heightBoxBig,
-              Card(child: Image.asset(ad)),
-              heightBoxBig,
               Expanded(
                 child: ListView.builder(
                     shrinkWrap: true,
@@ -116,7 +114,7 @@ class Blogs extends StatelessWidget {
                       Components components = componentsList[index];
                       return Card(
                         child: ListTile(
-                          onTap: (){
+                          onTap: () {
                             launch(components.url);
                           },
                           title: textCardTitle(components.title),
@@ -132,8 +130,13 @@ class Blogs extends StatelessWidget {
         ResponsiveWidget.isLargeScreen(context)
             ? Expanded(
                 flex: 1,
-                child: Card(
-                  child: Image.asset(blogger),
+                child: Column(
+                  children: <Widget>[
+                    heightBoxBig,
+                    Card(
+                      child: Image.asset(blogger),
+                    )
+                  ],
                 ),
               )
             : Container()

@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/menu_about.dart';
 import 'package:jetpack/styles/fonts.dart';
@@ -5,6 +7,7 @@ import 'package:jetpack/styles/sizes.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:jetpack/util/screen_utils.dart';
 
+import 'drawer.dart';
 import 'menu_home_new.dart';
 import 'menu_setting.dart';
 
@@ -14,9 +17,7 @@ class PageHome extends StatefulWidget {
 }
 
 class _PageHomeState extends State<PageHome> {
-  int _selectedDrawerIndex = 0;
   var _scaffoldKey = GlobalKey<ScaffoldState>();
-
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
@@ -43,7 +44,13 @@ class _PageHomeState extends State<PageHome> {
               : null,
         ),
         drawer: _buildDrawer(context),
-        body: _getDrawerItemWidget(_selectedDrawerIndex),
+        body: StreamBuilder<Object>(
+          initialData: 0,
+          stream: homeBloc.stream,
+          builder: (context, snapshot) {
+            return _getDrawerItemWidget(snapshot.data);
+          }
+        ),
       ),
     ));
   }
@@ -63,27 +70,21 @@ class _PageHomeState extends State<PageHome> {
       MaterialButton(
         child: textMenuAction('主页'),
         onPressed: () {
-          setState(() {
-            _selectedDrawerIndex = 0;
-          });
+          homeBloc.changeSelectedDrawerIndex(0);
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
       MaterialButton(
         child: textMenuAction('关于'),
         onPressed: () {
-          setState(() {
-            _selectedDrawerIndex = 1;
-          });
+          homeBloc.changeSelectedDrawerIndex(1);
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
       MaterialButton(
         child: textMenuAction('设置'),
         onPressed: () {
-          setState(() {
-            _selectedDrawerIndex = 2;
-          });
+          homeBloc.changeSelectedDrawerIndex(2);
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
@@ -93,15 +94,12 @@ class _PageHomeState extends State<PageHome> {
   _buildDrawer(BuildContext context) {
     return ResponsiveWidget.isSmallScreen(context)
         ? Drawer(
-            child: ListView(
-              padding: const EdgeInsets.all(0),
-              children: _buildLargeScreenActions(context),
-            ),
+            child: WidgetDrawer(),
           )
         : null;
   }
 
-  _getDrawerItemWidget(int selectedDrawerIndex) {
+ Widget _getDrawerItemWidget(int selectedDrawerIndex) {
     switch (selectedDrawerIndex) {
       case 0:
         return WidgetMenuNewHome();
@@ -110,6 +108,7 @@ class _PageHomeState extends State<PageHome> {
       case 2:
         return WidgetMenuSetting();
     }
+    return Container();
   }
 
   _buildSmallScreenAction(BuildContext context) {
@@ -122,4 +121,26 @@ class _PageHomeState extends State<PageHome> {
       ),
     ];
   }
+  @override
+  void dispose() {
+    homeBloc.dispose();
+    super.dispose();
+  }
+
 }
+
+class HomeBloc{
+
+  final _selectedDrawerIndexController = StreamController<int>();
+
+  get changeSelectedDrawerIndex => _selectedDrawerIndexController.sink.add;
+
+  get stream => _selectedDrawerIndexController.stream;
+
+  dispose(){
+    _selectedDrawerIndexController.close();
+  }
+
+}
+
+final homeBloc = HomeBloc();

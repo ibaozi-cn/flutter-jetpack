@@ -32,18 +32,20 @@ class MyApp extends StatelessWidget {
 }
 
 class ThemeBloc {
-  // ignore: close_sinks
   final _themeStreamController = StreamController<AppTheme>();
 
   get changeTheTheme => _themeStreamController.sink.add;
 
   get darkThemeIsEnabled => _themeStreamController.stream;
+
+  dispose() {
+    _themeStreamController.close();
+  }
 }
 
 final bloc = ThemeBloc();
 
 class AppTheme {
-
   ThemeData themeData;
 
   AppTheme(this.themeData);
