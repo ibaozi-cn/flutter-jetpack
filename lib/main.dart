@@ -1,10 +1,9 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:jetpack/pages/component_detail.dart';
-import 'package:jetpack/pages/chat_group.dart';
-import 'package:jetpack/pages/home.dart';
-import 'package:jetpack/pages/qq_link.dart';
+import 'package:jetpack/pages/bloggers/laomeng.dart';
+import 'package:jetpack/pages/group/chat_group.dart';
+import 'package:jetpack/pages/home/home.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,8 +22,8 @@ class MyApp extends StatelessWidget {
             theme: snapshot.data.themeData,
             home: PageHome(),
             routes: <String, WidgetBuilder>{
-              "/qq": (context) => PageQQLink(),
               "/pageChatGroup": (context) => PageChatGroup(),
+              "/LaoMeng": (context) => LaoMeng(),
             },
           );
         });
@@ -55,8 +54,13 @@ class AppTheme {
 
   // ignore: non_constant_identifier_names
   static final AppTheme LIGHT_THEME = AppTheme(
-      ThemeData(brightness: Brightness.light, primaryColor: Colors.grey[50],
-          accentColor: Colors.deepOrangeAccent,
-          tabBarTheme: TabBarTheme()
-      ),);
+    ThemeData(
+        brightness: Brightness.light,
+        primaryColor: Colors.grey[50],
+        accentColor: Colors.deepOrangeAccent,
+        tabBarTheme: TabBarTheme(),
+        buttonBarTheme: ButtonBarThemeData(
+            buttonTextTheme:ButtonTextTheme.normal
+        )),
+  );
 }

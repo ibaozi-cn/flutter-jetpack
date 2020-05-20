@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/const.dart';
-import 'package:jetpack/pages/home.dart';
+import 'package:jetpack/pages/home/home.dart';
 import 'package:jetpack/styles/fonts.dart';
 
 class WidgetDrawer extends StatelessWidget {
@@ -43,6 +43,14 @@ class WidgetDrawer extends StatelessWidget {
               homeBloc.changeSelectedDrawerIndex(2);
             },
             leading: Icon(Icons.settings),
+          ),
+          ListTile(
+            title: textMenuAction('合作者'),
+            onTap: () {
+              Navigator.pop(context);
+              homeBloc.changeSelectedDrawerIndex(3);
+            },
+            leading: Icon(Icons.group),
           ),
         ],
       ),

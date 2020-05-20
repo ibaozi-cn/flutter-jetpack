@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/android_components.dart';
 import 'package:jetpack/data/flutter_components.dart';
-import 'package:jetpack/pages/jetpack.dart';
+import 'package:jetpack/pages/jetpacks/jetpack.dart';
 
 class WidgetMenuHome extends StatefulWidget {
   @override

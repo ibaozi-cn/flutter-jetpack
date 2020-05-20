@@ -95,6 +95,7 @@ class Demos extends StatelessWidget {
 }
 
 class Blogs extends StatelessWidget {
+
   final List<Components> componentsList;
 
   const Blogs({Key key, this.componentsList}) : super(key: key);

@@ -66,7 +66,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   Widget _buildEducationContainerHeading() {
-    return textSmall(experience);
+    return text(experience);
   }
 
   Widget _buildEducationSummary() {

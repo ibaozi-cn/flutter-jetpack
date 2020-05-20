@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:jetpack/main.dart';
 import 'package:jetpack/styles/fonts.dart';
 
+bool _isEnabled = false;
+
 class WidgetMenuSetting extends StatefulWidget {
   @override
   _WidgetMenuSettingState createState() => _WidgetMenuSettingState();
 }
 
 class _WidgetMenuSettingState extends State<WidgetMenuSetting> {
-  bool _isEnabled = false;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

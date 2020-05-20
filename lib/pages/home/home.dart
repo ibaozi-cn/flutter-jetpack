@@ -1,7 +1,8 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
-import 'package:jetpack/pages/menu_about.dart';
+import 'package:jetpack/pages/home/menu_about.dart';
+import 'package:jetpack/pages/home/menu_collaborators.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
@@ -18,6 +19,7 @@ class PageHome extends StatefulWidget {
 
 class _PageHomeState extends State<PageHome> {
   var _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
@@ -45,12 +47,11 @@ class _PageHomeState extends State<PageHome> {
         ),
         drawer: _buildDrawer(context),
         body: StreamBuilder<Object>(
-          initialData: 0,
-          stream: homeBloc.stream,
-          builder: (context, snapshot) {
-            return _getDrawerItemWidget(snapshot.data);
-          }
-        ),
+            initialData: 0,
+            stream: homeBloc.stream,
+            builder: (context, snapshot) {
+              return _getDrawerItemWidget(snapshot.data);
+            }),
       ),
     ));
   }
@@ -88,6 +89,14 @@ class _PageHomeState extends State<PageHome> {
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
+      MaterialButton(
+        child: textMenuAction('合作者'),
+        onPressed: () {
+          homeBloc.changeSelectedDrawerIndex(3);
+          if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
+//          Navigator.of(context).pushNamed("/LaoMeng");
+        },
+      ),
     ];
   }
 
@@ -99,7 +108,7 @@ class _PageHomeState extends State<PageHome> {
         : null;
   }
 
- Widget _getDrawerItemWidget(int selectedDrawerIndex) {
+  Widget _getDrawerItemWidget(int selectedDrawerIndex) {
     switch (selectedDrawerIndex) {
       case 0:
         return WidgetMenuNewHome();
@@ -107,6 +116,8 @@ class _PageHomeState extends State<PageHome> {
         return WidgetMenuAbout();
       case 2:
         return WidgetMenuSetting();
+      case 3:
+        return MenuCollaborators();
     }
     return Container();
   }
@@ -121,26 +132,24 @@ class _PageHomeState extends State<PageHome> {
       ),
     ];
   }
+
   @override
   void dispose() {
     homeBloc.dispose();
     super.dispose();
   }
-
 }
 
-class HomeBloc{
-
+class HomeBloc {
   final _selectedDrawerIndexController = StreamController<int>();
 
   get changeSelectedDrawerIndex => _selectedDrawerIndexController.sink.add;
 
   get stream => _selectedDrawerIndexController.stream;
 
-  dispose(){
+  dispose() {
     _selectedDrawerIndexController.close();
   }
-
 }
 
 final homeBloc = HomeBloc();
