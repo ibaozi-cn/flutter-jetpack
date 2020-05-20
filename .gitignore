@@ -3,8 +3,6 @@
 node/server/node_modules/
 
 /.dart_tool/
-/flutter_01.log
-/flutter_02.log
 /.idea/
 /.packages
 /flutter-jetpack.iml
@@ -12,3 +10,4 @@ node/server/node_modules/
 .flutter-plugins
 .flutter-plugins-dependencies
 /build/
+/*.log

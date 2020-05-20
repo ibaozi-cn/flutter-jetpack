@@ -59,8 +59,6 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
         _buildEducationContainerHeading(),
         heightBoxMid,
         _buildEducationSummary(),
-        heightBoxMid,
-        _buildEducationTimeline(),
       ],
     );
   }
@@ -73,25 +71,6 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
     return textSmall('性能的关键是精简，而不是一堆的优化用例。除非有真正显著的效果，否则一定要忍住你那些蠢蠢欲动的小微调的企图。');
   }
 
-  Widget _buildEducationTimeline() {
-    final List<Widget> widgets = educationList
-        .map((education) => _buildEducationTile(education))
-        .toList();
-    return Column(children: widgets);
-  }
-
-  Widget _buildEducationTile(Education education) {
-    return Padding(
-      padding: EdgeInsets.symmetric(vertical: 8.0),
-      child: Column(
-        children: <Widget>[
-          textSmall('${education.post}'),
-          text('${education.organization}'),
-          textSmall('${education.from}-${education.to}'),
-        ],
-      ),
-    );
-  }
 
   Widget _buildSkills() {
     final List<Widget> widgets = skills
