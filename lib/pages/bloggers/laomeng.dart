@@ -21,9 +21,8 @@ class LaoMeng extends StatelessWidget {
           heightBoxBig,
           Container(height: 200, width: 200, child: Image.asset(laomeng)),
           heightBoxBig,
-          heightBoxBig,
           textCardTitle("Flutter | 老孟"),
-          heightBoxBig,
+          heightBoxMid,
           textCardSubTitle("专注分析Flutter原理及实践应用"),
           heightBoxBig,
           RaisedButton(
@@ -34,7 +33,6 @@ class LaoMeng extends StatelessWidget {
             shape: StadiumBorder(),
             child: textSmall("开始阅读"),
           ),
-          heightBoxBig,
           heightBoxBig,
           ResponsiveWidget.isSmallScreen(context)
               ? Column(
