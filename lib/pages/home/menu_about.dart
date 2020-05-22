@@ -8,6 +8,7 @@ import 'package:jetpack/widgets/responsive_widget.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WidgetMenuAbout extends StatefulWidget {
+
   @override
   _WidgetMenuAboutState createState() => _WidgetMenuAboutState();
 }
@@ -23,23 +24,26 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   _buildLargeScreen() {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        _buildIllustration(),
-        heightBoxMid,
-        _buildHomeMe(),
-        heightBoxMid,
-        _buildSocialIcons(),
-        heightBoxMid,
-        _buildHeadline(),
-        heightBoxMid,
-        _buildEducation(),
-        heightBoxMid,
-        _buildSkills(),
+    return Padding(
+      padding: const EdgeInsets.all(16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          _buildIllustration(),
+          heightBoxBig,
+          _buildHomeMe(),
+          heightBoxBig,
+          _buildSocialIcons(),
+          heightBoxBig,
+          _buildHeadline(),
+          heightBoxBig,
+          _buildEducation(),
+          heightBoxBig,
+          _buildSkills(),
 
-      ],
+        ],
+      ),
     );
   }
 
@@ -48,7 +52,6 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
       alignment: Alignment.center,
       child: Image.asset(
         programmer3,
-        height: 360,
       ),
     );
   }
@@ -56,8 +59,13 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   Widget _buildEducation() {
     return Column(
       children: <Widget>[
-        _buildEducationContainerHeading(),
-        heightBoxMid,
+        StreamBuilder<Object>(
+          stream: null,
+          builder: (context, snapshot) {
+            return _buildEducationContainerHeading();
+          }
+        ),
+        heightBoxBig,
         _buildEducationSummary(),
       ],
     );
@@ -122,7 +130,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   Widget _buildHeadline() {
-    return text(headline);
+    return textSmall(headline);
   }
 
   Widget _buildSocialIcons() {

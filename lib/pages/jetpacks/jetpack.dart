@@ -157,7 +157,7 @@ Widget  _buildComponentsTitle(title, subtitle) {
     return Align(
       alignment: Alignment.topLeft,
       child: Padding(
-        padding: const EdgeInsets.all(16.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
@@ -238,14 +238,18 @@ Widget  _buildComponentsTitle(title, subtitle) {
   }
 
   _buildHead() {
-    return Column(
-      children: <Widget>[
-        heightBoxBig,
-        text(widget.headTitle),
-        heightBoxBig,
-        textSmall(widget.headDesc),
-        heightBoxBig,
-      ],
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          heightBoxSmall,
+          text(widget.headTitle),
+          heightBoxSmall,
+          textSmall(widget.headDesc),
+          heightBoxSmall,
+        ],
+      ),
     );
   }
 }
