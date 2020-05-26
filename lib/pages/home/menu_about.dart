@@ -16,6 +16,9 @@ class WidgetMenuAbout extends StatefulWidget {
 class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   @override
   Widget build(BuildContext context) {
+    setState(() {
+
+    });
     return Scaffold(
       body: SingleChildScrollView(
         child: _buildLargeScreen(),
