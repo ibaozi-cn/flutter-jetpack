@@ -27,6 +27,8 @@ dependencies:
   url_launcher: ^5.4.2
   google_fonts: ^1.1.0
   flutter_markdown: ^0.3.5
+  font_awesome_flutter: ^8.7.1
+
 
 dev_dependencies:
   flutter_test:
@@ -46,6 +48,7 @@ flutter:
   # To add assets to your application, add an assets section, like this:
   assets:
      - images/
+     - images/xiaomo/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

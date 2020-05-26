@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/bloggers/laomeng.dart';
+import 'package:jetpack/pages/bloggers/xiaomo.dart';
 import 'package:jetpack/pages/group/chat_group.dart';
 import 'package:jetpack/pages/home/home.dart';
 
@@ -24,6 +25,7 @@ class MyApp extends StatelessWidget {
             routes: <String, WidgetBuilder>{
               "/pageChatGroup": (context) => PageChatGroup(),
               "/LaoMeng": (context) => LaoMeng(),
+              "/xiaomo": (context) => Xiaomo(),
             },
           );
         });

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:jetpack/data/beans.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
