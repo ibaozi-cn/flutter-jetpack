@@ -29,10 +29,18 @@ class Xiaomo extends StatelessWidget {
   }
 
   Widget _buildBackground(context) {
-    return Image.asset(
-      "images/xiaomo/bg.jpg",
-      width: double.infinity,
-      fit: BoxFit.fitHeight,
+    var fit = BoxFit.fitHeight;
+    if (MediaQuery.of(context).orientation == Orientation.landscape) {
+      fit = BoxFit.cover;
+    }
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      width: MediaQuery.of(context).size.width,
+      child: Image.asset(
+        "images/xiaomo/bg.jpg",
+        width: double.infinity,
+        fit: fit,
+      ),
     );
   }
 
@@ -43,16 +51,24 @@ class Xiaomo extends StatelessWidget {
           children: <Widget>[
             _buildAvatar(context),
             _buildSelfIntroduce(context),
-            _buildLinks(),
+            _buildLinks(context),
           ],
         ));
   }
 
   Widget _buildSelfIntroduce(context) {
+    var width = MediaQuery.of(context).size.width / 1.2;
+    var margin = EdgeInsets.fromLTRB(0, 50, 0, 50);
+    var padding = EdgeInsets.fromLTRB(0, 15, 0, 15);
+    if (MediaQuery.of(context).orientation == Orientation.landscape) {
+      width = MediaQuery.of(context).size.width / 2;
+      margin = EdgeInsets.fromLTRB(0, 20, 0, 20);
+      padding = EdgeInsets.fromLTRB(0, 20, 0, 20);
+    }
     return Container(
-      padding: EdgeInsets.fromLTRB(50, 20, 50, 20),
-      width: MediaQuery.of(context).size.width / 2,
-      margin: EdgeInsets.all(20),
+      padding: padding,
+      width: width,
+      margin: margin,
       alignment: Alignment.center,
       decoration: BoxDecoration(
         color: Color(0xFF242324).withOpacity(0.4),
@@ -69,54 +85,68 @@ class Xiaomo extends StatelessWidget {
     );
   }
 
-  Widget _buildLinks() {
-    return Wrap(
-      children: <Widget>[
-        _buildLink(
-            Icon(
-              FontAwesomeIcons.home,
-              size: 50,
-              color: Colors.lightBlueAccent,
-            ),
-            "https://blog.xiamomo.info"),
-        _buildLink(
-            Icon(
-              FontAwesomeIcons.github,
-              size: 50,
-            ),
-            "https://github.com/houko"),
-        _buildLink(
-            Icon(
-              FontAwesomeIcons.twitter,
-              size: 50,
-              color: Colors.blue,
-            ),
-            "https://twitter.com/xiaomoinfo"),
-        _buildLink(
-            Icon(
-              FontAwesomeIcons.java,
-              size: 50,
-              color: Colors.red,
-            ),
-            "https://www.youracclaim.com/user/xiaomoinfo"),
-        _buildLink(
-            Icon(
-              FontAwesomeIcons.tools,
-              size: 50,
-              color: Colors.grey,
-            ),
-            "https://miku.tools/"),
-      ],
+  Widget _buildLinks(
+      context,
+      ) {
+    return Container(
+      alignment: Alignment.center,
+      child: Wrap(
+        children: <Widget>[
+          _buildLink(
+              context,
+              Icon(
+                FontAwesomeIcons.home,
+                size: 50,
+                color: Colors.lightBlueAccent,
+              ),
+              "https://blog.xiamomo.info"),
+          _buildLink(
+              context,
+              Icon(
+                FontAwesomeIcons.github,
+                size: 50,
+              ),
+              "https://github.com/houko"),
+          _buildLink(
+              context,
+              Icon(
+                FontAwesomeIcons.twitter,
+                size: 50,
+                color: Colors.blue,
+              ),
+              "https://twitter.com/xiaomoinfo"),
+          _buildLink(
+              context,
+              Icon(
+                FontAwesomeIcons.java,
+                size: 50,
+                color: Colors.red,
+              ),
+              "https://www.youracclaim.com/user/xiaomoinfo"),
+          _buildLink(
+              context,
+              Icon(
+                FontAwesomeIcons.toolbox,
+                size: 50,
+                color: Colors.pinkAccent,
+              ),
+              "https://miku.tools/"),
+        ],
+      ),
     );
   }
 
-  Widget _buildLink(Icon icon, String link) {
+  Widget _buildLink(context, Icon icon, String link) {
+    double margin = 10;
+    if (MediaQuery.of(context).orientation == Orientation.landscape) {
+      margin = 20;
+    }
     return InkWell(
       onTap: () {
         launch(link);
       },
       child: Container(
-        margin: EdgeInsets.all(20),
+        margin: EdgeInsets.all(margin),
         child: icon,
       ),
     );
