@@ -173,7 +173,6 @@ class _WidgetListenerState extends State<WidgetListener> {
   @override
   Widget build(BuildContext context) {
     debugPrint("WidgetListener re build");
-
     return Container(
       child: Column(
         children: <Widget>[
@@ -182,7 +181,7 @@ class _WidgetListenerState extends State<WidgetListener> {
               children: <Widget>[
                 StreamBuilder<int>(
                   initialData: 0,
-                  stream: textBloc.testStream,
+                  stream: testBloc.testStream,
                   builder: (context, snapshot) {
                     return Text("监听${snapshot.data}");
                   }
@@ -192,7 +191,7 @@ class _WidgetListenerState extends State<WidgetListener> {
               ],
             ),
             onNotification: (TestNotification notification) {
-              textBloc.changeTest(notification.test);
+              testBloc.changeTest(notification.test);
               return true;
             },
           ),
@@ -216,4 +215,4 @@ class TestBloc {
   }
 }
 
-final textBloc = TestBloc();
+final testBloc = TestBloc();
