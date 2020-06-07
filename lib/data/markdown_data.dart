@@ -56,3 +56,105 @@ ScreenUtil.init(context, width: 750, height: 1334, allowFontScaling: true);
     ScreenUtil().scaleHeight // 实际高度的dp与设计稿px的比例
 ```
 """;
+
+const flutter_provider = """
+
+## 如何使用
+
+我们先来使用它，然后在根据用例分析源码，找到我们想要的答案，先看一个简单的例子
+
+### step 1
+
+第一步定义一个ChangeNotifier，来负责数据的变化通知
+
+```
+class Counter with ChangeNotifier {
+  int _count = 0;
+
+  int get count => _count;
+
+  void increment() {
+    _count++;
+    notifyListeners();
+  }
+
+}
+```
+
+### step 2
+
+第二步，用ChangeNotifierProvider来订阅Counter，不难猜出，ChangeNotifierProvider肯定是InheritedWidget的包装类，负责将Counter的状态共享给子Widget，我这里将ChangeNotifierProvider放到了Main函数中，并在整个Widget树的顶端，当然这里是个简单的例子，我这么写问题不大，但你要考虑，如果是特别局部的状态，请将ChangeNotifierProvider放到局部的地方而不是全局，希望你能明白我的用意
+
+```
+void main() {
+  runApp(
+    /// Providers are above [MyApp] instead of inside it, so that tests
+    /// can use [MyApp] while mocking the providers
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => Counter()),
+      ],
+      child: MyApp(),
+    ),
+  );
+}
+```
+
+### step 3
+
+第三步，接收数据通过Consumer<Counter>，Consumer是个消费者，它负责消费ChangeNotifierProvider生产的数据
+
+```
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const MaterialApp(
+      home: MyHomePage(),
+    );
+  }
+}
+
+class MyHomePage extends StatelessWidget {
+  const MyHomePage({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    print('MyHomePage build');
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Example'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            const Text('You have pushed the button this many times:'),
+
+            /// Extracted as a separate widget for performance optimization.
+            /// As a separate widget, it will rebuild independently from [MyHomePage].
+            ///
+            /// This is totally optional (and rarely needed).
+            /// Similarly, we could also use [Consumer] or [Selector].
+            Consumer<Counter>(
+              builder: (BuildContext context, Counter value, Widget child) {
+                return Text('{value.count}');
+              },
+            ),
+            OtherWidget(),
+            const OtherWidget2()
+          ],
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        /// Calls `context.read` instead of `context.watch` so that it does not rebuild
+        /// when [Counter] changes.
+        onPressed: () => context.read<Counter>().increment(),
+        tooltip: 'Increment',
+        child: const Icon(Icons.add),
+      ),
+    );
+  }
+}
+```
+""";
