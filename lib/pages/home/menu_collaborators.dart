@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/bloggers/laomeng.dart';
+import 'package:jetpack/pages/bloggers/mage.dart';
 import 'package:jetpack/pages/bloggers/xiaomo.dart';
 import 'package:jetpack/styles/fonts.dart';
 
@@ -69,7 +70,7 @@ class _MenuCollaboratorsState extends State<MenuCollaborators> with SingleTicker
           children: <Widget>[
             LaoMeng(),
             Xiaomo(),
-            Text('Marco'),
+            Mage(),
             Text('i校长'),
           ],
         ),
