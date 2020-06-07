@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/home/menu_about.dart';
 import 'package:jetpack/pages/home/menu_collaborators.dart';
+import 'package:jetpack/pages/home/menu_leave_msg.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
 import 'package:jetpack/widgets/responsive_widget.dart';
@@ -76,9 +77,9 @@ class _PageHomeState extends State<PageHome> {
         },
       ),
       MaterialButton(
-        child: textMenuAction('关于'),
+        child: textMenuAction('留言'),
         onPressed: () {
-          homeBloc.changeSelectedDrawerIndex(1);
+          homeBloc.changeSelectedDrawerIndex(4);
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
@@ -90,11 +91,17 @@ class _PageHomeState extends State<PageHome> {
         },
       ),
       MaterialButton(
+        child: textMenuAction('关于'),
+        onPressed: () {
+          homeBloc.changeSelectedDrawerIndex(1);
+          if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
+        },
+      ),
+      MaterialButton(
         child: textMenuAction('合作者'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(3);
           if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
-//          Navigator.of(context).pushNamed("/LaoMeng");
         },
       ),
     ];
@@ -118,6 +125,8 @@ class _PageHomeState extends State<PageHome> {
         return WidgetMenuSetting();
       case 3:
         return MenuCollaborators();
+      case 4:
+        return MenuLeaveMsg();
     }
     return Container();
   }

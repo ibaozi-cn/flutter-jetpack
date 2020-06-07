@@ -29,13 +29,14 @@ class WidgetDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
           ),
           ListTile(
-            title: textMenuAction('关于'),
+            title: textMenuAction('留言'),
             onTap: () {
               Navigator.pop(context);
-              homeBloc.changeSelectedDrawerIndex(1);
+              homeBloc.changeSelectedDrawerIndex(4);
             },
-            leading: Icon(Icons.assignment_ind),
+            leading: Icon(Icons.message),
           ),
+
           ListTile(
             title: textMenuAction('设置'),
             onTap: () {
@@ -45,6 +46,14 @@ class WidgetDrawer extends StatelessWidget {
             leading: Icon(Icons.settings),
           ),
           ListTile(
+            title: textMenuAction('关于'),
+            onTap: () {
+              Navigator.pop(context);
+              homeBloc.changeSelectedDrawerIndex(1);
+            },
+            leading: Icon(Icons.assignment_ind),
+          ),
+          ListTile(
             title: textMenuAction('合作者'),
             onTap: () {
               Navigator.pop(context);
@@ -52,6 +61,7 @@ class WidgetDrawer extends StatelessWidget {
             },
             leading: Icon(Icons.group),
           ),
+
         ],
       ),
     );
