@@ -117,12 +117,18 @@ class FlutterComponents {
         ]));
     list.add(Components("provider", "Provider是Google I/O 2019大会宣布的官方推荐的状态管理方式",
         "https://github.com/rrousselGit/provider",
+        markDownData: flutter_provider,
         componentsList: [
           Components(
               "pub",
               "A wrapper around InheritedWidget to make them easier to use and more reusable.",
               "https://pub.dev/packages/provider",
-              leading: pub)
+              leading: pub),
+          Components(
+              "i校长",
+              "Flutter Provider 迄今为止最深、最全、最新的源码分析",
+              "https://www.jianshu.com/p/bf2f33b2b5ef",
+              leading: ixiaozhang),
         ]));
     return list;
   }
