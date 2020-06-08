@@ -4,7 +4,7 @@ import 'package:jetpack/data/components.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
-import 'package:jetpack/widgets/responsive_widget.dart';
+import 'package:jetpack/widgets/widget_responsive.dart';
 import 'package:jetpack/widgets/widget_component.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -67,7 +67,7 @@ class _PageJetPackState extends State<PageJetPack> {
                 SliverToBoxAdapter(
                   child: heightBoxBig,
                 ),
-                ResponsiveWidget.isSmallScreen(context)
+                WidgetResponsive.isSmallScreen(context)
                     ? SliverToBoxAdapter(
                         child: _buildTags(),
                       )
@@ -78,13 +78,13 @@ class _PageJetPackState extends State<PageJetPack> {
               ],
             ),
           ),
-          ResponsiveWidget.isLargeScreen(context)
+          WidgetResponsive.isLargeScreen(context)
               ? Expanded(
                   flex: 1,
                   child: _buildTags(),
                 )
               : Container(),
-          ResponsiveWidget.isMediumScreen(context)
+          WidgetResponsive.isMediumScreen(context)
               ? Expanded(
                   flex: 1,
                   child: _buildTags(),
@@ -101,7 +101,7 @@ class _PageJetPackState extends State<PageJetPack> {
         padding: const EdgeInsets.all(4.0),
         child: Column(
           children: <Widget>[
-            ResponsiveWidget.isSmallScreen(context)
+            WidgetResponsive.isSmallScreen(context)
                 ? Container()
                 : Column(
                     children: <Widget>[
@@ -203,9 +203,9 @@ Widget  _buildComponentsTitle(title, subtitle) {
   }
 
   _buildGridViewCount() {
-    if (ResponsiveWidget.isLargeScreen(context)) return 4;
-    if (ResponsiveWidget.isMediumScreen(context)) return 3;
-    if (ResponsiveWidget.isSmallScreen(context)) return 2;
+    if (WidgetResponsive.isLargeScreen(context)) return 4;
+    if (WidgetResponsive.isMediumScreen(context)) return 3;
+    if (WidgetResponsive.isSmallScreen(context)) return 2;
     return 1;
   }
 

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
-import 'package:jetpack/widgets/responsive_widget.dart';
+import 'package:jetpack/widgets/widget_responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class LaoMeng extends StatelessWidget {
@@ -34,7 +34,7 @@ class LaoMeng extends StatelessWidget {
             child: textSmall("开始阅读"),
           ),
           heightBoxBig,
-          ResponsiveWidget.isSmallScreen(context)
+          WidgetResponsive.isSmallScreen(context)
               ? Column(
                   children: <Widget>[
                     _buildDescItem("全网最全组件介绍",

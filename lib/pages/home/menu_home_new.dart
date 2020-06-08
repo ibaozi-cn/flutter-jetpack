@@ -3,7 +3,7 @@ import 'package:jetpack/data/android_components.dart';
 import 'package:jetpack/data/flutter_components.dart';
 import 'package:jetpack/pages/jetpacks/jetpack.dart';
 import 'package:jetpack/styles/fonts.dart';
-import 'package:jetpack/widgets/responsive_widget.dart';
+import 'package:jetpack/widgets/widget_responsive.dart';
 
 class WidgetMenuNewHome extends StatefulWidget {
   @override

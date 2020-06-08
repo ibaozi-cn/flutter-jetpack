@@ -5,7 +5,7 @@ import 'package:jetpack/pages/home/menu_about.dart';
 import 'package:jetpack/pages/home/menu_collaborators.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
-import 'package:jetpack/widgets/responsive_widget.dart';
+import 'package:jetpack/widgets/widget_responsive.dart';
 import 'package:jetpack/util/screen_utils.dart';
 
 import 'drawer.dart';
@@ -31,10 +31,10 @@ class _PageHomeState extends State<PageHome> {
         appBar: AppBar(
           elevation: 0,
           title: _buildTitle(),
-          actions: ResponsiveWidget.isSmallScreen(context)
+          actions: WidgetResponsive.isSmallScreen(context)
               ? _buildSmallScreenAction(context)
               : _buildLargeScreenActions(context),
-          leading: ResponsiveWidget.isSmallScreen(context)
+          leading: WidgetResponsive.isSmallScreen(context)
               ? IconButton(
                   icon: Icon(
                     Icons.menu,
@@ -72,28 +72,28 @@ class _PageHomeState extends State<PageHome> {
         child: textMenuAction('主页'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(0);
-          if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
+          if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
       MaterialButton(
         child: textMenuAction('关于'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(1);
-          if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
+          if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
       MaterialButton(
         child: textMenuAction('设置'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(2);
-          if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
+          if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
       MaterialButton(
         child: textMenuAction('合作者'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(3);
-          if (ResponsiveWidget.isSmallScreen(context)) Navigator.pop(context);
+          if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
 //          Navigator.of(context).pushNamed("/LaoMeng");
         },
       ),
@@ -101,7 +101,7 @@ class _PageHomeState extends State<PageHome> {
   }
 
   _buildDrawer(BuildContext context) {
-    return ResponsiveWidget.isSmallScreen(context)
+    return WidgetResponsive.isSmallScreen(context)
         ? Drawer(
             child: WidgetDrawer(),
           )

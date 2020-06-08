@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/components.dart';
-import 'package:jetpack/data/const.dart';
 import 'package:jetpack/pages/components/component_detail.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';

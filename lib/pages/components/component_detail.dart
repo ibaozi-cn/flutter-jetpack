@@ -4,7 +4,7 @@ import 'package:jetpack/data/components.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
-import 'package:jetpack/widgets/responsive_widget.dart';
+import 'package:jetpack/widgets/widget_responsive.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class PageComponentsDetail extends StatefulWidget {
@@ -130,7 +130,7 @@ class Blogs extends StatelessWidget {
             ],
           ),
         ),
-        ResponsiveWidget.isLargeScreen(context)
+        WidgetResponsive.isLargeScreen(context)
             ? Expanded(
                 flex: 1,
                 child: Column(
