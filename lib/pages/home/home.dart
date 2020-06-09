@@ -1,13 +1,16 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:jetpack/data/const.dart';
 import 'package:jetpack/pages/home/menu_about.dart';
 import 'package:jetpack/pages/home/menu_collaborators.dart';
+import 'package:jetpack/pages/home/menu_leave_msg.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
 import 'package:jetpack/widgets/widget_responsive.dart';
 import 'package:jetpack/util/screen_utils.dart';
 
+import '../../main.dart';
 import 'drawer.dart';
 import 'menu_home_new.dart';
 import 'menu_setting.dart';
@@ -19,6 +22,7 @@ class PageHome extends StatefulWidget {
 
 class _PageHomeState extends State<PageHome> {
   var _scaffoldKey = GlobalKey<ScaffoldState>();
+  var _switchValue = false;
 
   @override
   Widget build(BuildContext context) {
@@ -68,6 +72,19 @@ class _PageHomeState extends State<PageHome> {
 
   _buildLargeScreenActions(BuildContext context) {
     return <Widget>[
+      Switch(
+        onChanged: (bool value) {
+          setState(() {
+            _switchValue = !_switchValue;
+          });
+          if (value) {
+            bloc.changeTheTheme(AppTheme.DARK_THEME);
+          } else {
+            bloc.changeTheTheme(AppTheme.LIGHT_THEME);
+          }
+        },
+        value: _switchValue,
+      ),
       MaterialButton(
         child: textMenuAction('主页'),
         onPressed: () {
@@ -83,9 +100,9 @@ class _PageHomeState extends State<PageHome> {
         },
       ),
       MaterialButton(
-        child: textMenuAction('设置'),
+        child: textMenuAction('留言'),
         onPressed: () {
-          homeBloc.changeSelectedDrawerIndex(2);
+          homeBloc.changeSelectedDrawerIndex(4);
           if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
@@ -97,6 +114,7 @@ class _PageHomeState extends State<PageHome> {
 //          Navigator.of(context).pushNamed("/LaoMeng");
         },
       ),
+
     ];
   }
 
@@ -118,18 +136,37 @@ class _PageHomeState extends State<PageHome> {
         return WidgetMenuSetting();
       case 3:
         return MenuCollaborators();
+      case 4:
+        return MenuLeaveMsg();
     }
     return Container();
   }
 
   _buildSmallScreenAction(BuildContext context) {
     return <Widget>[
+      Switch(
+        onChanged: (bool value) {
+          setState(() {
+            _switchValue = !_switchValue;
+          });
+          if (value) {
+            bloc.changeTheTheme(AppTheme.DARK_THEME);
+          } else {
+            bloc.changeTheTheme(AppTheme.LIGHT_THEME);
+          }
+        },
+        value: _switchValue,
+      ),
+//      IconButton(
+//        icon: ,
+//        onPressed: () {},
+//      ),
       IconButton(
         icon: Icon(Icons.group_add),
         onPressed: () {
           Navigator.of(context).pushNamed("/pageChatGroup");
         },
-      ),
+      )
     ];
   }
 

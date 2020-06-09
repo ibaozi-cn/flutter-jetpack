@@ -19,9 +19,22 @@ class LaoMeng extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           heightBoxBig,
-          Container(height: 200, width: 200, child: Image.asset(laomeng)),
+          Container(
+            margin: EdgeInsets.only(top: 10.0),
+            width: 150.0,
+            height: 150.0,
+            decoration: BoxDecoration(
+              shape: BoxShape.rectangle,
+              border: new Border.all(color: Colors.green[200], width: 2.0),
+              borderRadius: BorderRadius.circular(20.0),
+              image: DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage(laomeng),
+              ),
+            ),
+          ),
           heightBoxBig,
-          textCardTitle("Flutter | 老孟"),
+          textMenuAction("老孟"),
           heightBoxMid,
           textCardSubTitle("专注分析Flutter原理及实践应用"),
           heightBoxBig,

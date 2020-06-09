@@ -1,7 +1,9 @@
+import 'dart:async';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
 
@@ -14,12 +16,13 @@ class _MenuLeaveMsgState extends State<MenuLeaveMsg> {
   TextEditingController _textEditingController;
   String _textFieldValue = "";
   final _formKey = GlobalKey<FormState>();
+  final _listLeaveMsg = List<LeaveMsgBean>();
 
   @override
   void initState() {
-    // TODO: implement initState
     super.initState();
     _textEditingController = TextEditingController(text: "");
+    _listLeaveMsg.add(LeaveMsgBean("i校长", ixiaozhang, "嗨，大家好，欢迎留言哦"));
   }
 
   @override
@@ -29,47 +32,60 @@ class _MenuLeaveMsgState extends State<MenuLeaveMsg> {
         child: Column(
           children: <Widget>[
             heightBoxMid,
-            Form(
-                key: _formKey,
-                child: Column(
-                  children: <Widget>[
-                    TextFormField(
-                        onChanged: (value) {
-                          setState(() {
-                            _textFieldValue = value;
-                          });
-                        },
-                        onSaved: (value) {},
-                        validator: validateLeaveMessage,
-                        controller: _textEditingController,
-                        maxLength: 200,
-                        minLines: 5,
-                        maxLines: 10,
-                        decoration: InputDecoration(
-                            counterText: '${_textFieldValue.length}/200',
-                            hintText: '请输入留言内容',
-                            enabledBorder: OutlineInputBorder(
-                              /*边角*/
-                              borderRadius: BorderRadius.all(
-                                Radius.circular(10), //边角为30
-                              ),
-                            ),
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide(color: Colors.deepOrange),
-                            ))),
-                    heightBoxMid,
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: RaisedButton(
-                        onPressed: () {
-                          if (_formKey.currentState.validate())
-                            showConfirmDialog();
-                        },
-                        child: textMenuAction("发送"),
-                      ),
-                    )
-                  ],
-                )),
+            _buildForm(),
+            Expanded(
+                child: ListView.builder(
+              itemBuilder: (context, index) {
+                final leaveMsg = _listLeaveMsg[index];
+                return ListTile(
+                  leading: Image.asset(leaveMsg.headImgUrl??headImgs[ Random().nextInt(9)]),
+                  title: Text(leaveMsg.nikeName),
+                  subtitle: Text(leaveMsg.msg),
+                );
+              },
+              itemCount: _listLeaveMsg.length,
+            ))
+          ],
+        ));
+  }
+
+  Form _buildForm() {
+    return Form(
+        key: _formKey,
+        child: Column(
+          children: <Widget>[
+            TextFormField(
+                onChanged: (value) {
+                  setState(() {
+                    _textFieldValue = value;
+                  });
+                },
+                onSaved: (value) {},
+                validator: validateLeaveMessage,
+                controller: _textEditingController,
+                autofocus: false,
+                maxLength: 200,
+                maxLines: 4,
+                decoration: InputDecoration(
+                    counterText: '${_textFieldValue.length}/200',
+                    hintText: '请输入留言内容',
+                    border: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.red),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(color: Colors.green),
+                    ))),
+            heightBoxMid,
+            Align(
+              alignment: Alignment.bottomRight,
+              child: RaisedButton(
+                onPressed: () {
+                  FocusScope.of(context).requestFocus(FocusNode());
+                  if (_formKey.currentState.validate()) showConfirmDialog();
+                },
+                child: textMenuAction("发送"),
+              ),
+            )
           ],
         ));
   }
@@ -99,6 +115,9 @@ class _MenuLeaveMsgState extends State<MenuLeaveMsg> {
               onPressed: () {
                 //关闭对话框并返回true
                 Navigator.of(context).pop(true);
+                setState(() {
+                  _listLeaveMsg.add(LeaveMsgBean("nikeName", null, _textFieldValue));
+                });
               },
             ),
           ],
@@ -106,4 +125,12 @@ class _MenuLeaveMsgState extends State<MenuLeaveMsg> {
       },
     );
   }
+}
+
+class LeaveMsgBean {
+  String nikeName;
+  String headImgUrl;
+  String msg;
+
+  LeaveMsgBean(this.nikeName, this.headImgUrl, this.msg);
 }

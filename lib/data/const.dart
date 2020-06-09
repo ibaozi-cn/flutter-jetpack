@@ -137,3 +137,26 @@ const String programmer3 = 'images/programer.gif';
  const String Ashmi_kattel = 'images/Ashmi_kattel.jpeg';
  const String mmmzq = 'images/mmmzq.jpg';
  const String laomeng = 'images/laomeng.png';
+ const String head_default = 'images/head/head_default.png';
+ const String head_default01 = 'images/head/head_default.png';
+ const String head_default02 = 'images/head/head_default01.png';
+ const String head_default03 = 'images/head/head_default02.png';
+ const String head_default04 = 'images/head/head_default03.png';
+ const String head_default05 = 'images/head/head_default04.png';
+ const String head_default06 = 'images/head/head_default05.png';
+ const String head_default07 = 'images/head/head_default06.png';
+ const String head_default08 = 'images/head/head_default07.png';
+ const String head_default09 = 'images/head/head_default08.png';
+
+ const headImgs = [
+   head_default,
+   head_default01,
+   head_default02,
+   head_default03,
+   head_default04,
+   head_default05,
+   head_default06,
+   head_default07,
+   head_default08,
+   head_default09,
+ ];

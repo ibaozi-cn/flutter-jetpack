@@ -36,15 +36,6 @@ class WidgetDrawer extends StatelessWidget {
             },
             leading: Icon(Icons.message),
           ),
-
-          ListTile(
-            title: textMenuAction('设置'),
-            onTap: () {
-              Navigator.pop(context);
-              homeBloc.changeSelectedDrawerIndex(2);
-            },
-            leading: Icon(Icons.settings),
-          ),
           ListTile(
             title: textMenuAction('关于'),
             onTap: () {
