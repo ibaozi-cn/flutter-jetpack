@@ -1,16 +1,17 @@
 import 'dart:async';
+import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:jetpack/data/const.dart';
 import 'package:jetpack/pages/home/menu_about.dart';
 import 'package:jetpack/pages/home/menu_collaborators.dart';
 import 'package:jetpack/pages/home/menu_leave_msg.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
-import 'package:jetpack/widgets/widget_animated_icons.dart';
 import 'package:jetpack/widgets/widget_cupertino_tabbar.dart';
 import 'package:jetpack/widgets/widget_responsive.dart';
 import 'package:jetpack/util/screen_utils.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../main.dart';
 import 'drawer.dart';
@@ -78,29 +79,30 @@ class _PageHomeState extends State<PageHome> {
         child: textMenuAction('主页'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(0);
-          if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
       MaterialButton(
         child: textMenuAction('关于'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(1);
-          if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
         },
       ),
       MaterialButton(
         child: textMenuAction('留言'),
         onPressed: () {
-          homeBloc.changeSelectedDrawerIndex(4);
-          if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
+          if (!kIsWeb) {
+            homeBloc.changeSelectedDrawerIndex(4);
+            print('launch leave msg page');
+          } else {
+            launch('https://support.qq.com/product/166532');
+            print('launch https://support.qq.com/product/166532');
+          }
         },
       ),
       MaterialButton(
         child: textMenuAction('合作者'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(3);
-          if (WidgetResponsive.isSmallScreen(context)) Navigator.pop(context);
-//          Navigator.of(context).pushNamed("/LaoMeng");
         },
       ),
       paddingTabBar(),
@@ -130,8 +132,11 @@ class _PageHomeState extends State<PageHome> {
     }
     return Container();
   }
+
   int cupertinoTabBarIValue = 0;
+
   int cupertinoTabBarIValueGetter() => cupertinoTabBarIValue;
+
   _buildSmallScreenAction(BuildContext context) {
     return <Widget>[
       paddingTabBar(),
@@ -167,11 +172,11 @@ class _PageHomeState extends State<PageHome> {
           ),
         ],
         cupertinoTabBarIValueGetter,
-            (int index) {
+        (int index) {
           setState(() {
             cupertinoTabBarIValue = index;
           });
-          if (index==1) {
+          if (index == 1) {
             bloc.changeTheTheme(AppTheme.DARK_THEME);
           } else {
             bloc.changeTheTheme(AppTheme.LIGHT_THEME);

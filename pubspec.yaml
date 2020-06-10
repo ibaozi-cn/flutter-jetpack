@@ -28,6 +28,7 @@ dependencies:
   google_fonts: ^1.1.0
   flutter_markdown: ^0.3.5
   font_awesome_flutter: ^8.7.1
+  webview_flutter: ^0.3.22+1
 
 dev_dependencies:
   flutter_test:

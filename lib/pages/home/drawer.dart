@@ -1,7 +1,10 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/pages/home/home.dart';
 import 'package:jetpack/styles/fonts.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class WidgetDrawer extends StatelessWidget {
 
@@ -32,7 +35,11 @@ class WidgetDrawer extends StatelessWidget {
             title: textMenuAction('留言'),
             onTap: () {
               Navigator.pop(context);
-              homeBloc.changeSelectedDrawerIndex(4);
+              if (Platform.isIOS || Platform.isAndroid) {
+                homeBloc.changeSelectedDrawerIndex(4);
+              } else {
+                launch('https://support.qq.com/product/166532');
+              }
             },
             leading: Icon(Icons.message),
           ),
