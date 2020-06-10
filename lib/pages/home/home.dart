@@ -92,10 +92,8 @@ class _PageHomeState extends State<PageHome> {
         onPressed: () {
           if (!kIsWeb) {
             homeBloc.changeSelectedDrawerIndex(4);
-            print('launch leave msg page');
           } else {
             launch('https://support.qq.com/product/166532');
-            print('launch https://support.qq.com/product/166532');
           }
         },
       ),

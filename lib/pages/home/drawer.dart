@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/pages/home/home.dart';
@@ -35,7 +36,7 @@ class WidgetDrawer extends StatelessWidget {
             title: textMenuAction('留言'),
             onTap: () {
               Navigator.pop(context);
-              if (Platform.isIOS || Platform.isAndroid) {
+              if (!kIsWeb) {
                 homeBloc.changeSelectedDrawerIndex(4);
               } else {
                 launch('https://support.qq.com/product/166532');
