@@ -38,7 +38,7 @@ class _MenuLeaveMsgState extends State<MenuLeaveMsg> {
               itemBuilder: (context, index) {
                 final leaveMsg = _listLeaveMsg[index];
                 return ListTile(
-                  leading: Image.asset(leaveMsg.headImgUrl??headImgs[ Random().nextInt(9)]),
+                  leading: Image.asset(leaveMsg.headImgUrl),
                   title: Text(leaveMsg.nikeName),
                   subtitle: Text(leaveMsg.msg),
                 );
@@ -91,8 +91,8 @@ class _MenuLeaveMsgState extends State<MenuLeaveMsg> {
   }
 
   String validateLeaveMessage(String value) {
-    if (value.isEmpty || value.length < 5) {
-      return "请输入至少五个字符哦";
+    if (value.isEmpty || value.length < 2) {
+      return "请输入至少两个字符哦";
     }
     return null;
   }
@@ -116,7 +116,7 @@ class _MenuLeaveMsgState extends State<MenuLeaveMsg> {
                 //关闭对话框并返回true
                 Navigator.of(context).pop(true);
                 setState(() {
-                  _listLeaveMsg.add(LeaveMsgBean("nikeName", null, _textFieldValue));
+                  _listLeaveMsg.add(LeaveMsgBean(headImgsTitle[Random().nextInt(23)], headImgs[Random().nextInt(9)], _textFieldValue));
                 });
               },
             ),

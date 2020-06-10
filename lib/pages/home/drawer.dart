@@ -37,6 +37,14 @@ class WidgetDrawer extends StatelessWidget {
             leading: Icon(Icons.message),
           ),
           ListTile(
+            title: textMenuAction('加群'),
+            onTap: () {
+//              Navigator.pop(context);
+              Navigator.of(context).pushNamed("/pageChatGroup");
+            },
+            leading: Icon(Icons.group_add),
+          ),
+          ListTile(
             title: textMenuAction('关于'),
             onTap: () {
               Navigator.pop(context);

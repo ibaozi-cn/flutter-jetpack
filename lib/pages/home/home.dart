@@ -7,6 +7,8 @@ import 'package:jetpack/pages/home/menu_collaborators.dart';
 import 'package:jetpack/pages/home/menu_leave_msg.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
+import 'package:jetpack/widgets/widget_animated_icons.dart';
+import 'package:jetpack/widgets/widget_cupertino_tabbar.dart';
 import 'package:jetpack/widgets/widget_responsive.dart';
 import 'package:jetpack/util/screen_utils.dart';
 
@@ -72,19 +74,6 @@ class _PageHomeState extends State<PageHome> {
 
   _buildLargeScreenActions(BuildContext context) {
     return <Widget>[
-      Switch(
-        onChanged: (bool value) {
-          setState(() {
-            _switchValue = !_switchValue;
-          });
-          if (value) {
-            bloc.changeTheTheme(AppTheme.DARK_THEME);
-          } else {
-            bloc.changeTheTheme(AppTheme.LIGHT_THEME);
-          }
-        },
-        value: _switchValue,
-      ),
       MaterialButton(
         child: textMenuAction('主页'),
         onPressed: () {
@@ -114,7 +103,7 @@ class _PageHomeState extends State<PageHome> {
 //          Navigator.of(context).pushNamed("/LaoMeng");
         },
       ),
-
+      paddingTabBar(),
     ];
   }
 
@@ -141,33 +130,55 @@ class _PageHomeState extends State<PageHome> {
     }
     return Container();
   }
-
+  int cupertinoTabBarIValue = 0;
+  int cupertinoTabBarIValueGetter() => cupertinoTabBarIValue;
   _buildSmallScreenAction(BuildContext context) {
     return <Widget>[
-      Switch(
-        onChanged: (bool value) {
+      paddingTabBar(),
+    ];
+  }
+
+  Padding paddingTabBar() {
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: CupertinoTabBar(
+        const Color(0xFFd4d7dd),
+        const Color(0xFF393e46),
+        [
+          Text(
+            " 􀆬 ",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: cupertinoTabBarIValue == 0 ? 8.75 * 2 : 10.75,
+              fontWeight: FontWeight.w400,
+              fontFamily: "SFProRounded",
+            ),
+            textAlign: TextAlign.center,
+          ),
+          Text(
+            " 􀇁 ",
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: cupertinoTabBarIValue == 1 ? 8.75 * 2 : 10.75,
+              fontWeight: FontWeight.w400,
+              fontFamily: "SFProRounded",
+            ),
+            textAlign: TextAlign.center,
+          ),
+        ],
+        cupertinoTabBarIValueGetter,
+            (int index) {
           setState(() {
-            _switchValue = !_switchValue;
+            cupertinoTabBarIValue = index;
           });
-          if (value) {
+          if (index==1) {
             bloc.changeTheTheme(AppTheme.DARK_THEME);
           } else {
             bloc.changeTheTheme(AppTheme.LIGHT_THEME);
           }
         },
-        value: _switchValue,
       ),
-//      IconButton(
-//        icon: ,
-//        onPressed: () {},
-//      ),
-      IconButton(
-        icon: Icon(Icons.group_add),
-        onPressed: () {
-          Navigator.of(context).pushNamed("/pageChatGroup");
-        },
-      )
-    ];
+    );
   }
 
   @override
