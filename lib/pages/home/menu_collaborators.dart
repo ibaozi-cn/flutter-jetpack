@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:jetpack/pages/bloggers/laomeng.dart';
 import 'package:jetpack/pages/bloggers/mage.dart';
+import 'package:jetpack/pages/bloggers/wuyilong.dart';
 import 'package:jetpack/pages/bloggers/xiaomo.dart';
 import 'package:jetpack/styles/fonts.dart';
 
@@ -15,7 +16,7 @@ class _MenuCollaboratorsState extends State<MenuCollaborators> with SingleTicker
     '老孟',
     '小莫',
     'Marco',
-    'i校长',
+    '吴亦龙',
   ];
 
   TabController _tabController;
@@ -71,7 +72,7 @@ class _MenuCollaboratorsState extends State<MenuCollaborators> with SingleTicker
             LaoMeng(),
             Xiaomo(),
             Mage(),
-            Text('i校长'),
+            WuYilong(),
           ],
         ),
     );

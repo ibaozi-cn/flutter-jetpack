@@ -137,6 +137,8 @@ const String programmer3 = 'images/programer.gif';
  const String Ashmi_kattel = 'images/Ashmi_kattel.jpeg';
  const String mmmzq = 'images/mmmzq.jpg';
  const String laomeng = 'images/laomeng.png';
+ const String wuyilong = 'images/wuyilong.jpeg';
+
  const String head_default = 'images/head/head_default.png';
  const String head_default01 = 'images/head/head_default.png';
  const String head_default02 = 'images/head/head_default01.png';

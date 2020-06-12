@@ -11,7 +11,6 @@ class Mage extends StatelessWidget {
     return Container(
       padding: EdgeInsets.all(16),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           heightBoxBig,
