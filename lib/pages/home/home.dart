@@ -151,7 +151,7 @@ class _PageHomeState extends State<PageHome> {
       padding: const EdgeInsets.all(8.0),
       child: CupertinoTabBar(
         cupertinoTabBarIValue == 0
-            ? const Color(0xFFF1F1F1)
+            ? const Color(0xFFF0F0F0)
             : const Color(0xFF333333),
         cupertinoTabBarIValue == 0
             ? const Color(0xFFFFFFFF)
