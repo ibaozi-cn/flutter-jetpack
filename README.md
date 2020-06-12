@@ -50,6 +50,10 @@ Then, open Chrome and input http://localhost:3000.
 	<img src="https://github.com/ibaozi-cn/flutter-jetpack/raw/dev/github/scan_b.jpg" alt="Sample"  width="360" height="680">
 </p>
 
+## apk download
+
+![flutter-jetpack](http://jetpack.net.cn/flutter-jetpack.apk)
+
 ## Blog
 
 - [Flutter Web网站搭建教程](https://www.jianshu.com/p/cc1dcf3f5063)
