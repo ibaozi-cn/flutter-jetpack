@@ -17,15 +17,15 @@ class WidgetDrawer extends StatelessWidget {
         children: <Widget>[
           DrawerHeader(
             child: ListTile(
-              title: textMenuAction("i校长"),
+              title: Text("i校长"),
               selected: true,
-              subtitle: textLogoSubTitle("Jetpack.net.cn"),
+              subtitle: Text("Jetpack.net.cn"),
               trailing: Image.asset(ixiaozhang),
             ),
             decoration: BoxDecoration(color: Colors.teal),
           ),
           ListTile(
-            title: textMenuAction('主页'),
+            title: Text('主页',),
             onTap: () {
               Navigator.pop(context);
               homeBloc.changeSelectedDrawerIndex(0);
@@ -33,7 +33,7 @@ class WidgetDrawer extends StatelessWidget {
             leading: Icon(Icons.home),
           ),
           ListTile(
-            title: textMenuAction('留言'),
+            title: Text('留言'),
             onTap: () {
               Navigator.pop(context);
               if (!kIsWeb) {
@@ -45,7 +45,7 @@ class WidgetDrawer extends StatelessWidget {
             leading: Icon(Icons.message),
           ),
           ListTile(
-            title: textMenuAction('加群'),
+            title: Text('加群'),
             onTap: () {
 //              Navigator.pop(context);
               Navigator.of(context).pushNamed("/pageChatGroup");
@@ -53,7 +53,7 @@ class WidgetDrawer extends StatelessWidget {
             leading: Icon(Icons.group_add),
           ),
           ListTile(
-            title: textMenuAction('关于'),
+            title: Text('关于'),
             onTap: () {
               Navigator.pop(context);
               homeBloc.changeSelectedDrawerIndex(1);
@@ -61,7 +61,7 @@ class WidgetDrawer extends StatelessWidget {
             leading: Icon(Icons.assignment_ind),
           ),
           ListTile(
-            title: textMenuAction('合作者'),
+            title: Text('合作者'),
             onTap: () {
               Navigator.pop(context);
               homeBloc.changeSelectedDrawerIndex(3);

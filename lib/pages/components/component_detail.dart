@@ -54,7 +54,7 @@ class _PageComponentsDetailState extends State<PageComponentsDetail>
               controller: _tabController,
               tabs: _tabs
                   .map((e) => Tab(
-                        child: textMenuAction(e),
+                        child: Text(e,),
                       ))
                   .toList(),
             ),
@@ -74,7 +74,7 @@ class _PageComponentsDetailState extends State<PageComponentsDetail>
   }
 
   Widget _buildTitle() {
-    return textLogoTitle(widget.components.title);
+    return Text(widget.components.title);
   }
 }
 
@@ -120,8 +120,8 @@ class Blogs extends StatelessWidget {
                           onTap: () {
                             launch(components.url);
                           },
-                          title: textCardTitle(components.title),
-                          subtitle: textCardSubTitle(components.subTitle),
+                          title: Text(components.title,style: fontStyleTitle,),
+                          subtitle: Text(components.subTitle,style: fontStyleSubTitle,),
                           leading: Image.asset(components.leading),
                         ),
                       );

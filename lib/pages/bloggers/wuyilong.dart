@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:jetpack/data/const.dart';
+import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -27,14 +27,13 @@ class WuYilong extends StatelessWidget {
         heightBoxBig,
         Text(
           '细水长流｜吴亦龙博客',
-          style: GoogleFonts.longCang()
-              .copyWith(fontSize: 35, fontWeight: FontWeight.bold),
+          style: fontStyleChinese.copyWith(fontSize: 35),
           textAlign: TextAlign.center,
         ),
         heightBoxBig,
         Text(
           '生命不止～学习不断',
-          style: GoogleFonts.longCang().copyWith(fontSize: 25),
+          style: fontStyleChinese.copyWith(fontSize: 22),
           textAlign: TextAlign.center,
         ),
         heightBoxBig,

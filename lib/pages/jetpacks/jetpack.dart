@@ -101,6 +101,10 @@ class _PageJetPackState extends State<PageJetPack> {
         padding: const EdgeInsets.all(4.0),
         child: Column(
           children: <Widget>[
+            _buildItemTag('下载Apk体验', onTap: () {
+              launch("http://jetpack.net.cn/flutter-jetpack.apk");
+            }),
+            heightBoxBig,
             WidgetResponsive.isSmallScreen(context)
                 ? Container()
                 : Column(
@@ -109,11 +113,11 @@ class _PageJetPackState extends State<PageJetPack> {
                       heightBoxMid,
                       Padding(
                         padding: const EdgeInsets.all(16.0),
-                        child: textSmall(CHAT_GROUP_TEXT),
+                        child: Text(CHAT_GROUP_TEXT),
                       ),
                     ],
                   ),
-            text('Tags'),
+            Text('Tags'),
             heightBoxBig,
             Wrap(
               spacing: 5,
@@ -139,21 +143,19 @@ class _PageJetPackState extends State<PageJetPack> {
     );
   }
 
-  _buildItemTag(content) {
+  _buildItemTag(content, {onTap}) {
     return Card(
       child: InkWell(
-        onTap: (){
-
-        },
+        onTap: onTap ?? () {},
         child: Padding(
           padding: const EdgeInsets.all(8.0),
-          child: textCardTagsTitle(content),
+          child: Text(content),
         ),
       ),
     );
   }
 
-Widget  _buildComponentsTitle(title, subtitle) {
+  Widget _buildComponentsTitle(title, subtitle) {
     return Align(
       alignment: Alignment.topLeft,
       child: Padding(
@@ -161,9 +163,9 @@ Widget  _buildComponentsTitle(title, subtitle) {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            text(title),
+            Text(title,style: TextStyle(fontSize: 20),),
             heightBoxSmall,
-            textSmall(subtitle),
+            Text(subtitle),
           ],
         ),
       ),
@@ -233,7 +235,7 @@ Widget  _buildComponentsTitle(title, subtitle) {
       onTap: () {
         launch("http://www.beian.miit.gov.cn/");
       },
-      child: textSmall('京ICP备案20002589号-2'),
+      child: Text('京ICP备案20002589号-2'),
     );
   }
 
@@ -244,9 +246,9 @@ Widget  _buildComponentsTitle(title, subtitle) {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           heightBoxSmall,
-          text(widget.headTitle),
+          Text(widget.headTitle,style: TextStyle(fontSize: 20),),
           heightBoxSmall,
-          textSmall(widget.headDesc),
+          Text(widget.headDesc),
           heightBoxSmall,
         ],
       ),

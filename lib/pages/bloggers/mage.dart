@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -34,29 +33,25 @@ class Mage extends StatelessWidget {
           heightBoxMid,
           Text(
             'Marco Ma',
-            style: GoogleFonts.cabin().copyWith(fontSize: 40),
+            style: fontStyleEnglish.copyWith(fontSize: 35,color: Colors.amber),
             textAlign: TextAlign.center,
           ),
           heightBoxMid,
           RichText(
             textAlign: TextAlign.center,
             text: TextSpan(
-                text: "One blog for recorded and shared,",
-                style: GoogleFonts.wendyOne()
-                    .copyWith(fontSize: 20, color: Colors.amber),
+                text: "One blog for recorded and shared",
+                style: fontStyleEnglish.copyWith(fontSize: 18,color: Colors.black),
                 children: <TextSpan>[
                   TextSpan(
-                      text: 'Android system development.',
-                      style: GoogleFonts.wendyOne()
-                          .copyWith(fontWeight: FontWeight.bold, fontSize: 24)),
+                      text: '\nAndroid system development.',
+                      style: fontStyleEnglish.copyWith(fontSize: 22,color: Colors.amber)),
                 ]),
           ),
           heightBoxMid,
           Text(
             'Framework, Mechanism, optimization, Stability, Views, Process, Algorith, etc...',
-            style: GoogleFonts.darkerGrotesque().copyWith(
-              fontSize: 23,
-            ),
+            style: fontStyleEnglish,
             textAlign: TextAlign.center,
           ),
           heightBoxMid,

@@ -7,8 +7,8 @@ class PageChatGroup extends StatelessWidget {
   Widget _buildTitle() {
     return Row(
       children: <Widget>[
-        textLogoTitle('Scan'),
-        textLogoSubTitle('.it'),
+        Text('Scan'),
+        Text('.it'),
       ],
     );
   }
@@ -39,7 +39,7 @@ class PageChatGroup extends StatelessWidget {
               ),
               Padding(
                 padding: const EdgeInsets.all(16.0),
-                child: text(CHAT_GROUP_TEXT),
+                child: Text(CHAT_GROUP_TEXT),
               ),
             ],
           ),

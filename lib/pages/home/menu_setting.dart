@@ -16,7 +16,7 @@ class _WidgetMenuSettingState extends State<WidgetMenuSetting> {
       body: Container(
         child: SwitchListTile(
           secondary: Icon(_isEnabled ? Icons.brightness_4 : Icons.brightness_5),
-          title: textCardSubTitle("暗黑主题"),
+          title: Text("暗黑主题"),
           value: _isEnabled,
           onChanged: (value) {
             setState(() {

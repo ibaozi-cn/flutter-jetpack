@@ -51,7 +51,7 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
         isScrollable: true,
         tabs: _tabs
             .map((e) => Tab(
-                  child: textSmall(e),
+                  child: Text(e),
                 ))
             .toList(),
       ),

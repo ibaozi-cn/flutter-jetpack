@@ -106,9 +106,9 @@ class _WidgetComponentState extends State<WidgetComponents> {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              textCardTitle(components.title),
+              Text(components.title,style: fontStyleTitle,),
               heightBoxMid,
-              textCardSubTitle(components.subTitle),
+              Text(components.subTitle,style: fontStyleSubTitle,),
             ],
           ),
           footer: Row(
@@ -124,14 +124,14 @@ class _WidgetComponentState extends State<WidgetComponents> {
                     );
                   }));
                 },
-                child: textCardActionTitle("示例"),
+                child: Text("示例"),
               ),
               Text('  '),
               InkWell(
                 onTap: () {
                   _launchURL(components.url);
                 },
-                child: textCardActionTitle("源码"),
+                child: Text("源码"),
               ),
               Text('  '),
               InkWell(
@@ -143,7 +143,7 @@ class _WidgetComponentState extends State<WidgetComponents> {
                     );
                   }));
                 },
-                child: textCardActionTitle("博客"),
+                child: Text("博客"),
               ),
             ],
           ),

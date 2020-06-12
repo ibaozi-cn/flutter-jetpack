@@ -74,11 +74,11 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   Widget _buildEducationContainerHeading() {
-    return text(experience);
+    return Text(experience,style: fontStyleTitle,);
   }
 
   Widget _buildEducationSummary() {
-    return textSmall('性能的关键是精简，而不是一堆的优化用例。除非有真正显著的效果，否则一定要忍住你那些蠢蠢欲动的小微调的企图。');
+    return Text('性能的关键是精简，而不是一堆的优化用例。除非有真正显著的效果，否则一定要忍住你那些蠢蠢欲动的小微调的企图。');
   }
 
 
@@ -95,6 +95,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
       crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         _buildSkillsContainerHeading(),
+        heightBoxBig,
         WidgetResponsive.isLargeScreen(context)
             ? Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -117,22 +118,22 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   Widget _buildSkillsContainerHeading() {
-    return text(skills_i_have);
+    return Text(skills_i_have,style: fontStyleTitle,);
   }
 
 
   Widget _buildSkillChip(BuildContext context, String label) {
     return Chip(
-      label: textSmall(label),
+      label: Text(label),
     );
   }
 
   Widget _buildHomeMe() {
-    return textLogoTitle('Call me');
+    return Text('Call me',style: fontStyleEnglish.copyWith(fontSize: 25),);
   }
 
   Widget _buildHeadline() {
-    return textSmall(headline);
+    return Text(headline);
   }
 
   Widget _buildSocialIcons() {

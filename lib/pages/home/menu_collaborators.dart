@@ -53,7 +53,7 @@ class _MenuCollaboratorsState extends State<MenuCollaborators> with SingleTicker
         isScrollable: true,
         tabs: _tabs
             .map((e) => Tab(
-          child: textSmall(e),
+          child: Text(e),
         ))
             .toList(),
       ),

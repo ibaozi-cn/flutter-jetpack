@@ -34,9 +34,9 @@ class LaoMeng extends StatelessWidget {
             ),
           ),
           heightBoxBig,
-          textMenuAction("老孟"),
+          Text("老孟",style: fontStyleChinese.copyWith(fontSize: 30),),
           heightBoxMid,
-          textCardSubTitle("专注分析Flutter原理及实践应用"),
+          Text("专注分析Flutter原理及实践应用",),
           heightBoxBig,
           RaisedButton(
             onPressed: () {
@@ -44,7 +44,9 @@ class LaoMeng extends StatelessWidget {
                   "http://laomengit.com/flutter/widgets/widgets_structure.html");
             },
             shape: StadiumBorder(),
-            child: textSmall("开始阅读"),
+            color: Colors.green[600],
+            textColor: Colors.white,
+            child: Text("开始阅读",style: fontStyleSubTitle,),
           ),
           heightBoxBig,
           WidgetResponsive.isSmallScreen(context)
@@ -85,7 +87,7 @@ class LaoMeng extends StatelessWidget {
       padding: const EdgeInsets.all(16.0),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[text(title), heightBoxMid, textSmall(subTitle)],
+        children: <Widget>[Text(title,style: fontStyleTitle,), heightBoxMid, Text(subTitle,)],
       ),
     );
   }

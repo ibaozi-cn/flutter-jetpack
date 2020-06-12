@@ -121,7 +121,7 @@ Enjoy!
 
 
 /// images ---------------------------------------------------------------------------------------
-const String WE_CHAT_SCAN = "images/wechat.jpeg";
+const String WE_CHAT_SCAN = "images/wechat.png";
 const String programmer3 = 'images/programer.gif';
  const String qq = 'images/tx.png';
  const String jianshu = 'images/jianshu.png';

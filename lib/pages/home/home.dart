@@ -25,8 +25,6 @@ class PageHome extends StatefulWidget {
 
 class _PageHomeState extends State<PageHome> {
   var _scaffoldKey = GlobalKey<ScaffoldState>();
-  var _switchValue = false;
-
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
@@ -67,8 +65,10 @@ class _PageHomeState extends State<PageHome> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        textLogoTitle("Jetpack"),
-        textLogoSubTitle(".net.cn"),
+        Text("Jetpack",style: fontStyleEnglish.copyWith(color: Colors.deepOrange),),
+        Text(".net.cn",style: fontStyleEnglish.copyWith(
+          fontSize: 16
+        ),),
       ],
     );
   }
@@ -76,19 +76,19 @@ class _PageHomeState extends State<PageHome> {
   _buildLargeScreenActions(BuildContext context) {
     return <Widget>[
       MaterialButton(
-        child: textMenuAction('主页'),
+        child: Text('主页'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(0);
         },
       ),
       MaterialButton(
-        child: textMenuAction('关于'),
+        child: Text('关于'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(1);
         },
       ),
       MaterialButton(
-        child: textMenuAction('留言'),
+        child: Text('留言'),
         onPressed: () {
           if (!kIsWeb) {
             homeBloc.changeSelectedDrawerIndex(4);
@@ -98,7 +98,7 @@ class _PageHomeState extends State<PageHome> {
         },
       ),
       MaterialButton(
-        child: textMenuAction('合作者'),
+        child: Text('合作者'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(3);
         },
