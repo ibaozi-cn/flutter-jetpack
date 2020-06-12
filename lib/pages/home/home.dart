@@ -25,6 +25,7 @@ class PageHome extends StatefulWidget {
 
 class _PageHomeState extends State<PageHome> {
   var _scaffoldKey = GlobalKey<ScaffoldState>();
+
   @override
   Widget build(BuildContext context) {
     ScreenUtil.instance = ScreenUtil.getInstance()..init(context);
@@ -65,10 +66,14 @@ class _PageHomeState extends State<PageHome> {
     return Row(
       crossAxisAlignment: CrossAxisAlignment.end,
       children: <Widget>[
-        Text("Jetpack",style: fontStyleEnglish.copyWith(color: Colors.deepOrange),),
-        Text(".net.cn",style: fontStyleEnglish.copyWith(
-          fontSize: 16
-        ),),
+        Text(
+          "Jetpack",
+          style: fontStyleEnglish.copyWith(color: Colors.deepOrange),
+        ),
+        Text(
+          ".net.cn",
+          style: fontStyleEnglish.copyWith(fontSize: 16),
+        ),
       ],
     );
   }
@@ -145,29 +150,21 @@ class _PageHomeState extends State<PageHome> {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: CupertinoTabBar(
-        const Color(0xFFd4d7dd),
-        const Color(0xFF393e46),
+        cupertinoTabBarIValue == 0
+            ? const Color(0xFFF1F1F1)
+            : const Color(0xFF333333),
+        cupertinoTabBarIValue == 0
+            ? const Color(0xFFFFFFFF)
+            : const Color(0xFF222222),
         [
-          Text(
-            " 􀆬 ",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: cupertinoTabBarIValue == 0 ? 8.75 * 2 : 10.75,
-              fontWeight: FontWeight.w400,
-              fontFamily: "SFProRounded",
-            ),
-            textAlign: TextAlign.center,
+          Icon(
+            Icons.brightness_5,
+            color: Colors.deepOrange,
+            size: cupertinoTabBarIValue == 0 ? 8.75 * 2 : 10.75,
           ),
-          Text(
-            " 􀇁 ",
-            style: TextStyle(
-              color: Colors.white,
-              fontSize: cupertinoTabBarIValue == 1 ? 8.75 * 2 : 10.75,
-              fontWeight: FontWeight.w400,
-              fontFamily: "SFProRounded",
-            ),
-            textAlign: TextAlign.center,
-          ),
+          Icon(Icons.brightness_4,
+              color: Colors.deepOrange,
+              size: cupertinoTabBarIValue == 1 ? 8.75 * 2 : 10.75)
         ],
         cupertinoTabBarIValueGetter,
         (int index) {
