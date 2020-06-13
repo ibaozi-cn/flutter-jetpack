@@ -160,11 +160,11 @@ class _PageHomeState extends State<PageHome> {
           Icon(
             Icons.brightness_5,
             color: Colors.deepOrange,
-            size: cupertinoTabBarIValue == 0 ? 8.75 * 2 : 10.75,
+            size: cupertinoTabBarIValue == 0 ? 12.75 * 2 : 18.75,
           ),
           Icon(Icons.brightness_4,
               color: Colors.deepOrange,
-              size: cupertinoTabBarIValue == 1 ? 8.75 * 2 : 10.75)
+              size: cupertinoTabBarIValue == 1 ? 12.75 * 2 : 18.75)
         ],
         cupertinoTabBarIValueGetter,
         (int index) {

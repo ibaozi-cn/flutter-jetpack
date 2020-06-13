@@ -20,7 +20,7 @@ class WuYilong extends StatelessWidget {
             borderRadius: BorderRadius.circular(10.0),
             image: DecorationImage(
               fit: BoxFit.fill,
-              image: AssetImage(wuyilong),
+              image: AssetImage(icon_wuyilong),
             ),
           ),
         ),

@@ -33,7 +33,7 @@ class PageChatGroup extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             children: <Widget>[
-              Image.asset(WE_CHAT_SCAN),
+              Image.asset(icon_we_chat_scan),
               SizedBox(
                 height: 8,
               ),

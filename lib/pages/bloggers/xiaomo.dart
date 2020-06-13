@@ -22,7 +22,7 @@ class Xiaomo extends StatelessWidget {
       height: 100,
       child: CircleAvatar(
         backgroundImage: AssetImage(
-          "images/xiaomo/logo.png",
+          "images/xiaomo/icon_logo.png",
         ),
       ),
     );
@@ -37,7 +37,7 @@ class Xiaomo extends StatelessWidget {
       height: MediaQuery.of(context).size.height,
       width: MediaQuery.of(context).size.width,
       child: Image.asset(
-        "images/xiaomo/bg.jpg",
+        "images/xiaomo/icon_bg.jpg",
         width: double.infinity,
         fit: fit,
       ),

@@ -29,7 +29,7 @@ class LaoMeng extends StatelessWidget {
               borderRadius: BorderRadius.circular(20.0),
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage(laomeng),
+                image: AssetImage(icon_laomeng),
               ),
             ),
           ),
@@ -44,7 +44,7 @@ class LaoMeng extends StatelessWidget {
                   "http://laomengit.com/flutter/widgets/widgets_structure.html");
             },
             shape: StadiumBorder(),
-            color: Colors.green[600],
+            color: Colors.green[300],
             textColor: Colors.white,
             child: Text("开始阅读",style: fontStyleSubTitle,),
           ),

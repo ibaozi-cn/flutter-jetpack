@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
@@ -53,7 +54,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
     return Align(
       alignment: Alignment.center,
       child: Image.asset(
-        programmer3,
+        icon_programmer3,
       ),
     );
   }
@@ -158,10 +159,10 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
                   ],
                 ));
           },
-          child: Image.asset(
-            weixin,
-            height: 20.0,
-            width: 20.0,
+          child: Icon(
+            FontAwesomeIcons.weixin,
+            size: 20,
+            color: Colors.lightBlueAccent,
           ),
         ),
         SizedBox(width: 16.0),
@@ -182,10 +183,10 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
                   ],
                 ));
           },
-          child: Image.asset(
-            qq,
-            height: 20.0,
-            width: 20.0,
+          child: Icon(
+            FontAwesomeIcons.qq,
+            size: 20,
+            color: Colors.lightBlueAccent,
           ),
         ),
         SizedBox(width: 16.0),
@@ -193,10 +194,10 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
           onTap: () {
             launch("https://www.jianshu.com/u/77699cd41b28");
           },
-          child: Image.asset(
-            jianshu,
-            height: 20.0,
-            width: 20.0,
+          child: Icon(
+            FontAwesomeIcons.bloggerB,
+            size: 20,
+            color: Colors.lightBlueAccent,
           ),
         ),
         SizedBox(width: 16.0),
@@ -204,10 +205,10 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
           onTap: () {
             launch("mailto:zzy0523@gmail.com");
           },
-          child: Image.asset(
-            gmail,
-            height: 20.0,
-            width: 20.0,
+          child:  Icon(
+            FontAwesomeIcons.google,
+            size: 20,
+            color: Colors.lightBlueAccent,
           ),
         ),
       ],

@@ -1,12 +1,11 @@
 /// config ---------------------------------------------------------------------------------------
-const String CHAT_GROUP_TEXT =
-    "欢迎光临，进群就有红包领哦。加上面微信号，备注Flutter Web，加好友后拉群，一起交流学习。";
+const CHAT_GROUP_TEXT = "欢迎光临，进群就有红包领哦。加上面微信号，备注Flutter Web，加好友后拉群，一起交流学习。";
 
-const String about = 'Call';
-const String me = ' Me';
-const String headline = '我是i校长,至今从事Android开发6年,目前就职于居理新房,为满足人类的一切居住理想而努力';
-const String skills_i_have = '技能';
-const String experience = '经验';
+const about = 'Call';
+const me = ' Me';
+const headline = '我是i校长,至今从事Android开发6年,目前就职于居理新房,为满足人类的一切居住理想而努力';
+const skills_i_have = '技能';
+const experience = '经验';
 
 const skills = [
   'Java',
@@ -27,7 +26,6 @@ const skills = [
   'Git',
   'JIRA',
 ];
-
 
 const String markdownData = """
 # Markdown Example
@@ -72,7 +70,7 @@ Select the valid headers:
 
 ## Images
 
-![Flutter logo](/dart-lang/site-shared/master/src/_assets/image/flutter/icon/64.png)
+![Flutter logo](images/head/head_default.png)
 
 ## Tables
 
@@ -119,49 +117,43 @@ Enjoy!
 [Google]: https://www.google.com/
 """;
 
-
 /// images ---------------------------------------------------------------------------------------
-const String WE_CHAT_SCAN = "images/wechat.png";
-const String programmer3 = 'images/programer.gif';
- const String qq = 'images/tx.png';
- const String jianshu = 'images/jianshu.png';
- const String gmail = 'images/gmail.png';
- const String weixin = 'images/weixin.png';
- const String blogger = 'images/blogger.jpg';
- const String ad = 'images/ad.jpg';
- const String pub = 'images/pub.jpg';
- const String white__ = 'images/__white.png';
- const String ixiaozhang = 'images/ixiaozhang.png';
- const String about_BY_gentle = 'images/about_BY_gentle.jpg';
- const String wendux = 'images/wendux.jpg';
- const String Ashmi_kattel = 'images/Ashmi_kattel.jpeg';
- const String mmmzq = 'images/mmmzq.jpg';
- const String laomeng = 'images/laomeng.png';
- const String wuyilong = 'images/wuyilong.jpeg';
+const icon_we_chat_scan = "images/icon_wechat.png";
+const icon_programmer3 = 'images/icon_programer.gif';
+const icon_blogger = 'images/icon_blogger.jpg';
+const icon_pub = 'images/icon_pub.jpg';
+const icon_white__ = 'images/icon__white.png';
+const icon_ixiaozhang = 'images/icon_ixiaozhang.png';
+const icon_about_BY_gentle = 'images/icon_about_BY_gentle.jpg';
+const icon_wendux = 'images/icon_wendux.jpg';
+const icon_Ashmi_kattel = 'images/icon_Ashmi_kattel.jpeg';
+const icon_mmmzq = 'images/icon_mmmzq.jpg';
+const icon_laomeng = 'images/icon_laomeng.png';
+const icon_wuyilong = 'images/icon_wuyilong.jpeg';
 
- const String head_default = 'images/head/head_default.png';
- const String head_default01 = 'images/head/head_default.png';
- const String head_default02 = 'images/head/head_default01.png';
- const String head_default03 = 'images/head/head_default02.png';
- const String head_default04 = 'images/head/head_default03.png';
- const String head_default05 = 'images/head/head_default04.png';
- const String head_default06 = 'images/head/head_default05.png';
- const String head_default07 = 'images/head/head_default06.png';
- const String head_default08 = 'images/head/head_default07.png';
- const String head_default09 = 'images/head/head_default08.png';
+const head_default = 'images/head/head_default.png';
+const head_default01 = 'images/head/head_default.png';
+const head_default02 = 'images/head/head_default01.png';
+const head_default03 = 'images/head/head_default02.png';
+const head_default04 = 'images/head/head_default03.png';
+const head_default05 = 'images/head/head_default04.png';
+const head_default06 = 'images/head/head_default05.png';
+const head_default07 = 'images/head/head_default06.png';
+const head_default08 = 'images/head/head_default07.png';
+const head_default09 = 'images/head/head_default08.png';
 
- const headImgs = [
-   head_default,
-   head_default01,
-   head_default02,
-   head_default03,
-   head_default04,
-   head_default05,
-   head_default06,
-   head_default07,
-   head_default08,
-   head_default09,
- ];
+const headImgs = [
+  head_default,
+  head_default01,
+  head_default02,
+  head_default03,
+  head_default04,
+  head_default05,
+  head_default06,
+  head_default07,
+  head_default08,
+  head_default09,
+];
 
 const headImgsTitle = [
   '杨过',

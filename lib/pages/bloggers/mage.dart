@@ -26,7 +26,7 @@ class Mage extends StatelessWidget {
               borderRadius: BorderRadius.circular(80.0),
               image: DecorationImage(
                 fit: BoxFit.fill,
-                image: AssetImage("images/mage.jpg"),
+                image: AssetImage("images/icon_mage.jpg"),
               ),
             ),
           )),

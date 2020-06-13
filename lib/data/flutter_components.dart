@@ -24,18 +24,18 @@ class FlutterComponents {
               "pub",
               "A flutter plugin for adapting screen and font size.Let your UI display a reasonable layout on different screen sizes!",
               "https://pub.dev/packages/flutter_screenutil",
-              leading: pub),
+              leading: icon_pub),
           Components(
             "__white",
             "flutter 屏幕尺寸适配 字体大小适配",
             "https://juejin.im/post/5bc5a56a5188255c352d88fe",
-            leading: white__,
+            leading: icon_white__,
           ),
           Components(
             "Toeii",
             "Flutter屏幕适配方案之Flutter_ScreenUtil",
             "https://toeii.github.io/2019/05/16/Flutter%E5%B1%8F%E5%B9%95%E9%80%82%E9%85%8D%E6%96%B9%E6%A1%88%E4%B9%8Bflutter_ScreenUtil/",
-            leading: about_BY_gentle,
+            leading: icon_about_BY_gentle,
           ),
         ]));
     list.add(Components("dio", "Dart功能强大的Http客户端，它支持拦截器，FormData，请求取消，文件下载，超时等",
@@ -45,23 +45,23 @@ class FlutterComponents {
               "pub",
               "A powerful Http client for Dart, which supports Interceptors, Global configuration, FormData, Request Cancellation, File downloading, Timeout etc.",
               "https://pub.dev/packages/dio",
-              leading: pub),
+              leading: icon_pub),
           Components("wendux", "Flutter Http请求开源库-dio",
               "https://juejin.im/post/5b04c954f265da0b9c10fb61",
-              leading: wendux),
+              leading: icon_wendux),
           Components("Ashmi kattel", "DIO IN FLUTTER",
               "https://medium.com/@ashmikattel/dio-in-flutter-ad6ba26aee36",
-              leading: Ashmi_kattel),
+              leading: icon_Ashmi_kattel),
         ]));
     list.add(Components("bot_toast", "一个非常好用的Flutter Toast库",
         "https://github.com/MMMzq/bot_toast",
         componentsList: [
           Components("pub", "A really easy to use flutter toast library!",
               "https://pub.dev/packages/bot_toast",
-              leading: pub),
+              leading: icon_pub),
           Components("mmmzq", "Flutter bot_toast是怎样炼成的",
               "https://juejin.im/post/5d2b0261f265da1bb003edc6",
-              leading: mmmzq),
+              leading: icon_mmmzq),
         ]));
     list.add(Components("giffy_dialog", "Flutter Dialog，用于构建快速方便的对话框",
         "https://github.com/xsahil03x/giffy_dialog",
@@ -70,7 +70,7 @@ class FlutterComponents {
               "pub",
               "A beautiful and custom alert dialog for flutter highly inspired from FancyAlertDialog-Android",
               "https://pub.dev/packages/giffy_dialog",
-              leading: pub),
+              leading: icon_pub),
         ]));
     return list;
   }
@@ -84,7 +84,7 @@ class FlutterComponents {
               "pub",
               "Fish Redux is an assembled flutter application framework based on Redux state management. It is suitable for building medium and large applications.",
               "https://pub.dev/packages/fish_redux",
-              leading: pub)
+              leading: icon_pub)
         ]));
     list.add(Components("bloc", "官方推荐Bloc架构，可预测的状态管理库，有助于实现BLoC设计模式",
         "https://github.com/felangel/bloc",
@@ -93,7 +93,7 @@ class FlutterComponents {
               "pub",
               "A Flutter package that helps implement the BLoC pattern.",
               "https://pub.dev/packages/flutter_bloc",
-              leading: pub)
+              leading: icon_pub)
         ]));
     list.add(Components(
         "flutter_boost",
@@ -104,7 +104,7 @@ class FlutterComponents {
               "pub",
               "A next-generation Flutter-Native hybrid solution. FlutterBoost is a Flutter plugin which enables hybrid integration of Flutter for your existing native apps with minimum efforts.The philosophy of FlutterBoost is to use Flutter as easy as using a WebView. Managing Native pages and Flutter pages at the same time is non-trivial in an existing App. FlutterBoost takes care of page resolution for you. The only thing you need to care about is the name of the page(usually could be an URL). ",
               "https://pub.dev/packages/flutter_boost",
-              leading: pub)
+              leading: icon_pub)
         ]));
     list.add(Components("fluro", "路由库，它添加了灵活的路由选项，例如通配符，命名参数和清晰的路由定义",
         "https://github.com/theyakka/fluro",
@@ -113,7 +113,7 @@ class FlutterComponents {
               "pub",
               "The brightest, hippest, coolest router for Flutter.",
               "https://pub.dev/packages/fluro",
-              leading: pub)
+              leading: icon_pub)
         ]));
     list.add(Components("provider", "Provider是Google I/O 2019大会宣布的官方推荐的状态管理方式",
         "https://github.com/rrousselGit/provider",
@@ -123,12 +123,12 @@ class FlutterComponents {
               "pub",
               "A wrapper around InheritedWidget to make them easier to use and more reusable.",
               "https://pub.dev/packages/provider",
-              leading: pub),
+              leading: icon_pub),
           Components(
               "i校长",
               "Flutter Provider 迄今为止最深、最全、最新的源码分析",
               "https://www.jianshu.com/p/bf2f33b2b5ef",
-              leading: ixiaozhang),
+              leading: icon_ixiaozhang),
         ]));
     return list;
   }
@@ -142,7 +142,7 @@ class FlutterComponents {
               "pub",
               "SQLite plugin for Flutter. Supports iOS, Android and MacOS.",
               "https://pub.dev/packages/sqflite",
-              leading: pub)
+              leading: icon_pub)
         ]));
     list.add(Components(
         "flutter_blue",
@@ -153,7 +153,7 @@ class FlutterComponents {
               "pub",
               "FlutterBlue is a bluetooth plugin for Flutter, a new mobile SDK to help developers build modern apps for iOS and Android.",
               "https://pub.dev/packages/flutter_blue",
-              leading: pub)
+              leading: icon_pub)
         ]));
     list.add(Components(
         "url_launcher",
@@ -164,7 +164,7 @@ class FlutterComponents {
               "pub",
               "A Flutter plugin for launching a URL in the mobile platform. Supports iOS and Android.",
               "https://pub.dev/packages/url_launcher",
-              leading: pub)
+              leading: icon_pub)
         ]));
     return list;
   }
@@ -176,7 +176,7 @@ class FlutterComponents {
         componentsList: [
           Components("i校长", "Flutter 动态表单Dynamic FormField架构设计",
               "https://www.jianshu.com/p/42759cd7eba5",
-              leading: ixiaozhang)
+              leading: icon_ixiaozhang)
         ]));
     list.add(Components("FlutterScreens", "一套UI组件，包括登录，按钮，加载程序，以及一些其他小部件的集合。",
         "https://github.com/samarthagarwal/FlutterScreens",
@@ -185,7 +185,7 @@ class FlutterComponents {
               "pub",
               "A Flutter plugin to manage the device's screen on Android and iOS.",
               "https://pub.dev/packages/flutter_screen",
-              leading: pub)
+              leading: icon_pub)
         ]));
     list.add(Components("flutter_map", "Flutter地图小部件",
         "https://github.com/johnpryan/flutter_map",
@@ -194,7 +194,7 @@ class FlutterComponents {
               "pub",
               "A Dart implementation of Leaflet for Flutter apps.",
               "https://pub.dev/packages/flutter_map",
-              leading: pub)
+              leading: icon_pub)
         ]));
     return list;
   }

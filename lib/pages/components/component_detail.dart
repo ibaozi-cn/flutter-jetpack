@@ -137,7 +137,7 @@ class Blogs extends StatelessWidget {
                   children: <Widget>[
                     heightBoxBig,
                     Card(
-                      child: Image.asset(blogger),
+                      child: Image.asset(icon_blogger),
                     )
                   ],
                 ),

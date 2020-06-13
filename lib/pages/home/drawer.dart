@@ -20,7 +20,7 @@ class WidgetDrawer extends StatelessWidget {
               title: Text("i校长"),
               selected: true,
               subtitle: Text("Jetpack.net.cn"),
-              trailing: Image.asset(ixiaozhang),
+              trailing: Image.asset(icon_ixiaozhang),
             ),
             decoration: BoxDecoration(color: Colors.teal),
           ),

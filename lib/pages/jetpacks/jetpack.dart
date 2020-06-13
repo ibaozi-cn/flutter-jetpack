@@ -101,15 +101,12 @@ class _PageJetPackState extends State<PageJetPack> {
         padding: const EdgeInsets.all(4.0),
         child: Column(
           children: <Widget>[
-            _buildItemTag('下载Apk体验', onTap: () {
-              launch("http://jetpack.net.cn/flutter-jetpack.apk");
-            }),
             heightBoxBig,
             WidgetResponsive.isSmallScreen(context)
                 ? Container()
                 : Column(
                     children: <Widget>[
-                      Image.asset(WE_CHAT_SCAN),
+                      Image.asset(icon_we_chat_scan),
                       heightBoxMid,
                       Padding(
                         padding: const EdgeInsets.all(16.0),
@@ -163,7 +160,10 @@ class _PageJetPackState extends State<PageJetPack> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(title,style: TextStyle(fontSize: 20),),
+            Text(
+              title,
+              style: TextStyle(fontSize: 20),
+            ),
             heightBoxSmall,
             Text(subtitle),
           ],
@@ -246,7 +246,10 @@ class _PageJetPackState extends State<PageJetPack> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           heightBoxSmall,
-          Text(widget.headTitle,style: TextStyle(fontSize: 20),),
+          Text(
+            widget.headTitle,
+            style: TextStyle(fontSize: 20),
+          ),
           heightBoxSmall,
           Text(widget.headDesc),
           heightBoxSmall,

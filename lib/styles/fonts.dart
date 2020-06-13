@@ -7,8 +7,5 @@ import 'package:google_fonts/google_fonts.dart';
 final fontStyleChinese = GoogleFonts.maShanZheng();
 final fontStyleEnglish = GoogleFonts.ibarraRealNova();
 
-final fontSFProRounded =
-    TextStyle(fontFamily: 'SFProRounded', fontWeight: FontWeight.w400);
-
 final fontStyleTitle = TextStyle(fontSize: 20, color: Colors.deepOrangeAccent);
 final fontStyleSubTitle = TextStyle(fontSize: 12);
