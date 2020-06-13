@@ -8,7 +8,6 @@ import 'package:jetpack/styles/fonts.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class WidgetDrawer extends StatelessWidget {
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,13 +18,15 @@ class WidgetDrawer extends StatelessWidget {
             child: ListTile(
               title: Text("i校长"),
               selected: true,
-              subtitle: Text("Jetpack.net.cn"),
+              subtitle: buildWebSiteLogo(),
               trailing: Image.asset(icon_ixiaozhang),
             ),
-            decoration: BoxDecoration(color: Colors.teal),
+            decoration: BoxDecoration(color: Theme.of(context).backgroundColor),
           ),
           ListTile(
-            title: Text('主页',),
+            title: Text(
+              '主页',
+            ),
             onTap: () {
               Navigator.pop(context);
               homeBloc.changeSelectedDrawerIndex(0);
@@ -68,7 +69,6 @@ class WidgetDrawer extends StatelessWidget {
             },
             leading: Icon(Icons.group),
           ),
-
         ],
       ),
     );

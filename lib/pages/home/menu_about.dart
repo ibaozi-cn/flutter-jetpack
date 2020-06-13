@@ -130,7 +130,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
   }
 
   Widget _buildHomeMe() {
-    return Text('Call me',style: fontStyleEnglish.copyWith(fontSize: 25),);
+    return Text('Call me',style: TextStyle(fontSize: 25),);
   }
 
   Widget _buildHeadline() {

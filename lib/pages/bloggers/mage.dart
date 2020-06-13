@@ -33,25 +33,23 @@ class Mage extends StatelessWidget {
           heightBoxMid,
           Text(
             'Marco Ma',
-            style: fontStyleEnglish.copyWith(fontSize: 35,color: Colors.amber),
+            style: TextStyle(fontSize: 35,color: Colors.amber),
             textAlign: TextAlign.center,
           ),
           heightBoxMid,
-          RichText(
+          Text(
+            'One blog for recorded and shared',
             textAlign: TextAlign.center,
-            text: TextSpan(
-                text: "One blog for recorded and shared",
-                style: fontStyleEnglish.copyWith(fontSize: 18,color: Colors.black),
-                children: <TextSpan>[
-                  TextSpan(
-                      text: '\nAndroid system development.',
-                      style: fontStyleEnglish.copyWith(fontSize: 22,color: Colors.amber)),
-                ]),
+            style: TextStyle(fontSize: 18),
+          ),
+          Text(
+            'Android system development.',
+            textAlign: TextAlign.center,
+              style: TextStyle(fontSize: 22,color: Colors.amber)
           ),
           heightBoxMid,
           Text(
             'Framework, Mechanism, optimization, Stability, Views, Process, Algorith, etc...',
-            style: fontStyleEnglish,
             textAlign: TextAlign.center,
           ),
           heightBoxMid,

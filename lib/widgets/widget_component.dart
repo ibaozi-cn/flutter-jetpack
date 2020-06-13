@@ -124,7 +124,7 @@ class _WidgetComponentState extends State<WidgetComponents> {
                     );
                   }));
                 },
-                child: Text("示例"),
+                child: Text("示例",),
               ),
               Text('  '),
               InkWell(

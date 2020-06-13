@@ -47,12 +47,14 @@ class ThemeBloc {
 final bloc = ThemeBloc();
 
 class AppTheme {
+
   ThemeData themeData;
 
   AppTheme(this.themeData);
 
   // ignore: non_constant_identifier_names
-  static final AppTheme DARK_THEME = AppTheme(ThemeData.dark());
+  static final AppTheme DARK_THEME =
+      AppTheme(ThemeData(brightness: Brightness.dark,fontFamily: 'Cagliostro'));
 
   // ignore: non_constant_identifier_names
   static final AppTheme LIGHT_THEME = AppTheme(
@@ -60,9 +62,10 @@ class AppTheme {
         brightness: Brightness.light,
         primaryColor: Colors.grey[50],
         accentColor: Colors.deepOrangeAccent,
+        fontFamily: 'Cagliostro',
         tabBarTheme: TabBarTheme(),
-        buttonBarTheme: ButtonBarThemeData(
-            buttonTextTheme:ButtonTextTheme.normal
-        )),
+        buttonBarTheme:
+            ButtonBarThemeData(buttonTextTheme: ButtonTextTheme.normal)),
   );
+
 }

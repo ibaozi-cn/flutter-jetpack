@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:jetpack/pages/home/menu_about.dart';
 import 'package:jetpack/pages/home/menu_collaborators.dart';
 import 'package:jetpack/pages/home/menu_leave_msg.dart';
@@ -36,7 +37,7 @@ class _PageHomeState extends State<PageHome> {
         key: _scaffoldKey,
         appBar: AppBar(
           elevation: 0,
-          title: _buildTitle(),
+          title: buildWebSiteLogo(),
           actions: WidgetResponsive.isSmallScreen(context)
               ? _buildSmallScreenAction(context)
               : _buildLargeScreenActions(context),
@@ -62,21 +63,7 @@ class _PageHomeState extends State<PageHome> {
     ));
   }
 
-  Widget _buildTitle() {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.end,
-      children: <Widget>[
-        Text(
-          "Jetpack",
-          style: fontStyleEnglish.copyWith(color: Colors.deepOrange),
-        ),
-        Text(
-          ".net.cn",
-          style: fontStyleEnglish.copyWith(fontSize: 16),
-        ),
-      ],
-    );
-  }
+  
 
   _buildLargeScreenActions(BuildContext context) {
     return <Widget>[
@@ -186,6 +173,22 @@ class _PageHomeState extends State<PageHome> {
     homeBloc.dispose();
     super.dispose();
   }
+}
+
+Widget buildWebSiteLogo() {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.end,
+    children: <Widget>[
+      Text(
+        "Jetpack",
+        style: fontStyleEnglish.copyWith(color: Colors.deepOrange,fontSize: 18),
+      ),
+      Text(
+        ".net.cn",
+        style: TextStyle(fontSize: 16),
+      ),
+    ],
+  );
 }
 
 class HomeBloc {

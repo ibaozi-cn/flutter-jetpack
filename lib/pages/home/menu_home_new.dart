@@ -2,8 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jetpack/data/android_components.dart';
 import 'package:jetpack/data/flutter_components.dart';
 import 'package:jetpack/pages/jetpacks/jetpack.dart';
-import 'package:jetpack/styles/fonts.dart';
-import 'package:jetpack/widgets/widget_responsive.dart';
 
 class WidgetMenuNewHome extends StatefulWidget {
   @override
@@ -12,7 +10,6 @@ class WidgetMenuNewHome extends StatefulWidget {
 
 class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
     with SingleTickerProviderStateMixin {
-
   List _tabs = [
     'Flutter',
     'Android',
@@ -58,12 +55,6 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
     );
   }
 
-//  _buildBody() {
-//    return Expanded(
-//      child: _buildContent(_index),
-//    );
-//  }
-
   _buildBody() {
     return Expanded(
       child: TabBarView(
@@ -74,61 +65,61 @@ class _WidgetMenuNewHomeState extends State<WidgetMenuNewHome>
             headDesc: FlutterComponents.headDesc,
             componentsTitles: FlutterComponents.componentsTitles,
             selectComponentsDataForArc:
-            FlutterComponents.selectComponentsDataForArc(),
+                FlutterComponents.selectComponentsDataForArc(),
             selectComponentsDataForBasic:
-            FlutterComponents.selectComponentsDataForBasic(),
+                FlutterComponents.selectComponentsDataForBasic(),
             selectComponentsDataForBehavior:
-            FlutterComponents.selectComponentsDataForBehavior(),
+                FlutterComponents.selectComponentsDataForBehavior(),
             selectComponentsDataForUI:
-            FlutterComponents.selectComponentsDataForUI(),
+                FlutterComponents.selectComponentsDataForUI(),
           ),
           PageJetPack(
             headTitle: AndroidComponents.headTitle,
             headDesc: AndroidComponents.headDesc,
             componentsTitles: AndroidComponents.componentsTitles,
             selectComponentsDataForArc:
-            AndroidComponents.selectComponentsDataForArc(),
+                AndroidComponents.selectComponentsDataForArc(),
             selectComponentsDataForBasic:
-            AndroidComponents.selectComponentsDataForBasic(),
+                AndroidComponents.selectComponentsDataForBasic(),
             selectComponentsDataForBehavior:
-            AndroidComponents.selectComponentsDataForBehavior(),
+                AndroidComponents.selectComponentsDataForBehavior(),
             selectComponentsDataForUI:
-            AndroidComponents.selectComponentsDataForUI(),
+                AndroidComponents.selectComponentsDataForUI(),
           )
         ],
       ),
     );
   }
 
-  _buildContent(index) {
-    if (index == 0)
-      return PageJetPack(
-        headTitle: FlutterComponents.headTitle,
-        headDesc: FlutterComponents.headDesc,
-        componentsTitles: FlutterComponents.componentsTitles,
-        selectComponentsDataForArc:
-            FlutterComponents.selectComponentsDataForArc(),
-        selectComponentsDataForBasic:
-            FlutterComponents.selectComponentsDataForBasic(),
-        selectComponentsDataForBehavior:
-            FlutterComponents.selectComponentsDataForBehavior(),
-        selectComponentsDataForUI:
-            FlutterComponents.selectComponentsDataForUI(),
-      );
-    if (index == 1)
-      return PageJetPack(
-        headTitle: AndroidComponents.headTitle,
-        headDesc: AndroidComponents.headDesc,
-        componentsTitles: AndroidComponents.componentsTitles,
-        selectComponentsDataForArc:
-            AndroidComponents.selectComponentsDataForArc(),
-        selectComponentsDataForBasic:
-            AndroidComponents.selectComponentsDataForBasic(),
-        selectComponentsDataForBehavior:
-            AndroidComponents.selectComponentsDataForBehavior(),
-        selectComponentsDataForUI:
-            AndroidComponents.selectComponentsDataForUI(),
-      );
-    return Container();
-  }
+//  _buildContent(index) {
+//    if (index == 0)
+//      return PageJetPack(
+//        headTitle: FlutterComponents.headTitle,
+//        headDesc: FlutterComponents.headDesc,
+//        componentsTitles: FlutterComponents.componentsTitles,
+//        selectComponentsDataForArc:
+//            FlutterComponents.selectComponentsDataForArc(),
+//        selectComponentsDataForBasic:
+//            FlutterComponents.selectComponentsDataForBasic(),
+//        selectComponentsDataForBehavior:
+//            FlutterComponents.selectComponentsDataForBehavior(),
+//        selectComponentsDataForUI:
+//            FlutterComponents.selectComponentsDataForUI(),
+//      );
+//    if (index == 1)
+//      return PageJetPack(
+//        headTitle: AndroidComponents.headTitle,
+//        headDesc: AndroidComponents.headDesc,
+//        componentsTitles: AndroidComponents.componentsTitles,
+//        selectComponentsDataForArc:
+//            AndroidComponents.selectComponentsDataForArc(),
+//        selectComponentsDataForBasic:
+//            AndroidComponents.selectComponentsDataForBasic(),
+//        selectComponentsDataForBehavior:
+//            AndroidComponents.selectComponentsDataForBehavior(),
+//        selectComponentsDataForUI:
+//            AndroidComponents.selectComponentsDataForUI(),
+//      );
+//    return Container();
+//  }
 }

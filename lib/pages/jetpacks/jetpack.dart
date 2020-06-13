@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:jetpack/data/components.dart';
 import 'package:jetpack/data/const.dart';
-import 'package:jetpack/styles/fonts.dart';
 import 'package:jetpack/styles/sizes.dart';
 import 'package:jetpack/widgets/widget_responsive.dart';
 import 'package:jetpack/widgets/widget_component.dart';
