@@ -52,7 +52,7 @@ Then, open Chrome and input http://localhost:3000.
 
 ## apk download
 
-[flutter-jetpack](http://jetpack.net.cn/flutter-jetpack.apk)
+[flutter-jetpack](https://comjia-app.oss-cn-beijing.aliyuncs.com/call_recorder/test/app-debug.apk)
 
 ## Blog
 

@@ -181,11 +181,11 @@ Widget buildWebSiteLogo() {
     children: <Widget>[
       Text(
         "Jetpack",
-        style: fontStyleEnglish.copyWith(color: Colors.deepOrange,fontSize: 18),
+        style: fontStyleEnglish.copyWith(color: Colors.deepOrange,fontSize: 16),
       ),
       Text(
         ".net.cn",
-        style: TextStyle(fontSize: 16),
+        style: TextStyle(fontSize: 14),
       ),
     ],
   );

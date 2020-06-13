@@ -4,4 +4,4 @@
 flutter build apk
 # 拷贝web内容到node目录
 #cp -r
-cp -r build/app/outputs/flutter-apk/app.apk node/server/public/flutter-jetpack.apk
+#cp -r build/app/outputs/flutter-apk/app.apk node/server/public/flutter-jetpack.apk
