@@ -21,7 +21,7 @@ npm install
 ```
 Then, open Chrome and input http://localhost:3000.
 
-## UI Dart or Light
+## UI Dark or Light
 
 ![about](github/about_l.jpg)
 
@@ -59,3 +59,5 @@ Then, open Chrome and input http://localhost:3000.
 - [Flutter Web网站搭建教程](https://www.jianshu.com/p/cc1dcf3f5063)
 - [Flutter Web 网站之主页框架搭建](https://www.jianshu.com/p/fcd1bcd50fb2)
 - [Flutter Web网站之Jetpack成型](https://www.jianshu.com/p/fd7ef411a642)
+- [Flutter Web网站之最简方式实现暗黑主题无缝切换](https://www.jianshu.com/p/ce4e275037c9)
+- [Flutter Web网站之Markdown展示与博客列表](https://www.jianshu.com/p/b05108ea6276)
