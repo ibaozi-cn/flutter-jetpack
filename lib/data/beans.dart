@@ -20,12 +20,6 @@ class Blog {
   static List<Blog> blogList = [
     Blog(
       "i校长",
-      "Android 12 预览版带给我们的1234",
-      "https://juejin.cn/post/6935643020461244452",
-      icon_android12,
-    ),
-    Blog(
-      "i校长",
       "手写一个Flutter State Widget，来让你彻底理解State的来龙去脉",
       "https://juejin.cn/post/6875696964059693069",
       icon_state,
