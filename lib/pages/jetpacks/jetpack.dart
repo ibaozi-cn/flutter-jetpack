@@ -1,5 +1,8 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:jetpack/data/beans.dart';
 import 'package:jetpack/data/components.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:jetpack/styles/sizes.dart';
@@ -31,6 +34,43 @@ class PageJetPack extends StatefulWidget {
 }
 
 class _PageJetPackState extends State<PageJetPack> {
+  double currentPageValue = 0.0;
+  Timer timer;
+  PageController _controller = PageController(
+    initialPage: 0,
+  );
+
+  @override
+  void initState() {
+    _controller.addListener(() {
+      setState(() {
+        currentPageValue = _controller.page;
+      });
+    });
+    const period = const Duration(seconds: 5);
+    Timer.periodic(period, (timer) {
+      this.timer = timer;
+      //到时回调
+      if (Blog.blogList.length <= 1) return;
+      if (currentPageValue.round() == Blog.blogList.length - 1) return;
+      _controller.animateToPage((_controller.page.round() + 1),
+          duration: Duration(milliseconds: 1500),
+          curve: Curves.fastLinearToSlowEaseIn);
+    });
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    //取消定时器，避免无限回调
+    if (timer != null) {
+      timer.cancel();
+      timer = null;
+    }
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -97,10 +137,10 @@ class _PageJetPackState extends State<PageJetPack> {
   _buildTags() {
     return SingleChildScrollView(
       child: Padding(
-        padding: const EdgeInsets.all(4.0),
+        padding: const EdgeInsets.all(8.0),
         child: Column(
           children: <Widget>[
-            heightBoxBig,
+            heightBoxSmall,
             WidgetResponsive.isSmallScreen(context)
                 ? Container()
                 : Column(
@@ -175,23 +215,6 @@ class _PageJetPackState extends State<PageJetPack> {
     return SliverToBoxAdapter(child: _buildComponentsTitle(title, subtitle));
   }
 
-//  _buildComponentsContentSliverGrid(List<Components> componentsList) {
-//    return SliverGrid(
-//      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-//        crossAxisCount: _buildGridViewCount(),
-//        childAspectRatio: 1.0,
-//      ),
-//      delegate: SliverChildBuilderDelegate(
-//        (context, index) {
-//          return WidgetComponents(
-//            components: componentsList[index],
-//          );
-//        },
-//        childCount: componentsList.length,
-//      ),
-//    );
-//  }
-
   _buildComponentsContentSliverGrid(List<Components> componentsList) {
     return SliverFixedExtentList(
       itemExtent: 120,
@@ -201,13 +224,6 @@ class _PageJetPackState extends State<PageJetPack> {
         );
       }, childCount: componentsList.length),
     );
-  }
-
-  _buildGridViewCount() {
-    if (WidgetResponsive.isLargeScreen(context)) return 4;
-    if (WidgetResponsive.isMediumScreen(context)) return 3;
-    if (WidgetResponsive.isSmallScreen(context)) return 2;
-    return 1;
   }
 
   _buildFooter() {
@@ -234,7 +250,7 @@ class _PageJetPackState extends State<PageJetPack> {
       onTap: () {
         launch("http://www.beian.miit.gov.cn/");
       },
-      child: Text('京ICP备案20002589号-2'),
+      child: Text('京ICP备案20002589号-2 @Create by Flutter Web'),
     );
   }
 
@@ -245,6 +261,10 @@ class _PageJetPackState extends State<PageJetPack> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           heightBoxSmall,
+          WidgetResponsive.isSmallScreen(context)
+              ? _buildSmallPageView()
+              : _buildLargePageView(),
+          heightBoxBig,
           Text(
             widget.headTitle,
             style: TextStyle(fontSize: 20),
@@ -255,5 +275,104 @@ class _PageJetPackState extends State<PageJetPack> {
         ],
       ),
     );
+  }
+
+  _buildLargePageView() {
+    return Container(
+      height: 220,
+      child: PageView.builder(
+        itemCount: Blog.blogList.length,
+        controller: _controller,
+        physics: BouncingScrollPhysics(),
+        itemBuilder: (context, position) {
+          return InkWell(
+            onTap: () {
+              _launchURL(Blog.blogList[position].url);
+            },
+            child: Card(
+              child: Row(
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Image.asset(
+                      Blog.blogList[position].head,
+                      fit: BoxFit.fill,
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          Text(
+                            Blog.blogList[position].nikeName,
+                            style: TextStyle(fontSize: 20),
+                          ),
+                          heightBoxSmall,
+                          Text(Blog.blogList[position].title),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  _buildSmallPageView() {
+    return Container(
+      height: 300,
+      child: PageView.builder(
+        itemCount: Blog.blogList.length,
+        controller: _controller,
+        physics: BouncingScrollPhysics(),
+        itemBuilder: (context, position) {
+          return InkWell(
+            onTap: () {
+              _launchURL(Blog.blogList[position].url);
+            },
+            child: Card(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Image.asset(
+                    Blog.blogList[position].head,
+                  ),
+                  heightBoxSmall,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Text(
+                      Blog.blogList[position].nikeName,
+                      style: TextStyle(fontSize: 20),
+                    ),
+                  ),
+                  heightBoxSmall,
+                  Padding(
+                    padding: const EdgeInsets.only(left: 8.0, right: 8.0),
+                    child: Text(Blog.blogList[position].title),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+
+  _launchURL(url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }

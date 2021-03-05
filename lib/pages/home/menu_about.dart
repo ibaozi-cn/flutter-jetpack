@@ -143,21 +143,7 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
       children: <Widget>[
         GestureDetector(
           onTap: () {
-            showDialog(
-                context: context,
-                child: AlertDialog(
-                  title: Text("微信号"),
-                  content: Text("zhanyong0425"),
-                  actions: <Widget>[
-                    FlatButton(
-                        onPressed: () {
-                          Clipboard.setData(
-                              ClipboardData(text: 'zhanyong0425'));
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('复制')),
-                  ],
-                ));
+
           },
           child: Icon(
             FontAwesomeIcons.weixin,
@@ -168,20 +154,8 @@ class _WidgetMenuAboutState extends State<WidgetMenuAbout> {
         SizedBox(width: 16.0),
         GestureDetector(
           onTap: () {
-            showDialog(
-                context: context,
-                child: AlertDialog(
-                  title: Text("QQ"),
-                  content: Text("1608889789"),
-                  actions: <Widget>[
-                    FlatButton(
-                        onPressed: () {
-                          Clipboard.setData(ClipboardData(text: '1608889789'));
-                          Navigator.of(context).pop();
-                        },
-                        child: Text('复制')),
-                  ],
-                ));
+            Clipboard.setData(ClipboardData(text: '1608889789'));
+            Navigator.of(context).pop();
           },
           child: Icon(
             FontAwesomeIcons.qq,

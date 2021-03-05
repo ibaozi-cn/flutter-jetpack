@@ -77,15 +77,15 @@ class _WidgetMenuHomeState extends State<WidgetMenuHome>
               selectComponentsDataForBehavior: FlutterComponents.selectComponentsDataForBehavior(),
               selectComponentsDataForUI: FlutterComponents.selectComponentsDataForUI(),
             );
-          if (index == 1) return PageJetPack(
-            headTitle: AndroidComponents.headTitle,
-            headDesc: AndroidComponents.headDesc,
-            componentsTitles: AndroidComponents.componentsTitles,
-            selectComponentsDataForArc: AndroidComponents.selectComponentsDataForArc(),
-            selectComponentsDataForBasic: AndroidComponents.selectComponentsDataForBasic(),
-            selectComponentsDataForBehavior: AndroidComponents.selectComponentsDataForBehavior(),
-            selectComponentsDataForUI: AndroidComponents.selectComponentsDataForUI(),
-          );
+          // if (index == 1) return PageJetPack(
+          //   headTitle: AndroidComponents.headTitle,
+          //   headDesc: AndroidComponents.headDesc,
+          //   componentsTitles: AndroidComponents.componentsTitles,
+          //   selectComponentsDataForArc: AndroidComponents.selectComponentsDataForArc(),
+          //   selectComponentsDataForBasic: AndroidComponents.selectComponentsDataForBasic(),
+          //   selectComponentsDataForBehavior: AndroidComponents.selectComponentsDataForBehavior(),
+          //   selectComponentsDataForUI: AndroidComponents.selectComponentsDataForUI(),
+          // );
           return Container();
         },
       ),

@@ -77,6 +77,15 @@ class FlutterComponents {
 
   static List<Components> selectComponentsDataForArc() {
     List<Components> list = [];
+    list.add(Components("GetX", "GetX is an extra-light and powerful solution for Flutter. It combines high-performance state management, intelligent dependency injection, and route management quickly and practically.",
+        "https://github.com/jonataslaw/getx",
+        componentsList: [
+          Components(
+              "艾维码",
+              "GetX项目级实战",
+              "https://juejin.cn/post/6913917533997891591",
+              leading: icon_ai_wei_ma)
+        ]));
     list.add(Components("fish-redux", "阿里的，基于 Redux 数据管理的组装式应用框架，适用于构建中大型的复杂应用",
         "https://github.com/alibaba/fish-redux",
         componentsList: [
