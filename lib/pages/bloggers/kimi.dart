@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:jetpack/data/const.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -59,13 +60,13 @@ class _KimiState extends State<Kimi> {
                 ),
               ),
               ContactCard(
-                onTap: () => launchURL("kSMS"),
+                onTap: () => launchURL("admin@vjujiao.com"),
                 titleText: "admin@vjujiao.com",
                 icon: FontAwesomeIcons.voicemail,
               ),
               ContactCard(
-                onTap: () => launchURL("kEmailAddressURL"),
-                titleText: "QQ 928481385",
+                onTap: () => copy("329629722"),
+                titleText: "QQ 329629722",
                 icon: FontAwesomeIcons.qq,
               ),
               ContactCard(
@@ -78,6 +79,10 @@ class _KimiState extends State<Kimi> {
         ),
       ),
     );
+  }
+
+  copy(String s) {
+    Clipboard.setData(ClipboardData(text: s));
   }
 }
 
