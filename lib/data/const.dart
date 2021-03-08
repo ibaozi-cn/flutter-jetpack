@@ -125,6 +125,7 @@ const icon_pub = 'images/icon_pub.jpg';
 const icon_ai_wei_ma = 'images/icon_aiweima.png';
 const icon_white__ = 'images/icon__white.png';
 const icon_ixiaozhang = 'images/icon_ixiaozhang.png';
+const icon_kimi = 'images/icon_kimi.png';
 const icon_android12 = 'images/icon_android12.png';
 const icon_state = 'images/icon_state.png';
 const icon_widget = 'images/icon_widget.png';

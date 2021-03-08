@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jetpack/pages/bloggers/kimi.dart';
 import 'package:jetpack/pages/bloggers/laomeng.dart';
 import 'package:jetpack/pages/bloggers/mage.dart';
 import 'package:jetpack/pages/bloggers/wuyilong.dart';
@@ -17,6 +18,7 @@ class _MenuCollaboratorsState extends State<MenuCollaborators> with SingleTicker
     '小莫',
     'Marco',
     '吴亦龙',
+    'kimi'
   ];
 
   TabController _tabController;
@@ -59,11 +61,7 @@ class _MenuCollaboratorsState extends State<MenuCollaborators> with SingleTicker
       ),
     );
   }
-  TextStyle _decorationStyleOf(BuildContext context) {
-    final theme = Theme.of(context);
-    return theme.textTheme.subhead
-        .copyWith(color: theme.hintColor);
-  }
+
   _buildBody() {
     return Expanded(
         child: TabBarView(
@@ -73,6 +71,7 @@ class _MenuCollaboratorsState extends State<MenuCollaborators> with SingleTicker
             Xiaomo(),
             Mage(),
             WuYilong(),
+            Kimi()
           ],
         ),
     );

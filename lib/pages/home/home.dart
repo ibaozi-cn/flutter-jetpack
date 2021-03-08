@@ -90,7 +90,7 @@ class _PageHomeState extends State<PageHome> {
         },
       ),
       MaterialButton(
-        child: Text('合作者'),
+        child: Text('友链'),
         onPressed: () {
           homeBloc.changeSelectedDrawerIndex(3);
         },

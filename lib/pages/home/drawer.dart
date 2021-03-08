@@ -62,7 +62,7 @@ class WidgetDrawer extends StatelessWidget {
             leading: Icon(Icons.assignment_ind),
           ),
           ListTile(
-            title: Text('合作者'),
+            title: Text('友链'),
             onTap: () {
               Navigator.pop(context);
               homeBloc.changeSelectedDrawerIndex(3);
