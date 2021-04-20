@@ -3,28 +3,39 @@ const CHAT_GROUP_TEXT = "欢迎光临，进群就有红包领哦。加上面微�
 
 const about = 'Call';
 const me = ' Me';
-const headline = '我是i校长,至今从事Android开发6年,目前就职于居理新房,为满足人类的一切居住理想而努力';
+const headline = '我是i校长,至今从事Android开发7年,目前就职于永辉';
 const skills_i_have = '技能';
 const experience = '经验';
 
 const skills = [
   'Java',
   'Kotlin',
+  'Swift',
+  'C++',
   'Dart',
+  'Js',
+  'Python',
+  '...',
   'Flutter',
   'Android',
-  'React',
-  'Jenkins',
-  'React Native',
-  '小程序',
-  'Scrum Master',
-  'Js',
+  'Android Frameworks',
   'NodeJs',
-  'Docker',
-  'Python',
-  'JVM',
-  'Git',
+  '小程序',
+  'React Native',
+  'Swift UI',
+  '...',
+  'Scrum Master',
+  'Confluence',
   'JIRA',
+  'Jenkins',
+  'Docker',
+  'Git',
+  '...',
+  'JVM',
+  '框架',
+  '组件化',
+  '插桩',
+  '热修复',
 ];
 
 const String markdownData = """
