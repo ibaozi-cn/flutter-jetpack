@@ -3,7 +3,7 @@ const CHAT_GROUP_TEXT = "欢迎光临，进群就有红包领哦。加上面微�
 
 const about = 'Call';
 const me = ' Me';
-const headline = '我是i校长,至今从事Android开发7年,目前就职于永辉';
+const headline = '我是i校长,至今从事Android开发7年,目前就职于滴滴';
 const skills_i_have = '技能';
 const experience = '经验';
 
