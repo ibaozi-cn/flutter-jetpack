@@ -30,7 +30,7 @@ class _KimiState extends State<Kimi> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Image.asset('assets/logo114.png'),
+              Image.asset('assets/images/logo114.png'),
               CircleAvatar(
                 backgroundImage: AssetImage(icon_kimi),
                 radius: 50,

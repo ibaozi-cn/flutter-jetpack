@@ -216,8 +216,7 @@ class _PageJetPackState extends State<PageJetPack> {
   }
 
   _buildComponentsContentSliverGrid(List<Components> componentsList) {
-    return SliverFixedExtentList(
-      itemExtent: 120,
+    return SliverList(
       delegate: SliverChildBuilderDelegate((BuildContext context, int index) {
         return WidgetComponents(
           components: componentsList[index],
@@ -328,7 +327,7 @@ class _PageJetPackState extends State<PageJetPack> {
 
   _buildSmallPageView() {
     return Container(
-      height: 300,
+      height: 318,
       child: PageView.builder(
         itemCount: Blog.blogList.length,
         controller: _controller,
@@ -341,10 +340,12 @@ class _PageJetPackState extends State<PageJetPack> {
             child: Card(
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   Image.asset(
                     Blog.blogList[position].head,
+                    fit: BoxFit.fill,
+                    height: 250,
                   ),
                   heightBoxSmall,
                   Padding(
@@ -352,13 +353,21 @@ class _PageJetPackState extends State<PageJetPack> {
                     child: Text(
                       Blog.blogList[position].nikeName,
                       style: TextStyle(fontSize: 20),
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   heightBoxSmall,
                   Padding(
                     padding: const EdgeInsets.only(left: 8.0, right: 8.0),
-                    child: Text(Blog.blogList[position].title),
+                    child: Text(
+                      Blog.blogList[position].title,
+                      maxLines: 1,
+                      overflow: TextOverflow.ellipsis,
+                      style: TextStyle(fontSize: 10),
+                    ),
                   ),
+                  heightBoxSmall,
                 ],
               ),
             ),

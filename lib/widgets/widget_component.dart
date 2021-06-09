@@ -24,65 +24,72 @@ class _WidgetComponentState extends State<WidgetComponents> {
   Widget _buildCard(Components components) {
     return Card(
         child: InkWell(
-      onTap: () async {
-        Navigator.push(context, MaterialPageRoute(builder: (_) {
-          return PageComponentsDetail(
-            components: components,
-            index: 0,
-          );
-        }));
-      },
-      child: Container(
-        padding: EdgeInsets.all(16),
-        child: GridTile(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(components.title,style: fontStyleTitle,),
-              heightBoxMid,
-              Text(components.subTitle,style: fontStyleSubTitle,),
-            ],
-          ),
-          footer: Row(
-            mainAxisAlignment: MainAxisAlignment.end,
-            crossAxisAlignment: CrossAxisAlignment.end,
-            children: <Widget>[
-              InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return PageComponentsDetail(
-                      components: components,
-                      index: 0,
-                    );
-                  }));
-                },
-                child: Text("示例",),
+            onTap: () async {
+              Navigator.push(context, MaterialPageRoute(builder: (_) {
+                return PageComponentsDetail(
+                  components: components,
+                  index: 0,
+                );
+              }));
+            },
+            child: Container(
+              padding: EdgeInsets.all(16),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: <Widget>[
+                  Text(
+                    components.title,
+                    style: fontStyleTitle,
+                  ),
+                  heightBoxMid,
+                  Text(
+                    components.subTitle,
+                    style: fontStyleSubTitle,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) {
+                            return PageComponentsDetail(
+                              components: components,
+                              index: 0,
+                            );
+                          }));
+                        },
+                        child: Text(
+                          "示例",
+                        ),
+                      ),
+                      Text('  '),
+                      InkWell(
+                        onTap: () {
+                          _launchURL(components.url);
+                        },
+                        child: Text("源码"),
+                      ),
+                      Text('  '),
+                      InkWell(
+                        onTap: () {
+                          Navigator.push(context,
+                              MaterialPageRoute(builder: (_) {
+                            return PageComponentsDetail(
+                              components: components,
+                              index: 1,
+                            );
+                          }));
+                        },
+                        child: Text("博客"),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-              Text('  '),
-              InkWell(
-                onTap: () {
-                  _launchURL(components.url);
-                },
-                child: Text("源码"),
-              ),
-              Text('  '),
-              InkWell(
-                onTap: () {
-                  Navigator.push(context, MaterialPageRoute(builder: (_) {
-                    return PageComponentsDetail(
-                      components: components,
-                      index: 1,
-                    );
-                  }));
-                },
-                child: Text("博客"),
-              ),
-            ],
-          ),
-        ),
-      ),
-    ));
+            )));
   }
 
   _launchURL(url) async {
