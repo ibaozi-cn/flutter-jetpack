@@ -1,11 +1,11 @@
 {
-    "name": "jetpack",
-    "short_name": "jetpack",
+    "name": "website",
+    "short_name": "website",
     "start_url": ".",
-    "display": "minimal-ui",
+    "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "Flutter jetpack poject for you . ",
+    "description": "BaguTree官方网站",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [
