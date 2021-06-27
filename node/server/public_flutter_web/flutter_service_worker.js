@@ -4,22 +4,37 @@ const TEMP = 'flutter-temp-cache';
 const CACHE_NAME = 'flutter-app-cache';
 const RESOURCES = {
   "version.json": "281f2a7b1646c3dea6feea25f04fa556",
-"index.html": "2a3f96fd2b54a3939f515957bacdc061",
-"/": "2a3f96fd2b54a3939f515957bacdc061",
-"main.dart.js": "3b14c875a2d32c0bab4a014cd41515d4",
+"index.html": "363ef5b1f5ef60eb823d7b4fde0d4390",
+"/": "363ef5b1f5ef60eb823d7b4fde0d4390",
+"main.dart.js": "cf394320dc4f309c7df8b3018600bf4b",
 "favicon.png": "5dcef449791fa27946b3d35ad8803796",
 "icons/Icon-192.png": "ac9a721a12bbc803b44f645561ecb1e1",
 "icons/Icon-512.png": "96e752610906ba2a93c65f8abe1645f1",
 "manifest.json": "0823aa3437c7021aa0c3c10faf4668ab",
-"assets/AssetManifest.json": "d96ba951bafc2c4848062ccc575db1bc",
+"assets/AssetManifest.json": "300272b57fbd3f6f3260c2a7cc9858d9",
 "assets/NOTICES": "88b5dc2967906114a94551d7de08e139",
-"assets/FontManifest.json": "dc3d03800ccca4601324923c0b1d6d57",
+"assets/FontManifest.json": "277df259a6b4de0c68481e262c8a9b95",
 "assets/packages/cupertino_icons/assets/CupertinoIcons.ttf": "6d342eb68f170c97609e9da345464e5e",
 "assets/fonts/MaterialIcons-Regular.otf": "1288c9e28052e028aba623321f7826ac",
+"assets/assets/images/head-ww.jpeg": "35ae15f1613e93f5d5ccd7cb569c589e",
+"assets/assets/images/head-02.jpeg": "580edb74e3ff01f45b8e56125695e43b",
+"assets/assets/images/head-zzy.jpeg": "145014739c6a2feddcdbada612e40cd8",
+"assets/assets/images/head-gao.jpeg": "6f48d7b0ce72e9601d8b6848fde2a964",
 "assets/assets/images/icon_github_64x.png": "2d1e54d81bd7cb7daa09cea82dcb29e2",
+"assets/assets/images/head-qiang.jpeg": "a43fe8eccbf6292a733af08a73c3e965",
+"assets/assets/images/head-weiqi.jpeg": "0c137d440e2d7dedb99030e6ad3b6823",
 "assets/assets/images/juejin.jpeg": "86e063d1035dc1963b38385191c38f92",
 "assets/assets/images/logo.png": "c483ef945bec01cc1483d08a8c4818e6",
-"assets/assets/images/icon_search_64x.png": "f55e992d786ef1822db8d1c038e201b5"
+"assets/assets/images/icon_search_64x.png": "f55e992d786ef1822db8d1c038e201b5",
+"assets/assets/images/head-01.jpeg": "c8e6ea778294450a154ee24ff72ce39c",
+"assets/assets/images/head-03.png": "16c3bc4d2aa877d9270bf523432aba1a",
+"assets/assets/images/logo-zzy.png": "fd509c27bced0a4e50041168b421fd72",
+"assets/assets/fonts/product_sans_regular.ttf": "eae9c18cee82a8a1a52e654911f8fe83",
+"assets/assets/fonts/product_sans_italic.ttf": "e88ec18827526928e71407a24937825a",
+"assets/assets/fonts/roboto_bold.ttf": "e07df86cef2e721115583d61d1fb68a6",
+"assets/assets/fonts/product_sans_bold.ttf": "dba0c688b8d5ee09a1e214aebd5d25e4",
+"assets/assets/fonts/roboto_regular.ttf": "11eabca2251325cfc5589c9c6fb57b46",
+"assets/assets/fonts/roboto_italic.ttf": "a720f17aa773e493a7ebf8b08459e66c"
 };
 
 // The application shell files that are downloaded before a service worker can

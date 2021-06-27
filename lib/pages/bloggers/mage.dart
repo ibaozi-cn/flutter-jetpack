@@ -22,7 +22,7 @@ class Mage extends StatelessWidget {
             height: 150.0,
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
-              border: new Border.all(color: Colors.amber, width: 4.0),
+              border: new Border.all(color: Colors.amber, width: 2.0),
               borderRadius: BorderRadius.circular(80.0),
               image: DecorationImage(
                 fit: BoxFit.fill,
