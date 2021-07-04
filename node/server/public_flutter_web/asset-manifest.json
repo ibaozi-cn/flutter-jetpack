@@ -1,0 +1,19 @@
+{
+  "files": {
+    "main.js": "/react/riyaqas/static/js/main.52e709c5.chunk.js",
+    "main.js.map": "/react/riyaqas/static/js/main.52e709c5.chunk.js.map",
+    "runtime-main.js": "/react/riyaqas/static/js/runtime-main.1636be58.js",
+    "runtime-main.js.map": "/react/riyaqas/static/js/runtime-main.1636be58.js.map",
+    "static/js/2.91645c47.chunk.js": "/react/riyaqas/static/js/2.91645c47.chunk.js",
+    "static/js/2.91645c47.chunk.js.map": "/react/riyaqas/static/js/2.91645c47.chunk.js.map",
+    "index.html": "/react/riyaqas/index.html",
+    "precache-manifest.94b7d1fa0c900547483bf2c85b1297fe.js": "/react/riyaqas/precache-manifest.94b7d1fa0c900547483bf2c85b1297fe.js",
+    "service-worker.js": "/react/riyaqas/service-worker.js",
+    "static/js/2.91645c47.chunk.js.LICENSE.txt": "/react/riyaqas/static/js/2.91645c47.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.1636be58.js",
+    "static/js/2.91645c47.chunk.js",
+    "static/js/main.52e709c5.chunk.js"
+  ]
+}
